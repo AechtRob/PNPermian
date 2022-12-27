@@ -40,7 +40,7 @@ public class BiomePermianOceanCliff extends ElementsLepidodendronMod.ModElement 
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Ocean Cliff").setRainfall(0.5F).setBaseHeight(-0.50F).setHeightVariation(0.01F).setWaterColor(13038245));
+			super(new BiomeProperties("Permian Ocean Escarpment").setRainfall(0.5F).setBaseHeight(-0.50F).setHeightVariation(0.01F).setWaterColor(13038245));
 			setRegistryName("lepidodendron:permian_ocean_cliff");
 
 			topBlock = BlockSandPangaean.block.getDefaultState();

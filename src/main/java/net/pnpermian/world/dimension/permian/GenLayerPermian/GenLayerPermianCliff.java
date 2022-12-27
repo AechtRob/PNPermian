@@ -14,7 +14,8 @@ public class GenLayerPermianCliff extends GenLayer
     public  int PERMIAN_OCEAN_SHORE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SHORE);
     public  Biome PERMIAN_OCEAN_CLIFF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_cliff"));
     public  int PERMIAN_OCEAN_CLIFF_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_CLIFF);
-
+    public  Biome PERMIAN_SPONGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_sponge_reef"));
+    public  int PERMIAN_SPONGE_ID =  Biome.getIdForBiome(PERMIAN_SPONGE);
 
     public GenLayerPermianCliff(long seed, GenLayer genLayer)
     {
@@ -64,7 +65,7 @@ public class GenLayerPermianCliff extends GenLayer
     }
 
     private boolean isDeep(int biomeID) {
-        if (biomeID == PERMIAN_OCEAN_ID) {
+        if (biomeID == PERMIAN_OCEAN_ID || biomeID == PERMIAN_SPONGE_ID) {
             return true;
         }
         return false;

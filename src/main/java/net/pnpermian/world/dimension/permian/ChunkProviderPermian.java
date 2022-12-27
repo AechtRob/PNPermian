@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -376,15 +377,18 @@ public class ChunkProviderPermian implements IChunkGenerator {
                 IBlockState iblockstate2 = chunkPrimerIn.getBlockState(i1, j1, l);
                 if (iblockstate2.getMaterial() == Material.AIR) {
                     j = -1;
-                } else if (iblockstate2.getBlock() == STONE.getBlock()) {
+                }
+                else if (iblockstate2.getBlock() == STONE.getBlock()) {
                     if (j == -1) {
                         if (k <= 0) {
                             iblockstate = AIR;
                             iblockstate1 = STONE;
-                            //} else if (j1 >= i - 4 && j1 <= i + 1) {
-                        } else if (j1 <= i + 1) {
+                        }
+                        else if (j1 <= i + 2 && j1 >= i - 1 && Math.random() > 0.25 && biome == BiomePermianCreekDesert.biome) {
+                            iblockstate = BlockDriedMud.block.getDefaultState();
+                        }
+                        else if (j1 <= i + 1) {
                             iblockstate = biome.topBlock;
-                            //iblockstate1 = biome.fillerBlock;
                             if (Math.random() > 0.85) {
                                 if (Math.random() > 0.3) {
                                     iblockstate1 = BlockCoarseSandyDirtPangaean.block.getDefaultState();
@@ -514,6 +518,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             }
                         }
 
+
                         //Add moss in the Wetlands
                         if (iblockstate == BlockPrehistoricGroundLush.block.getDefaultState()
                                 && (biome == BiomePermianWetlands.biome || biome == BiomePermianWetlandsUnwooded.biome)
@@ -533,24 +538,111 @@ public class ChunkProviderPermian implements IChunkGenerator {
                         } else if (j1 < i - 7 - k) {
                             iblockstate = AIR;
                             iblockstate1 = STONE;
-                            if (Math.random() > 0.6 && j1 >= i - 2) {
-                                chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirtPangaean.block.getDefaultState());
-                            } else {
-                                if (Math.random() > 0.95 || (j1 < i - 10 && Math.random() > 0.3)) {
-                                    chunkPrimerIn.setBlockState(i1, j1, l, Blocks.GRAVEL.getDefaultState());
+                            if (biome == BiomePermianSpongeReef.biome
+                                    && rand.nextInt(2) == 0) {
+                                int s = rand.nextInt(4);
+                                switch (s) {
+                                    case 0: default:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.NORTH));
+                                        break;
+
+                                    case 1:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.EAST));
+                                        break;
+
+                                    case 2:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.SOUTH));
+                                        break;
+
+                                    case 3:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.WEST));
+                                        break;
+                                }
+                            }
+                            else if (biome == BiomePermianOceanCliff.biome
+                                    && rand.nextInt(10) == 0) {
+                                int s = rand.nextInt(4);
+                                switch (s) {
+                                    case 0: default:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.NORTH));
+                                        break;
+
+                                    case 1:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.EAST));
+                                        break;
+
+                                    case 2:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.SOUTH));
+                                        break;
+
+                                    case 3:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.WEST));
+                                        break;
+                                }
+                            }
+                            else {
+                                if (Math.random() > 0.6 && j1 >= i - 2) {
+                                    chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirtPangaean.block.getDefaultState());
                                 } else {
-                                    if (Math.random() > 0.25) {
-                                        if (Math.random() > 0.85) {
-                                            chunkPrimerIn.setBlockState(i1, j1, l, BlockSandPangaean.block.getDefaultState());
-                                        }
-                                        else {
-                                            chunkPrimerIn.setBlockState(i1, j1, l, BlockSandPangaeanWavy.block.getDefaultState());
+                                    if (Math.random() > 0.95 || (j1 < i - 10 && Math.random() > 0.3)) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, Blocks.GRAVEL.getDefaultState());
+                                    } else {
+                                        if (Math.random() > 0.25) {
+                                            if (Math.random() > 0.85) {
+                                                chunkPrimerIn.setBlockState(i1, j1, l, BlockSandPangaean.block.getDefaultState());
+                                            } else {
+                                                chunkPrimerIn.setBlockState(i1, j1, l, BlockSandPangaeanWavy.block.getDefaultState());
+                                            }
                                         }
                                     }
                                 }
                             }
                         } else {
-                            chunkPrimerIn.setBlockState(i1, j1, l, iblockstate1);
+                            if (biome == BiomePermianSpongeReef.biome
+                                    && rand.nextInt(2) == 0) {
+                                int s = rand.nextInt(4);
+                                switch (s) {
+                                    case 0: default:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.NORTH));
+                                        break;
+
+                                    case 1:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.EAST));
+                                        break;
+
+                                    case 2:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.SOUTH));
+                                        break;
+
+                                    case 3:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.WEST));
+                                        break;
+                                }
+                            }
+                            else if (biome == BiomePermianOceanCliff.biome
+                                    && rand.nextInt(10) == 0) {
+                                int s = rand.nextInt(4);
+                                switch (s) {
+                                    case 0: default:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.NORTH));
+                                        break;
+
+                                    case 1:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.EAST));
+                                        break;
+
+                                    case 2:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.SOUTH));
+                                        break;
+
+                                    case 3:
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.WEST));
+                                        break;
+                                }
+                            }
+                            else {
+                                chunkPrimerIn.setBlockState(i1, j1, l, iblockstate1);
+                            }
                         }
                     } else if (j > 0) {
                         --j;

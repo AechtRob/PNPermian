@@ -12,6 +12,8 @@ public class GenLayerPermianBeach extends GenLayer
     public  int PERMIAN_OCEAN_ID =  Biome.getIdForBiome(PERMIAN_OCEAN);
     public  Biome PERMIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
     public  int PERMIAN_OCEAN_SHORE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SHORE);
+    public  Biome PERMIAN_OCEAN_SPONGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_sponge_reef"));
+    public  int PERMIAN_OCEAN_SPONGE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SPONGE);
     public  Biome PERMIAN_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach"));
     public  int PERMIAN_BEACH_ID =  Biome.getIdForBiome(PERMIAN_BEACH);
     public  Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest"));
@@ -82,7 +84,8 @@ public class GenLayerPermianBeach extends GenLayer
     }
 
     private boolean isOcean(int biomeID) {
-        if (biomeID == PERMIAN_OCEAN_ID || biomeID == PERMIAN_OCEAN_SHORE_ID) {
+        if (biomeID == PERMIAN_OCEAN_ID || biomeID == PERMIAN_OCEAN_SHORE_ID
+                || biomeID == PERMIAN_OCEAN_SPONGE_ID) {
             return true;
         }
         return false;
