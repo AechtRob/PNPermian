@@ -14,6 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -25,17 +26,24 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
@@ -80,10 +88,40 @@ public class WorldPermian extends ElementsLepidodendronMod.ModElement {
 			this.hasSkyLight = true;
 		}
 
+
 		@SideOnly(Side.CLIENT)
 		@Override
 		public IRenderHandler getSkyRenderer() {
 			if (LepidodendronConfig.renderCustomSkies) {
+				//Check if optifine is installed:
+				boolean isShaders = false;
+
+				if (FMLClientHandler.instance().hasOptifine()) {
+					//Read from the optionsshaders.txt file:
+					String strFile = null;
+					try {
+						strFile = Minecraft.getMinecraft().gameDir.getCanonicalPath() + "\\optionsshaders.txt";
+					} catch (IOException e) {
+					}
+					try {
+						BufferedReader reader = new BufferedReader(new FileReader(strFile));
+						String line;
+						while ((line = reader.readLine()) != null) {
+							if (line.startsWith("shaderPack=")) {
+								if (!(line.substring(11).equalsIgnoreCase("(internal)")
+										|| line.substring(11).equalsIgnoreCase("OFF"))) {
+									isShaders = true;
+								}
+							}
+						}
+						reader.close();
+					} catch (FileNotFoundException e) {
+					} catch (IOException e) {
+					}
+				}
+				if (isShaders) { // Use the vanilla skyboxes as shaders seem to be in use
+					return super.getSkyRenderer();
+				}
 				return new SkyRendererPermian();
 			}
 			return super.getSkyRenderer();
