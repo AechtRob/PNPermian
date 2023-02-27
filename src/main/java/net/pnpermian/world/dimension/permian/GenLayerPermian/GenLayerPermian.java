@@ -22,18 +22,18 @@ public class GenLayerPermian {
         biomes = new GenLayerDiversifyPermian(1002L, biomes);
         biomes = new GenLayerPermianDeepOcean(1100L, biomes);
         biomes = new GenLayerPermianShallowOcean(1300L, biomes);
-        biomes = new GenLayerPermianTreefernCopse(209L, biomes);
-
+        //biomes = new GenLayerPermianTreefernCopse(209L, biomes);
         biomes = new GenLayerPermianSpongeReef(1975L, biomes);
-
 
         biomes = new GenLayerZoom(1003L, biomes);
         biomes = new GenLayerPermianMountainEdge(2L, biomes);
+        biomes = new GenLayerPermianAddGlossopterisCopse(1001L, biomes);
         biomes = new GenLayerSmooth(700L, biomes);
         biomes = new GenLayerSmooth(701L, biomes);
         biomes = new GenLayerZoom(1004L, biomes);
         //biomes = new GenLayerZoom(1005L, biomes);
         biomes = new GenLayerSmooth(703L, biomes);
+        biomes = new GenLayerPermianAddGlossopterisCopse(1011L, biomes);
 
         biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
         biomes = new GenLayerPermianTryToJoinRiverToSea(1001L, biomes);
@@ -75,6 +75,7 @@ public class GenLayerPermian {
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
         biomes = new GenLayerPermianGlossopterisBeach(1150L, biomes);
         biomes = new GenLayerPermianRiverBorder(325L, biomes);
+
         biomes = new GenLayerSmooth(706L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
         biomes = new GenLayerPermianRiverBorder(326L, biomes);

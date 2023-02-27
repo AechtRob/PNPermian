@@ -15,6 +15,8 @@ public class GenLayerDiversifyPermian extends GenLayer {
     public  int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
     public  Biome PERMIAN_GLOSSOPTERIS_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
     public  int PERMIAN_GLOSSOPTERIS_WET_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_WET);
+    public  Biome PERMIAN_GLOSSOPTERIS_TEMPERATE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris"));
+    public  int PERMIAN_GLOSSOPTERIS_TEMPERATE_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_TEMPERATE);
     public  Biome PERMIAN_WETLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands"));
     public  int PERMIAN_WETLANDS_ID =  Biome.getIdForBiome(PERMIAN_WETLANDS);
     public  Biome PERMIAN_WETLANDS_UNWOODED = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded"));
@@ -54,7 +56,8 @@ public class GenLayerDiversifyPermian extends GenLayer {
     private final int GlossopterisBiomes[] = new int[] {
         PERMIAN_GLOSSOPTERIS_ID,
         PERMIAN_GLOSSOPTERIS_LIGHT_ID,
-        PERMIAN_GLOSSOPTERIS_WET_ID
+        PERMIAN_GLOSSOPTERIS_WET_ID,
+        PERMIAN_GLOSSOPTERIS_TEMPERATE_ID
     };
     private final int WetlandsBiomes[] = new int[] {
         PERMIAN_WETLANDS_ID,

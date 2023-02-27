@@ -46,6 +46,10 @@ public class GenLayerPermianRiverBorder extends GenLayer
     public  int PERMIAN_GLOSSOPTERIS_LAKES_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LAKES);
     public  Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
     public  int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
+    public Biome PERMIAN_GLOSSOPTERIS_MEADOW = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris"));
+    public int PERMIAN_GLOSSOPTERIS_MEADOW_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_MEADOW);
+    public Biome PERMIAN_GLOSSOPTERIS_COPSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris_copse"));
+    public int PERMIAN_GLOSSOPTERIS_COPSE_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_COPSE);
 
     public  Biome PERMIAN_LOWLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands"));
     public  int PERMIAN_LOWLANDS_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS);
@@ -205,7 +209,9 @@ public class GenLayerPermianRiverBorder extends GenLayer
     private boolean isGlossopteris(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID) {
+            || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID) {
             return true;
         }
         return false;
@@ -215,6 +221,8 @@ public class GenLayerPermianRiverBorder extends GenLayer
         if (biomeID == PERMIAN_GLOSSOPTERIS_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID
             || biomeID == PERMIAN_FLOODBASALT_ID
             || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
             || biomeID == PERMIAN_HIGHLANDS_ID
@@ -262,6 +270,8 @@ public class GenLayerPermianRiverBorder extends GenLayer
         if (biomeID == PERMIAN_GLOSSOPTERIS_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID
             || biomeID == PERMIAN_FLOODBASALT_ID
             || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
             || biomeID == PERMIAN_HIGHLANDS_ID
