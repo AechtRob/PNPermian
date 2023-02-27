@@ -24,7 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
-@Mod(modid = PNPermianMod.MODID, name = PNPermianMod.NAME, version = PNPermianMod.VERSION, dependencies = "required-after:lepidodendron@[52.0,)")
+@Mod(modid = PNPermianMod.MODID, name = PNPermianMod.NAME, version = PNPermianMod.VERSION, dependencies = "required-after:lepidodendron@[55.0,)")
 public class PNPermianMod {
     public static final String MODID = "pnpermian";
     public static final String NAME = "Prehistoric Nature Permian Dimension";
