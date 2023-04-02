@@ -50,6 +50,7 @@ import java.util.Random;
 public class WorldPermian extends ElementsLepidodendronMod.ModElement {
 	public static int DIMID = LepidodendronConfig.dimPermian;
 	public static final boolean NETHER_TYPE = false;
+	public static IRenderHandler skyRenderer = new SkyRendererPermian();
 	@GameRegistry.ObjectHolder("lepidodendron:permian_portal")
 	public static final BlockCustomPortal portal = new BlockCustomPortal();
 	public static DimensionType dtype;
@@ -122,7 +123,7 @@ public class WorldPermian extends ElementsLepidodendronMod.ModElement {
 				if (isShaders) { // Use the vanilla skyboxes as shaders seem to be in use
 					return super.getSkyRenderer();
 				}
-				return new SkyRendererPermian();
+				return skyRenderer;
 			}
 			return super.getSkyRenderer();
 		}

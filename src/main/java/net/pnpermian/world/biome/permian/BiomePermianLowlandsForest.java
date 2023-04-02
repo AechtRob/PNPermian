@@ -72,7 +72,7 @@ public class BiomePermianLowlandsForest extends ElementsLepidodendronMod.ModElem
 		protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
 		protected static final WorldGenSkaaripteris SKAARIPTERIS_GENERATOR = new WorldGenSkaaripteris();
 		protected static final WorldGenQuadrocladus QUADROCLADUS_GENERATOR = new WorldGenQuadrocladus();
-		protected static final WorldGenReticulopteris RETICULOPTERIS_GENERATOR = new WorldGenReticulopteris();
+		//protected static final WorldGenReticulopteris RETICULOPTERIS_GENERATOR = new WorldGenReticulopteris();
 		protected static final WorldGenNilssoniopteris NILSSONIOPTERIS_GENERATOR = new WorldGenNilssoniopteris();
 		protected static final WorldGenMarattia MARATTIA_GENERATOR = new WorldGenMarattia();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
@@ -297,14 +297,14 @@ public class BiomePermianLowlandsForest extends ElementsLepidodendronMod.ModElem
 					BAIERA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 60, 255);
 				}
 
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 48; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					RETICULOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
+//			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//				for (int i = 0; i < 48; ++i)
+//				{
+//					int j = rand.nextInt(16) + 8;
+//					int k = rand.nextInt(16) + 8;
+//					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//					RETICULOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 48; ++i)
