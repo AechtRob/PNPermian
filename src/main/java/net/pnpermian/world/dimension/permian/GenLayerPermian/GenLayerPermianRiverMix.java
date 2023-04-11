@@ -7,6 +7,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.pnpermian.world.biome.permian.BiomePermianStonyPlains;
+import net.pnpermian.world.biome.permian.BiomePermianStonyPlainsSpikes;
 
 public class GenLayerPermianRiverMix extends GenLayer
 {
@@ -31,6 +33,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     public int PERMIAN_CREEK_WETLANDS_ID = Biome.getIdForBiome(PERMIAN_CREEK_WETLANDS);
     public Biome PERMIAN_CREEK_COAST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_coastal"));
     public int PERMIAN_CREEK_COAST_ID = Biome.getIdForBiome(PERMIAN_CREEK_COAST);
+    public Biome PERMIAN_CREEK_STONY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_stony"));
+    public int PERMIAN_CREEK_STONY_ID = Biome.getIdForBiome(PERMIAN_CREEK_STONY);
 
     //Biomes to exclude for rivers:
     public Biome PERMIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
@@ -90,7 +94,13 @@ public class GenLayerPermianRiverMix extends GenLayer
                     if (biome instanceof BiomePermian) {
                         BiomePermian biomePermian = (BiomePermian) biome;
                         if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Arid) {
-                            aint2[i] = PERMIAN_CREEK_ARID_ID;
+                            if (biome == BiomePermianStonyPlains.biome
+                                || biome == BiomePermianStonyPlainsSpikes.biome) {
+                                aint2[i] = PERMIAN_CREEK_STONY_ID;
+                            }
+                            else {
+                                aint2[i] = PERMIAN_CREEK_ARID_ID;
+                            }
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Lowlands
                             || biomePermian.getBiomeType() == EnumBiomeTypePermian.Forest) {

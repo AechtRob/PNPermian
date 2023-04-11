@@ -137,7 +137,13 @@ public class ChunkProviderPermian implements IChunkGenerator {
         long l = this.random.nextLong() / 2 * 2 + 1;
         this.random.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.random, x, z, false);
-        if (this.random.nextInt(4) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianDesert.biome && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianColdGlossopterisBeach.biome && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianBeach.biome && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanShore.biome && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanCliff.biome)
+        if (this.random.nextInt(4) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianDesert.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianColdGlossopterisBeach.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianBeach.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanShore.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanCliff.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianStonyPlains.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianStonyPlainsSpikes.biome)
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 int i1 = this.random.nextInt(16) + 8;
@@ -155,6 +161,15 @@ public class ChunkProviderPermian implements IChunkGenerator {
                     (new WorldGenPermianLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
                 }
             }
+        if (this.random.nextInt(12) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianStonyPlains.biome)
+            if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
+                    net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
+                int i1 = this.random.nextInt(16) + 8;
+                int j1 = this.random.nextInt(256);
+                int k1 = this.random.nextInt(16) + 8;
+                (new WorldGenPermianLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+            }
+
         if (this.random.nextInt(6) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianDesert.biome)
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
@@ -341,6 +356,14 @@ public class ChunkProviderPermian implements IChunkGenerator {
                     double d2 = this.limitRegMin[i] / (double) 512;
                     double d3 = this.limitRegMax[i] / (double) 512;
                     double d4 = (this.noiseRegMain[i] / 10.0D + 1.0D) / 2.0D;
+
+                    if (biome == BiomePermianStonyPlains.biome) {
+                        //Flatten these out:
+                        d4 = 0;
+                        d2 = d4;
+                        d3 = d4;
+                    }
+
                     double d5 = MathHelper.clampedLerp(d2, d3, d4) - d1;
                     if (l1 > 29) {
                         double d6 = (double) ((float) (l1 - 29) / 3.0F);
@@ -540,6 +563,38 @@ public class ChunkProviderPermian implements IChunkGenerator {
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
                                 && biome == BiomePermianLowlandsForest.biome && rand.nextInt(20) == 0) {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
+                        }
+
+                        //Add ground surface in the stony plains
+                        if (iblockstate == Blocks.DIRT.getStateFromMeta(1)
+                                && (biome == BiomePermianStonyPlains.biome)) {
+                            if (rand.nextInt(4) == 0) {
+                                iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                            }
+                            else if (rand.nextInt(3) == 0) {
+                                iblockstate = Blocks.STONE.getDefaultState();
+                            }
+                            else if (rand.nextInt(16) == 0) {
+                                iblockstate = Blocks.SAND.getDefaultState();
+                            }
+                            else if (rand.nextInt(5) == 0) {
+                                iblockstate = BlockCoarseSiltyDirt.block.getDefaultState();
+                            }
+                            else if (rand.nextInt(8) == 0) {
+                                iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
+                            }
+                        }
+                        if (iblockstate == Blocks.COBBLESTONE.getDefaultState()
+                                && (biome == BiomePermianStonyPlainsSpikes.biome)) {
+                            if (rand.nextInt(4) == 0) {
+                                iblockstate = Blocks.STONE.getDefaultState();
+                            }
+                            else if (rand.nextInt(16) == 0) {
+                                iblockstate = Blocks.MOSSY_COBBLESTONE.getDefaultState();
+                            }
+                            else if (rand.nextInt(28) == 0) {
+                                iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
+                            }
                         }
 
                         j = k;

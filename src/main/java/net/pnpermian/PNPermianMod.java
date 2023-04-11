@@ -24,11 +24,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.function.Supplier;
 
-@Mod(modid = PNPermianMod.MODID, name = PNPermianMod.NAME, version = PNPermianMod.VERSION, dependencies = "required-after:lepidodendron@[55.0,)")
+@Mod(modid = PNPermianMod.MODID, name = PNPermianMod.NAME, version = PNPermianMod.VERSION, dependencies = "required-after:lepidodendron@[57.0,)")
 public class PNPermianMod {
     public static final String MODID = "pnpermian";
     public static final String NAME = "Prehistoric Nature Permian Dimension";
-    public static final String VERSION = "2.01";
+    public static final String VERSION = "3.0";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("pnpermian:a");
     @SidedProxy(clientSide = "net.pnpermian.ClientProxyPNPermianMod", serverSide = "net.pnpermian.ServerProxyPNPermianMod")
     public static IProxyPNPermianMod proxy;

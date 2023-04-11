@@ -65,6 +65,11 @@ public class GenLayerPermianRiverBorder extends GenLayer
     public  Biome PERMIAN_COPSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_fern_copse"));
     public  int PERMIAN_COPSE_ID =  Biome.getIdForBiome(PERMIAN_COPSE);
 
+    public  Biome PERMIAN_STONY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_plains"));
+    public  int PERMIAN_STONY_ID =  Biome.getIdForBiome(PERMIAN_STONY);
+    public  Biome PERMIAN_STONY_SPIKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_plains_spikes"));
+    public  int PERMIAN_STONY_SPIKES_ID =  Biome.getIdForBiome(PERMIAN_STONY_SPIKES);
+
     public GenLayerPermianRiverBorder(long seed, GenLayer genLayer)
     {
         super(seed);
@@ -182,7 +187,9 @@ public class GenLayerPermianRiverBorder extends GenLayer
     }
 
     private boolean isDesert(int biomeID) {
-        if (biomeID == PERMIAN_DESERT_ID) {
+        if (biomeID == PERMIAN_DESERT_ID
+            || biomeID == PERMIAN_STONY_ID
+            || biomeID == PERMIAN_STONY_SPIKES_ID) {
             return true;
         }
         return false;
@@ -191,7 +198,9 @@ public class GenLayerPermianRiverBorder extends GenLayer
     private boolean isArid(int biomeID) {
         if (biomeID == PERMIAN_ARIDLANDS_ID
             || biomeID == PERMIAN_ARIDLANDS_HILLS_ID
-            || biomeID == PERMIAN_ARIDLANDS_LUSH_ID) {
+            || biomeID == PERMIAN_ARIDLANDS_LUSH_ID
+            || biomeID == PERMIAN_STONY_ID
+            || biomeID == PERMIAN_STONY_SPIKES_ID) {
             return true;
         }
         return false;
@@ -243,7 +252,9 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_ARIDLANDS_HILLS_ID
             || biomeID == PERMIAN_ARIDLANDS_LUSH_ID
             || biomeID == PERMIAN_HIGHLANDS_ID
-            || biomeID == PERMIAN_MOUNTAINS_ID) {
+            || biomeID == PERMIAN_MOUNTAINS_ID
+            || biomeID == PERMIAN_STONY_ID
+            || biomeID == PERMIAN_STONY_SPIKES_ID) {
             return true;
         }
         return false;
@@ -257,6 +268,8 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_ARIDLANDS_HILLS_ID
             || biomeID == PERMIAN_ARIDLANDS_LUSH_ID
             || biomeID == PERMIAN_HIGHLANDS_ID
+            || biomeID == PERMIAN_STONY_ID
+            || biomeID == PERMIAN_STONY_SPIKES_ID
             //|| biomeID == PERMIAN_LOWLANDS_ID
             //|| biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
             //|| biomeID == PERMIAN_LOWLANDS_FOREST_ID

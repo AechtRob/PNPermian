@@ -33,7 +33,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
@@ -50,13 +52,15 @@ import java.util.Random;
 public class WorldPermian extends ElementsLepidodendronMod.ModElement {
 	public static int DIMID = LepidodendronConfig.dimPermian;
 	public static final boolean NETHER_TYPE = false;
-	public static IRenderHandler skyRenderer = new SkyRendererPermian();
 	@GameRegistry.ObjectHolder("lepidodendron:permian_portal")
 	public static final BlockCustomPortal portal = new BlockCustomPortal();
 	public static DimensionType dtype;
 	public WorldPermian(ElementsLepidodendronMod instance) {
 		super(instance, 1590);
 	}
+
+	public static final IRenderHandler skyRenderer = new SkyRendererPermian();
+
 
 	@Override
 	public void initElements() {

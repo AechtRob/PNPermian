@@ -21,10 +21,13 @@ public class GenLayerPermianBiomes extends GenLayer {
     public  int PERMIAN_LOWLANDS_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS);
     public  Biome PERMIAN_HIGHLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_highlands"));
     public  int PERMIAN_HIGHLANDS_ID =  Biome.getIdForBiome(PERMIAN_HIGHLANDS);
+    public  Biome PERMIAN_STONY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_plains"));
+    public  int PERMIAN_STONY_ID =  Biome.getIdForBiome(PERMIAN_STONY);
 
     private final int PermianBiomes[] = new int[] {
         PERMIAN_WETLANDS_ID,
         PERMIAN_ARID_LANDS_ID,
+        PERMIAN_STONY_ID,
         PERMIAN_GLOSSOPTERIS_ID,
         PERMIAN_DESERT_ID,
         PERMIAN_LOWLANDS_ID,

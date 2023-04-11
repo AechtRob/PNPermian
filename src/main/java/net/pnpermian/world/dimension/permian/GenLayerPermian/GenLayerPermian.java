@@ -44,6 +44,7 @@ public class GenLayerPermian {
         biomes = new GenLayerPermianTryToJoinRiverToSea(1006L, biomes);
         biomes = new GenLayerPermianTryToJoinRiverToSea(1007L, biomes);
         biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
+        biomes = new GenLayerPermianStonySpikesBig(1811L, biomes);
 
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
 
@@ -79,6 +80,7 @@ public class GenLayerPermian {
         biomes = new GenLayerSmooth(706L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
         biomes = new GenLayerPermianRiverBorder(326L, biomes);
+        biomes = new GenLayerPermianStonySpikes(1811L, biomes);
         biomes = new GenLayerZoom(1006L, biomes);
 
         biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
