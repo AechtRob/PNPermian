@@ -75,6 +75,9 @@ public class BiomePermianStonyPlains extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenUtrechtia UTRECHTIA_GENERATOR = new WorldGenUtrechtia();
 		protected static final WorldGenEquisetites EQUISETITES_GENERATOR = new WorldGenEquisetites();
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
+		protected static final WorldGenGlenopteris GLENOPTERIS = new WorldGenGlenopteris();
+		protected static final net.minecraft.world.gen.feature.WorldGenDeadBush DEAD_BUSH_GENERATOR = new net.minecraft.world.gen.feature.WorldGenDeadBush();
+		protected static final net.lepidodendron.world.gen.WorldGenDeadBush DEAD_BUSH_PF_GENERATOR = new net.lepidodendron.world.gen.WorldGenDeadBush();
 
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 
@@ -148,6 +151,50 @@ public class BiomePermianStonyPlains extends ElementsLepidodendronMod.ModElement
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					THUCYDIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 60, 150);
 				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				if (rand.nextInt(2) == 0)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					GLENOPTERIS.generate(worldIn, rand, pos.add(j, l, k), false);
+				}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
+			{
+				for (int i = 0; i < 4; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					DEAD_BUSH_PF_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), BlockDeadConifer.block.getDefaultState());
+				}
+			}
+
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
+			{
+				for (int i = 0; i < 1; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					DEAD_BUSH_PF_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), BlockDeadPlant.block.getDefaultState());
+				}
+			}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
+			{
+				for (int i = 0; i < 1; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					DEAD_BUSH_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+			}
+
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				if (rand.nextInt(3) == 0)
