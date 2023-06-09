@@ -51,6 +51,10 @@ public class GenLayerPermianRiverMix extends GenLayer
     public  int PERMIAN_FLOODBASALT_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT);
     public  Biome PERMIAN_FLOODBASALT_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt_edge"));
     public  int PERMIAN_FLOODBASALT_EDGE_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT_EDGE);
+    public Biome PERMIAN_STONY_DEPRESSION = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_depression"));
+    public int PERMIAN_STONY_DEPRESSION_ID =  Biome.getIdForBiome(PERMIAN_STONY_DEPRESSION);
+    public Biome PERMIAN_STONY_DEPRESSION_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_depression_rim"));
+    public int PERMIAN_STONY_DEPRESSION_RIM_ID =  Biome.getIdForBiome(PERMIAN_STONY_DEPRESSION_RIM);
 
     public GenLayerPermianRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
     {
@@ -84,6 +88,8 @@ public class GenLayerPermianRiverMix extends GenLayer
                         || aint[i] == PERMIAN_MOUNTAINS_ID
                         || aint[i] == PERMIAN_FLOODBASALT_ID
                         || aint[i] == PERMIAN_FLOODBASALT_EDGE_ID
+                        || aint[i] == PERMIAN_STONY_DEPRESSION_ID
+                        || aint[i] == PERMIAN_STONY_DEPRESSION_RIM_ID
                 )
                 {
                     aint2[i] = aint[i];

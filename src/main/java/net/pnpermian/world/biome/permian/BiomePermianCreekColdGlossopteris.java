@@ -39,7 +39,7 @@ public class BiomePermianCreekColdGlossopteris extends ElementsLepidodendronMod.
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Cold Glossopteris Creek").setRainfall(0.4F).setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
+			super(new BiomeProperties("Permian Cold Glossopteris Creek").setRainfall(0.4F).setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(0.25F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_creek_cold_glossopteris");
 			topBlock = BlockSandPangaean.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();

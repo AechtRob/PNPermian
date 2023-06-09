@@ -3,6 +3,7 @@ package net.pnpermian.world.dimension.permian;
 import net.lepidodendron.block.*;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
 import net.lepidodendron.world.biome.permian.*;
+import net.lepidodendron.world.gen.WorldGenCausticMudLake;
 import net.lepidodendron.world.gen.WorldGenPangaeanDryLakes;
 import net.lepidodendron.world.gen.WorldGenPermianLakes;
 import net.lepidodendron.world.gen.WorldGenPermianLavaLakes;
@@ -71,7 +72,11 @@ public class ChunkProviderPermian implements IChunkGenerator {
                     || biome == BiomePermianRiver.biome) {return;}
                 IBlockState state = data.getBlockState(x, y, z);
                 if (state.getBlock() == STONE.getBlock() || state.getBlock() == biome.topBlock.getBlock()
-                        || state.getBlock() == biome.fillerBlock.getBlock()) {
+                    || state.getBlock() == biome.fillerBlock.getBlock()
+                    || state.getMaterial() == Material.SAND
+                    || state.getMaterial() == Material.GROUND
+                    || state.getMaterial() == Material.ROCK
+                ) {
                     if (biome == BiomePermianFloodbasalt.biome) {
                         data.setBlockState(x, y, z, Blocks.LAVA.getDefaultState());
                         if (foundTop && data.getBlockState(x, y - 1, z).getBlock() == biome.fillerBlock.getBlock()) {
@@ -137,13 +142,16 @@ public class ChunkProviderPermian implements IChunkGenerator {
         long l = this.random.nextLong() / 2 * 2 + 1;
         this.random.setSeed((long) x * k + (long) z * l ^ this.world.getSeed());
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.random, x, z, false);
+
         if (this.random.nextInt(4) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianDesert.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianColdGlossopterisBeach.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianBeach.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanShore.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanCliff.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianStonyPlains.biome
-                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianStonyPlainsSpikes.biome)
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianStonyDepression.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianStonyDepressionRim.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianStonyPlainsSpikes.biome) {
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 int i1 = this.random.nextInt(16) + 8;
@@ -151,7 +159,9 @@ public class ChunkProviderPermian implements IChunkGenerator {
                 int k1 = this.random.nextInt(16) + 8;
                 (new WorldGenPermianLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
             }
-        if (world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianTemperateGlossopteris.biome)
+        }
+
+        if (world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianTemperateGlossopteris.biome) {
             for (int lake = 0; lake < 2; ++lake) {
                 if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                         net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
@@ -161,7 +171,9 @@ public class ChunkProviderPermian implements IChunkGenerator {
                     (new WorldGenPermianLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
                 }
             }
-        if (this.random.nextInt(12) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianStonyPlains.biome)
+        }
+
+        if (this.random.nextInt(12) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianStonyPlains.biome) {
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 int i1 = this.random.nextInt(16) + 8;
@@ -169,8 +181,35 @@ public class ChunkProviderPermian implements IChunkGenerator {
                 int k1 = this.random.nextInt(16) + 8;
                 (new WorldGenPermianLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
             }
+        }
 
-        if (this.random.nextInt(6) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianDesert.biome)
+        if (this.random.nextInt(44) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianStonyDepression.biome) {
+            if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
+                    net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
+                for (int lake = 0; lake < 16; ++lake) {
+                    int i1 = this.random.nextInt(16) + 8;
+                    int j1 = this.random.nextInt(256);
+                    int k1 = this.random.nextInt(16) + 8;
+                    (new WorldGenCausticMudLake(BlockToxicMud.block)).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+                }
+            }
+            if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
+                net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
+                int i1 = this.random.nextInt(16) + 8;
+                int j1 = this.random.nextInt(256);
+                int k1 = this.random.nextInt(16) + 8;
+                (new WorldGenPangaeanDryLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+            }
+            if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
+                    net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
+                int i1 = this.random.nextInt(16) + 8;
+                int j1 = this.random.nextInt(256);
+                int k1 = this.random.nextInt(16) + 8;
+                (new WorldGenPermianLavaLakes(Blocks.LAVA)).generate(this.world, this.random, blockpos.add(i1, j1, k1));
+            }
+        }
+
+        if (this.random.nextInt(6) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianDesert.biome) {
             if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                     net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
                 int i1 = this.random.nextInt(16) + 8;
@@ -178,6 +217,8 @@ public class ChunkProviderPermian implements IChunkGenerator {
                 int k1 = this.random.nextInt(16) + 8;
                 (new WorldGenPangaeanDryLakes(FLUID.getBlock())).generate(this.world, this.random, blockpos.add(i1, j1, k1));
             }
+        }
+
         if (world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianFloodbasalt.biome
                 || world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianFloodbasaltEdge.biome
         ) {
@@ -266,7 +307,8 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             for (int l2 = 0; l2 < 4; ++l2) {
                                 if ((lvt_45_1_ += d16) > 0.0D) {
                                     primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, STONE);
-                                } else if (i2 * 8 + j2 < SEALEVEL) {
+                                }
+                                else if (i2 * 8 + j2 < SEALEVEL) {
                                     primer.setBlockState(i * 4 + k2, i2 * 8 + j2, l * 4 + l2, FLUID);
                                 }
                             }
@@ -357,7 +399,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
                     double d3 = this.limitRegMax[i] / (double) 512;
                     double d4 = (this.noiseRegMain[i] / 10.0D + 1.0D) / 2.0D;
 
-                    if (biome == BiomePermianStonyPlains.biome) {
+                    if (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome) {
                         //Flatten these out:
                         d4 = 0;
                         d2 = d4;
@@ -404,9 +446,14 @@ public class ChunkProviderPermian implements IChunkGenerator {
         int i1 = z & 15;
         BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
         for (int j1 = 255; j1 >= 0; --j1) {
+            IBlockState iblockstate5 = chunkPrimerIn.getBlockState(i1, j1, l);
             if (j1 <= rand.nextInt(5)) {
                 chunkPrimerIn.setBlockState(i1, j1, l, BEDROCK);
-            } else {
+            }
+            else if ((biome == BiomePermianStonyDepression.biome || biome == BiomePermianStonyDepressionRim.biome) && iblockstate5.getMaterial() == Material.WATER && j1 > 15) {
+                chunkPrimerIn.setBlockState(i1, j1, l, AIR);
+            }
+            else {
                 IBlockState iblockstate2 = chunkPrimerIn.getBlockState(i1, j1, l);
                 if (iblockstate2.getMaterial() == Material.AIR) {
                     j = -1;
@@ -551,7 +598,6 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             }
                         }
 
-
                         //Add moss in the Wetlands
                         if (iblockstate == BlockPrehistoricGroundLush.block.getDefaultState()
                                 && (biome == BiomePermianWetlands.biome || biome == BiomePermianWetlandsUnwooded.biome)
@@ -567,7 +613,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
 
                         //Add ground surface in the stony plains
                         if (iblockstate == Blocks.DIRT.getStateFromMeta(1)
-                                && (biome == BiomePermianStonyPlains.biome)) {
+                                && (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome)) {
                             if (rand.nextInt(4) == 0) {
                                 iblockstate = Blocks.COBBLESTONE.getDefaultState();
                             }
@@ -648,7 +694,31 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             else {
                                 if (Math.random() > 0.6 && j1 >= i - 2) {
                                     chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirtPangaean.block.getDefaultState());
-                                } else {
+                                }
+                                //Add depression ground
+                                else if ((biome == BiomePermianStonyDepression.biome || biome == BiomePermianStonyDepressionRim.biome)
+                                        && j1 < i - 10) {
+                                    chunkPrimerIn.setBlockState(i1, j1, l, biome.topBlock);
+                                    if (rand.nextInt(8) == 0) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, Blocks.GRAVEL.getDefaultState());
+                                    }
+                                    else  if (rand.nextInt(8) == 0) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockCoarseSandyDirt.block.getDefaultState());
+                                    }
+                                    else if (rand.nextInt(8) == 0) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, Blocks.COBBLESTONE.getDefaultState());
+                                    }
+                                    else if (rand.nextInt(12) == 0) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSaltBlock.block.getDefaultState());
+                                    }
+                                    else if (rand.nextInt(12) == 0) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSaltOre.block.getDefaultState());
+                                    }
+                                    else if (rand.nextInt(6) == 0) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, Blocks.STONE.getDefaultState());
+                                    }
+                                }
+                                else {
                                     if (Math.random() > 0.95 || (j1 < i - 10 && Math.random() > 0.3)) {
                                         chunkPrimerIn.setBlockState(i1, j1, l, Blocks.GRAVEL.getDefaultState());
                                     } else {

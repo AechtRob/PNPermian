@@ -35,13 +35,11 @@ public class BiomePermianColdGlossopterisForestLight extends ElementsLepidodendr
 	@Override
 	public void init(FMLInitializationEvent event) {
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.COLD);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.SNOWY);
 	}
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Cold Glossopteris Forest").setRainfall(0.4F).setBaseHeight(0.04F).setHeightVariation(0.29F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
+			super(new BiomeProperties("Permian Temperate Glossopteris Forest").setRainfall(0.4F).setBaseHeight(0.04F).setHeightVariation(0.29F).setTemperature(0.25F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_cold_glossopteris_forest_light");
 			topBlock = BlockLeafLitter.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
@@ -78,6 +76,10 @@ public class BiomePermianColdGlossopterisForestLight extends ElementsLepidodendr
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 		protected static final WorldGenBelemnopteris BELEMNOPTERIS_GENERATOR = new WorldGenBelemnopteris();
+		protected static final WorldGenCtenis CTENIS_GENERATOR = new WorldGenCtenis();
+		protected static final WorldGenSkaaripteris SKAARIPTERIS_GENERATOR = new WorldGenSkaaripteris();
+		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
+		protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 
 		protected static final WorldGenPrehistoricGroundCoverPangaean GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverPangaean();
 		protected static final WorldGenWaterSidePangaeanPrehistoricGround WATERSIDE_DIRT_GENERATOR = new WorldGenWaterSidePangaeanPrehistoricGround();
@@ -85,9 +87,9 @@ public class BiomePermianColdGlossopterisForestLight extends ElementsLepidodendr
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenPodzol PODZOL_GENERATOR = new WorldGenPodzol();
 		protected static final WorldGenPangeanDirt DIRT_GENERATOR = new WorldGenPangeanDirt();
-		protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
+		//protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
 		//protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
-		protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
+		//protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
 		
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -107,28 +109,28 @@ public class BiomePermianColdGlossopterisForestLight extends ElementsLepidodendr
 	    public void decorate(World worldIn, Random rand, BlockPos pos)
 	    {
 
-			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
-				{
-					int i = rand.nextInt(12);
-
-					for (int j = 0; j < i; ++j) {
-						int k = rand.nextInt(16) + 8;
-						int l = rand.nextInt(16) + 8;
-						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-						if (worldIn.getBlockState(blockpos.down()).getMaterial() != Material.WATER) {ICE_GENERATOR.generate(worldIn, rand, blockpos,0);}
-					}
-
-					i = rand.nextInt(32);
-
-					for (int j = 0; j < i; ++j)
-					{
-						int k = rand.nextInt(16) + 8;
-						int l = rand.nextInt(16) + 8;
-						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-						SNOW_GENERATOR.generate(worldIn, rand, blockpos, 0);
-					}
-				}
-			}
+//			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
+//				{
+//					int i = rand.nextInt(12);
+//
+//					for (int j = 0; j < i; ++j) {
+//						int k = rand.nextInt(16) + 8;
+//						int l = rand.nextInt(16) + 8;
+//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+//						if (worldIn.getBlockState(blockpos.down()).getMaterial() != Material.WATER) {ICE_GENERATOR.generate(worldIn, rand, blockpos,0);}
+//					}
+//
+//					i = rand.nextInt(32);
+//
+//					for (int j = 0; j < i; ++j)
+//					{
+//						int k = rand.nextInt(16) + 8;
+//						int l = rand.nextInt(16) + 8;
+//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+//						SNOW_GENERATOR.generate(worldIn, rand, blockpos, 0);
+//					}
+//				}
+//			}
 
 	        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        {
@@ -227,6 +229,13 @@ public class BiomePermianColdGlossopterisForestLight extends ElementsLepidodendr
 				BELEMNOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 			}
 
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS)) {
+				int j = rand.nextInt(16) + 8;
+				int k = rand.nextInt(16) + 8;
+				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+				CTENIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+			}
+
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 3; ++i)
 				{
@@ -261,6 +270,33 @@ public class BiomePermianColdGlossopterisForestLight extends ElementsLepidodendr
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					SURANGEPHYLLUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 128; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					FERN_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 38; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					CLUBMOSS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 92; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SKAARIPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

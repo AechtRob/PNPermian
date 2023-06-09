@@ -39,7 +39,7 @@ public class BiomePermianColdGlossopterisBeach extends ElementsLepidodendronMod.
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Cold Glossopteris Beach").setRainfall(0.4F).setBaseHeight(0.0F).setHeightVariation(0.013F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
+			super(new BiomeProperties("Permian Cold Glossopteris Beach").setRainfall(0.4F).setBaseHeight(0.0F).setHeightVariation(0.013F).setTemperature(0.25F).setWaterColor(-5317633).setSnowEnabled());
 			setRegistryName("lepidodendron:permian_cold_glossopteris_beach");
 			topBlock = BlockSandPangaean.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
@@ -65,8 +65,8 @@ public class BiomePermianColdGlossopterisBeach extends ElementsLepidodendronMod.
 		protected static final WorldGenPodzol PODZOL_GENERATOR = new WorldGenPodzol();
 		protected static final WorldGenPangeanDirt DIRT_GENERATOR = new WorldGenPangeanDirt();
 		protected static final WorldGenGravel GRAVEL_GENERATOR = new WorldGenGravel();
-		protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
-		protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
+		//protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
+		//protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
 
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -77,29 +77,6 @@ public class BiomePermianColdGlossopterisBeach extends ElementsLepidodendronMod.
 		@Override
 	    public void decorate(World worldIn, Random rand, BlockPos pos)
 	    {
-
-			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
-				{
-					int i = rand.nextInt(12);
-
-					for (int j = 0; j < i; ++j) {
-						int k = rand.nextInt(16) + 8;
-						int l = rand.nextInt(16) + 8;
-						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-						if (worldIn.getBlockState(blockpos.down()).getMaterial() != Material.WATER) {ICE_GENERATOR.generate(worldIn, rand, blockpos,0);}
-					}
-
-					i = rand.nextInt(32);
-
-					for (int j = 0; j < i; ++j)
-					{
-						int k = rand.nextInt(16) + 8;
-						int l = rand.nextInt(16) + 8;
-						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-						SNOW_GENERATOR.generate(worldIn, rand, blockpos, 0);
-					}
-				}
-			}
 
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

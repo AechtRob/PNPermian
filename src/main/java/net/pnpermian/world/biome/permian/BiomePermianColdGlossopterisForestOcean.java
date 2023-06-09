@@ -35,16 +35,14 @@ public class BiomePermianColdGlossopterisForestOcean extends ElementsLepidodendr
 	@Override
 	public void init(FMLInitializationEvent event) {
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.FOREST);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.COLD);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.SNOWY);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.WET);
 	}
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Cold Glossopteris Forest Lakes").setRainfall(0.4F).setBaseHeight(-0.5F).setHeightVariation(0.06F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
+			super(new BiomeProperties("Permian Temperate Glossopteris Forest Lakes").setRainfall(0.4F).setBaseHeight(-0.5F).setHeightVariation(0.06F).setTemperature(0.25F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_cold_glossopteris_forest_ocean");
-			topBlock = BlockLeafLitter.block.getDefaultState();
+			topBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
 			decorator.treesPerChunk = 20;
 			decorator.flowersPerChunk = 0;
@@ -84,9 +82,9 @@ public class BiomePermianColdGlossopterisForestOcean extends ElementsLepidodendr
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenPodzol PODZOL_GENERATOR = new WorldGenPodzol();
 		protected static final WorldGenPangeanDirt DIRT_GENERATOR = new WorldGenPangeanDirt();
-		protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
+		//protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
 		//protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
-		protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
+		//protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -104,28 +102,28 @@ public class BiomePermianColdGlossopterisForestOcean extends ElementsLepidodendr
 	    public void decorate(World worldIn, Random rand, BlockPos pos)
 	    {
 
-			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
-				{
-					int i = rand.nextInt(12);
-
-					for (int j = 0; j < i; ++j) {
-						int k = rand.nextInt(16) + 8;
-						int l = rand.nextInt(16) + 8;
-						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-						if (worldIn.getBlockState(blockpos.down()).getMaterial() != Material.WATER) {ICE_GENERATOR.generate(worldIn, rand, blockpos,0);}
-					}
-
-					i = rand.nextInt(32);
-
-					for (int j = 0; j < i; ++j)
-					{
-						int k = rand.nextInt(16) + 8;
-						int l = rand.nextInt(16) + 8;
-						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-						SNOW_GENERATOR.generate(worldIn, rand, blockpos, 0);
-					}
-				}
-			}
+//			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
+//				{
+//					int i = rand.nextInt(12);
+//
+//					for (int j = 0; j < i; ++j) {
+//						int k = rand.nextInt(16) + 8;
+//						int l = rand.nextInt(16) + 8;
+//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+//						if (worldIn.getBlockState(blockpos.down()).getMaterial() != Material.WATER) {ICE_GENERATOR.generate(worldIn, rand, blockpos,0);}
+//					}
+//
+//					i = rand.nextInt(32);
+//
+//					for (int j = 0; j < i; ++j)
+//					{
+//						int k = rand.nextInt(16) + 8;
+//						int l = rand.nextInt(16) + 8;
+//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+//						SNOW_GENERATOR.generate(worldIn, rand, blockpos, 0);
+//					}
+//				}
+//			}
 
 	        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        {
