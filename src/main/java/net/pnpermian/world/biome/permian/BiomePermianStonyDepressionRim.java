@@ -39,7 +39,7 @@ public class BiomePermianStonyDepressionRim extends ElementsLepidodendronMod.Mod
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Stony Plains TRANSITION").setRainfall(0.0F).setBaseHeight(-0.1F).setHeightVariation(0.0F).setTemperature(2.0F).setRainDisabled());
+			super(new BiomeProperties("Permian Stony Plains").setRainfall(0.0F).setBaseHeight(-0.1F).setHeightVariation(0.0F).setTemperature(2.0F).setRainDisabled());
 			setRegistryName("lepidodendron:permian_stony_depression_rim");
 			topBlock = Blocks.DIRT.getStateFromMeta(1);
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
