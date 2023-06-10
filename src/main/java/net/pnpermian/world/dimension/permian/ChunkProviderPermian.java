@@ -611,6 +611,12 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
                         }
 
+                        //Blend the Glossopteris forest a little:
+                        if (iblockstate == BlockLeafLitter.block.getDefaultState()
+                                && biome == BiomePermianColdGlossopterisForestLight.biome && rand.nextInt(12) == 0) {
+                            iblockstate = BlockCoarseSandyDirtPangaean.block.getDefaultState();
+                        }
+
                         //Add ground surface in the stony plains
                         if (iblockstate == Blocks.DIRT.getStateFromMeta(1)
                                 && (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome)) {

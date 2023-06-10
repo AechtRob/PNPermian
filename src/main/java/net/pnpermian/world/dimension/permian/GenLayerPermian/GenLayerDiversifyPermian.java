@@ -56,7 +56,9 @@ public class GenLayerDiversifyPermian extends GenLayer {
     private final int GlossopterisBiomes[] = new int[] {
         PERMIAN_GLOSSOPTERIS_ID,
         PERMIAN_GLOSSOPTERIS_LIGHT_ID,
+        PERMIAN_GLOSSOPTERIS_LIGHT_ID,
         PERMIAN_GLOSSOPTERIS_WET_ID,
+        PERMIAN_GLOSSOPTERIS_TEMPERATE_ID,
         PERMIAN_GLOSSOPTERIS_TEMPERATE_ID
     };
     private final int WetlandsBiomes[] = new int[] {
