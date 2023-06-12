@@ -70,6 +70,9 @@ public class BiomePermianStonyDepression extends ElementsLepidodendronMod.ModEle
 
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 
+		protected static final WorldGenRibCage RIBCAGE = new WorldGenRibCage();
+
+
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
 			return NULL_TREE;
@@ -95,6 +98,15 @@ public class BiomePermianStonyDepression extends ElementsLepidodendronMod.ModEle
 					int k = rand.nextInt(16) + 8;
 					SAND_GENERATOR.generate(worldIn, rand, worldIn.getTopSolidOrLiquidBlock(new BlockPos(pos.getX() + j, 0, pos.getZ() + k)).up());
 				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS)) {
+				if (rand.nextInt(4) == 0)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					RIBCAGE.generate(worldIn, rand, new BlockPos(pos.getX() + j, 33, pos.getZ() + k), 35);
+				}
+			}
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.ROCK))
 			{
