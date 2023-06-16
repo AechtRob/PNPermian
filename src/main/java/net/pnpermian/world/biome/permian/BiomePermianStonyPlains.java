@@ -78,6 +78,7 @@ public class BiomePermianStonyPlains extends ElementsLepidodendronMod.ModElement
 		protected static final WorldGenGlenopteris GLENOPTERIS = new WorldGenGlenopteris();
 		protected static final net.minecraft.world.gen.feature.WorldGenDeadBush DEAD_BUSH_GENERATOR = new net.minecraft.world.gen.feature.WorldGenDeadBush();
 		protected static final net.lepidodendron.world.gen.WorldGenDeadBush DEAD_BUSH_PF_GENERATOR = new net.lepidodendron.world.gen.WorldGenDeadBush();
+		protected static final WorldGenSchizoneura SCHIZONEURA_GENERATOR = new WorldGenSchizoneura();
 
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 
@@ -212,6 +213,15 @@ public class BiomePermianStonyPlains extends ElementsLepidodendronMod.ModElement
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockBrachyphyllumSapling.block, BlockBrachyphyllumLeaves.block.getDefaultState(), BlockBrachyphyllumLog.block.getDefaultState().withProperty(BlockBrachyphyllumLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 95);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 42; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SCHIZONEURA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

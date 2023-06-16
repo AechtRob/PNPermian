@@ -66,6 +66,7 @@ public class BiomePermianStonyPlainsSpikes extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenPrehistoricGroundCoverPangaean GROUNDCOVER_PERMIAN_GENERATOR = new WorldGenPrehistoricGroundCoverPangaean();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenThucydia THUCYDIA_GENERATOR = new WorldGenThucydia();
+		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -84,6 +85,19 @@ public class BiomePermianStonyPlainsSpikes extends ElementsLepidodendronMod.ModE
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					THUCYDIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 60, 150);
 				}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+			{
+				int i = rand.nextInt(16);
+
+				for (int j = 0; j < i; ++j)
+				{
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+					GLOSSOPTERIS_BUSH_GENERATOR.generate(worldIn, rand, blockpos);
+				}
+			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 16; ++i)
