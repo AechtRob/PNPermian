@@ -88,7 +88,7 @@ public class BiomePermianStonyPlainsSpikes extends ElementsLepidodendronMod.ModE
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 			{
-				int i = rand.nextInt(16);
+				int i = rand.nextInt(8);
 
 				for (int j = 0; j < i; ++j)
 				{
