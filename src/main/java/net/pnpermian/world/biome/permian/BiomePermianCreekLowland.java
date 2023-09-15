@@ -70,6 +70,7 @@ public class BiomePermianCreekLowland extends ElementsLepidodendronMod.ModElemen
 		protected static final WorldGenPrehistoricGroundCoverLush LUSH_GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverLush();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
 		protected static final WorldGenSkaaripteris SKAARIPTERIS_GENERATOR = new WorldGenSkaaripteris();
+		protected static final WorldGenChiropteris CHIROPTERIS_GENERATOR = new WorldGenChiropteris();
 		protected static final WorldGenFieldHorsetail FIELD_HORSETAIL_GENERATOR = new WorldGenFieldHorsetail();
 		protected static final WorldGenScolecopteris SCOLECOPTERIS_GENERATOR = new WorldGenScolecopteris();
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
@@ -261,6 +262,15 @@ public class BiomePermianCreekLowland extends ElementsLepidodendronMod.ModElemen
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					SKAARIPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 92; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					CHIROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

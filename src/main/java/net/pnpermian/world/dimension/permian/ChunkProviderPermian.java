@@ -59,7 +59,10 @@ public class ChunkProviderPermian implements IChunkGenerator {
         caveGenerator = new MapGenCaves() {
             @Override
             protected boolean canReplaceBlock(IBlockState a, IBlockState b) {
-                if (a.getBlock() == STONE.getBlock())
+                if (a.getBlock() == STONE.getBlock()
+                        || a.getMaterial() == Material.ROCK
+                        || a.getMaterial() == Material.SAND
+                        || a.getMaterial() == Material.GROUND)
                     return true;
                 return super.canReplaceBlock(a, b);
             }
