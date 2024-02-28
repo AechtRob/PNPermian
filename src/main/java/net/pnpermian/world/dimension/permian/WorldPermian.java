@@ -11,6 +11,7 @@ import net.lepidodendron.util.ModTriggers;
 import net.lepidodendron.util.ParticlePNPortal;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockWorldState;
@@ -225,6 +226,18 @@ public class WorldPermian extends ElementsLepidodendronMod.ModElement {
 		@Override
 		public boolean doesWaterVaporize() {
 			return false;
+		}
+
+		@Override
+		public boolean canBlockFreeze(BlockPos pos, boolean byWater) {
+			if (this.world.getBiome(pos) instanceof BiomePermian) {
+				if (((BiomePermian)this.world.getBiome(pos)).getBiomeType() == EnumBiomeTypePermian.Glossopteris) {
+					if (pos.getY() <= Functions.getAdjustedSeaLevel(this.world, pos)) {
+						return false;
+					}
+				}
+			}
+			return super.canBlockFreeze(pos, byWater);
 		}
 	}
 

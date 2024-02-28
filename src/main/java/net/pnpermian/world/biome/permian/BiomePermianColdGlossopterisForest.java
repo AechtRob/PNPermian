@@ -103,6 +103,7 @@ public class BiomePermianColdGlossopterisForest extends ElementsLepidodendronMod
 			return WALCHIA_TREE;
 	    }
 
+
 		@Override
 	    public void decorate(World worldIn, Random rand, BlockPos pos)
 	    {
