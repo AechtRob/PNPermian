@@ -42,6 +42,8 @@ public class GenLayerPermianRiverBorder extends GenLayer
 
     public  Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest"));
     public  int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
+    public  Biome PERMIAN_GLOSSOPTERIS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp"));
+    public  int PERMIAN_GLOSSOPTERIS_SWAMP_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_SWAMP);
     public  Biome PERMIAN_GLOSSOPTERIS_LAKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
     public  int PERMIAN_GLOSSOPTERIS_LAKES_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LAKES);
     public  Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
@@ -226,6 +228,7 @@ public class GenLayerPermianRiverBorder extends GenLayer
     private boolean isGlossopteris(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID) {
@@ -236,6 +239,7 @@ public class GenLayerPermianRiverBorder extends GenLayer
 
     private boolean isExemptforGlossopteris(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
@@ -294,6 +298,7 @@ public class GenLayerPermianRiverBorder extends GenLayer
     private boolean isExemptforWetlands(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID

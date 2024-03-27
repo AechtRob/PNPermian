@@ -18,6 +18,8 @@ public class GenLayerPermianBeach extends GenLayer
     public  int PERMIAN_BEACH_ID =  Biome.getIdForBiome(PERMIAN_BEACH);
     public  Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest"));
     public  int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
+    public  Biome PERMIAN_GLOSSOPTERIS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp"));
+    public  int PERMIAN_GLOSSOPTERIS_SWAMP_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_SWAMP);
     public  Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
     public  int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
     public  Biome PERMIAN_GLOSSOPTERIS_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
@@ -94,6 +96,7 @@ public class GenLayerPermianBeach extends GenLayer
     private boolean hasNoBeach(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_WET_ID
             || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
             || biomeID == PERMIAN_WETLANDS_UNWOODED_ID

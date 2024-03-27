@@ -16,6 +16,8 @@ public class GenLayerPermianGlossopterisBeach extends GenLayer
     public  int PERMIAN_GLOSSOPTERIS_BEACH_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_BEACH);
     public  Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest"));
     public  int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
+    public  Biome PERMIAN_GLOSSOPTERIS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp"));
+    public  int PERMIAN_GLOSSOPTERIS_SWAMP_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_SWAMP);
     public  Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
     public  int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
     public  Biome PERMIAN_GLOSSOPTERIS_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
@@ -40,7 +42,7 @@ public class GenLayerPermianGlossopterisBeach extends GenLayer
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 Biome biome = Biome.getBiome(k);
 
-                if (k == PERMIAN_GLOSSOPTERIS_ID || k == PERMIAN_GLOSSOPTERIS_LIGHT_ID || k == PERMIAN_GLOSSOPTERIS_WET_ID)
+                if (k == PERMIAN_GLOSSOPTERIS_ID || k == PERMIAN_GLOSSOPTERIS_LIGHT_ID || k == PERMIAN_GLOSSOPTERIS_WET_ID || k == PERMIAN_GLOSSOPTERIS_SWAMP_ID)
                 {
                     if (!isOcean(k))
                     {

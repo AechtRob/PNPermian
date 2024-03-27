@@ -402,7 +402,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
                     double d3 = this.limitRegMax[i] / (double) 512;
                     double d4 = (this.noiseRegMain[i] / 10.0D + 1.0D) / 2.0D;
 
-                    if (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome) {
+                    if (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome || biome == BiomePermianColdGlossopterisSwamp.biome || biome == BiomePermianColdGlossopterisForest.biome) {
                         //Flatten these out:
                         d4 = 0;
                         d2 = d4;
