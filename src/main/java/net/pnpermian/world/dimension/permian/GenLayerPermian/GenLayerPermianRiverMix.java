@@ -7,6 +7,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
+import net.pnpermian.world.biome.permian.BiomePermianGlossopterisColdSwamp;
+import net.pnpermian.world.biome.permian.BiomePermianGlossopterisColdSwampLand;
 import net.pnpermian.world.biome.permian.BiomePermianStonyPlains;
 import net.pnpermian.world.biome.permian.BiomePermianStonyPlainsSpikes;
 
@@ -23,6 +25,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     public int PERMIAN_CREEK_ARID_ID = Biome.getIdForBiome(PERMIAN_CREEK_ARID);
     public Biome PERMIAN_CREEK_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_cold_glossopteris"));
     public int PERMIAN_CREEK_GLOSSOPTERIS_ID = Biome.getIdForBiome(PERMIAN_CREEK_GLOSSOPTERIS);
+    public Biome PERMIAN_CREEK_GLOSSOPTERIS_COLD = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_cold_glossopteris_foggy"));
+    public int PERMIAN_CREEK_GLOSSOPTERIS_COLD_ID = Biome.getIdForBiome(PERMIAN_CREEK_GLOSSOPTERIS_COLD);
     public Biome PERMIAN_CREEK_DESERT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_desert"));
     public int PERMIAN_CREEK_DESERT_ID = Biome.getIdForBiome(PERMIAN_CREEK_DESERT);
     public Biome PERMIAN_CREEK_HIGHLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_highlands"));
@@ -122,7 +126,12 @@ public class GenLayerPermianRiverMix extends GenLayer
                             aint2[i] = PERMIAN_CREEK_DESERT_ID;
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Glossopteris) {
-                            aint2[i] = PERMIAN_CREEK_GLOSSOPTERIS_ID;
+                            if (biome == BiomePermianGlossopterisColdSwamp.biome || biome == BiomePermianGlossopterisColdSwampLand.biome) {
+                                aint2[i] = PERMIAN_CREEK_GLOSSOPTERIS_COLD_ID;
+                            }
+                            else {
+                                aint2[i] = PERMIAN_CREEK_GLOSSOPTERIS_ID;
+                            }
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Ocean) {
                             aint2[i] = PERMIAN_CREEK_COAST_ID;
