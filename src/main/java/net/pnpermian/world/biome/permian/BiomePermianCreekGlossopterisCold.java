@@ -18,7 +18,7 @@ import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
 public class BiomePermianCreekGlossopterisCold extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:permian_creek_cold_glossopteris")
+	@GameRegistry.ObjectHolder("lepidodendron:permian_creek_cold_glossopteris_foggy")
 	public static final BiomeGenCustom biome = null;
 	public BiomePermianCreekGlossopterisCold(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
