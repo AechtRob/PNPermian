@@ -25,6 +25,7 @@ public class GenLayerPermian {
         biomes = new GenLayerPermianTreefernCopse(209L, biomes);
         biomes = new GenLayerPermianSpongeReef(1975L, biomes);
         biomes = new GenLayerPermianStonyDepression(1812L, biomes);
+        biomes = new GenLayerPermianPools(23L, biomes);
 
         biomes = new GenLayerZoom(1003L, biomes);
         biomes = new GenLayerPermianMountainEdge(2L, biomes);

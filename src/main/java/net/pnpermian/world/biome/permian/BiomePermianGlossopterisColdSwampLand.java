@@ -17,10 +17,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomePermianColdGlossopterisForest extends ElementsLepidodendronMod.ModElement {
+public class BiomePermianGlossopterisColdSwampLand extends ElementsLepidodendronMod.ModElement {
 	@GameRegistry.ObjectHolder("lepidodendron:permian_cold_glossopteris_forest")
 	public static final BiomeGenCustom biome = null;
-	public BiomePermianColdGlossopterisForest(ElementsLepidodendronMod instance) {
+	public BiomePermianGlossopterisColdSwampLand(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -38,7 +38,7 @@ public class BiomePermianColdGlossopterisForest extends ElementsLepidodendronMod
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Cold Glossopteris Forest").setRainfall(0.4F).setBaseHeight(0.15F).setHeightVariation(0.00F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
+			super(new BiomeProperties("Permian Antarctic Glossopteris Bog").setRainfall(0.4F).setBaseHeight(0.15F).setHeightVariation(0.00F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
 			setRegistryName("lepidodendron:permian_cold_glossopteris_forest");
 			topBlock = BlockPeat.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
@@ -91,13 +91,11 @@ public class BiomePermianColdGlossopterisForest extends ElementsLepidodendronMod
 
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-			//if (Math.random() > 0.975) {
-			//	return TIETEA_TREE;
-			//}
-			if (Math.random() > 0.08) {
+
+			if (Math.random() > 0.10) {
 				return GLOSSOPTERIS_TREE;
 			}
-			if (Math.random() > 0.5) {
+			if (Math.random() > 0.3) {
 				return CORDAITES_TREE;
 			}
 			return WALCHIA_TREE;

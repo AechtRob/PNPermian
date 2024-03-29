@@ -7,7 +7,6 @@ import net.lepidodendron.block.BlockSandPangaean;
 import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.lepidodendron.world.gen.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -18,10 +17,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomePermianCreekColdGlossopteris extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:permian_creek_cold_glossopteris")
+public class BiomePermianBeachColdGlossopteris extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:permian_cold_glossopteris_beach")
 	public static final BiomeGenCustom biome = null;
-	public BiomePermianCreekColdGlossopteris(ElementsLepidodendronMod instance) {
+	public BiomePermianBeachColdGlossopteris(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -39,8 +38,8 @@ public class BiomePermianCreekColdGlossopteris extends ElementsLepidodendronMod.
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Glossopteris Creek").setRainfall(0.4F).setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(0.25F).setWaterColor(-5317633));
-			setRegistryName("lepidodendron:permian_creek_cold_glossopteris");
+			super(new BiomeProperties("Permian Cold Glossopteris Beach").setRainfall(0.4F).setBaseHeight(0.0F).setHeightVariation(0.013F).setTemperature(0.25F).setWaterColor(-5317633).setSnowEnabled());
+			setRegistryName("lepidodendron:permian_cold_glossopteris_beach");
 			topBlock = BlockSandPangaean.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
 			decorator.treesPerChunk = -999;
@@ -77,29 +76,6 @@ public class BiomePermianCreekColdGlossopteris extends ElementsLepidodendronMod.
 		@Override
 	    public void decorate(World worldIn, Random rand, BlockPos pos)
 	    {
-
-//			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
-//				{
-//					int i = rand.nextInt(12);
-//
-//					for (int j = 0; j < i; ++j) {
-//						int k = rand.nextInt(16) + 8;
-//						int l = rand.nextInt(16) + 8;
-//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-//						if (worldIn.getBlockState(blockpos.down()).getMaterial() != Material.WATER) {ICE_GENERATOR.generate(worldIn, rand, blockpos,0);}
-//					}
-//
-//					i = rand.nextInt(32);
-//
-//					for (int j = 0; j < i; ++j)
-//					{
-//						int k = rand.nextInt(16) + 8;
-//						int l = rand.nextInt(16) + 8;
-//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-//						SNOW_GENERATOR.generate(worldIn, rand, blockpos, 0);
-//					}
-//				}
-//			}
 
 
 			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -156,7 +132,7 @@ public class BiomePermianCreekColdGlossopteris extends ElementsLepidodendronMod.
 
 		@Override
 		public EnumBiomeTypePermian getBiomeType() {
-			return EnumBiomeTypePermian.Glossopteris;
+			return EnumBiomeTypePermian.Ocean;
 		}
 
 	}

@@ -6,7 +6,6 @@ import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.lepidodendron.world.gen.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -17,10 +16,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomePermianColdGlossopterisSwamp extends ElementsLepidodendronMod.ModElement {
+public class BiomePermianGlossopterisColdSwamp extends ElementsLepidodendronMod.ModElement {
 	@GameRegistry.ObjectHolder("lepidodendron:permian_cold_glossopteris_swamp")
 	public static final BiomeGenCustom biome = null;
-	public BiomePermianColdGlossopterisSwamp(ElementsLepidodendronMod instance) {
+	public BiomePermianGlossopterisColdSwamp(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -38,7 +37,7 @@ public class BiomePermianColdGlossopterisSwamp extends ElementsLepidodendronMod.
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Cold Glossopteris Swamp").setRainfall(0.4F).setBaseHeight(-0.20F).setHeightVariation(0.0F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
+			super(new BiomeProperties("Permian Antarctic Glossopteris Bog").setRainfall(0.4F).setBaseHeight(-0.20F).setHeightVariation(0.0F).setTemperature(-0.1F).setWaterColor(-5317633).setSnowEnabled());
 			setRegistryName("lepidodendron:permian_cold_glossopteris_swamp");
 			topBlock = BlockPeat.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
@@ -91,13 +90,11 @@ public class BiomePermianColdGlossopterisSwamp extends ElementsLepidodendronMod.
 
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-			//if (Math.random() > 0.975) {
-			//	return TIETEA_TREE;
-			//}
-			if (Math.random() > 0.08) {
+
+			if (Math.random() > 0.10) {
 				return GLOSSOPTERIS_TREE;
 			}
-			if (Math.random() > 0.5) {
+			if (Math.random() > 0.3) {
 				return CORDAITES_TREE;
 			}
 			return WALCHIA_TREE;

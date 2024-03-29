@@ -10,6 +10,9 @@ public class GenLayerPermianRiverBorder extends GenLayer
 
     public Biome PERMIAN_RIVER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_river"));
     public int PERMIAN_RIVER_ID = Biome.getIdForBiome(PERMIAN_RIVER);
+    
+    public Biome PERMIAN_DRUMLIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_drumlin"));
+    public int PERMIAN_DRUMLIN_ID = Biome.getIdForBiome(PERMIAN_DRUMLIN);
 
     public Biome PERMIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
     public int PERMIAN_OCEAN_SHORE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SHORE);
@@ -41,17 +44,17 @@ public class GenLayerPermianRiverBorder extends GenLayer
     public  int PERMIAN_MOUNTAINS_ID =  Biome.getIdForBiome(PERMIAN_MOUNTAINS);
 
     public  Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest"));
-    public  int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
+    public  int PERMIAN_GLOSSOPTERIS_SWAMP1_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
     public  Biome PERMIAN_GLOSSOPTERIS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp"));
-    public  int PERMIAN_GLOSSOPTERIS_SWAMP_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_SWAMP);
+    public  int PERMIAN_GLOSSOPTERIS_SWAMP2_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_SWAMP);
     public  Biome PERMIAN_GLOSSOPTERIS_LAKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
     public  int PERMIAN_GLOSSOPTERIS_LAKES_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LAKES);
     public  Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
-    public  int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
+    public  int PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
     public Biome PERMIAN_GLOSSOPTERIS_MEADOW = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris"));
-    public int PERMIAN_GLOSSOPTERIS_MEADOW_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_MEADOW);
+    public int PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_MEADOW);
     public Biome PERMIAN_GLOSSOPTERIS_COPSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris_copse"));
-    public int PERMIAN_GLOSSOPTERIS_COPSE_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_COPSE);
+    public int PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_COPSE);
 
     public  Biome PERMIAN_LOWLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands"));
     public  int PERMIAN_LOWLANDS_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS);
@@ -108,6 +111,60 @@ public class GenLayerPermianRiverBorder extends GenLayer
                     )
                     {
                         aint1[j + i * areaWidth] = PERMIAN_RIVER_ID;
+                    }
+                    else
+                    {
+                        aint1[j + i * areaWidth] = k;
+                    }
+                }
+                if (isGlossopterisCold(k))
+                {
+                    int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
+                    int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
+                    int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
+                    int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
+                    if ((!isGlossopterisCold(l1) && !isOceanOrBeach(l1) && !isExemptforGlossopterisCold(l1))
+                            || (!isGlossopterisCold(k2) && !isOceanOrBeach(k2) && !isExemptforGlossopterisCold(k2))
+                            || (!isGlossopterisCold(j3) && !isOceanOrBeach(j3) && !isExemptforGlossopterisCold(j3))
+                            || (!isGlossopterisCold(i4) && !isOceanOrBeach(i4) && !isExemptforGlossopterisCold(i4))
+                    ) {
+                        aint1[j + i * areaWidth] = PERMIAN_DRUMLIN_ID;
+                    }
+                    else
+                    {
+                        aint1[j + i * areaWidth] = k;
+                    }
+                }
+                else if (isGlossopterisLakes(k))
+                {
+                    int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
+                    int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
+                    int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
+                    int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
+                    if ((!isGlossopterisLakes(l1) && !isOceanOrBeach(l1) && !isExemptforGlossopterisLakes(l1))
+                            || (!isGlossopterisLakes(k2) && !isOceanOrBeach(k2) && !isExemptforGlossopterisLakes(k2))
+                            || (!isGlossopterisLakes(j3) && !isOceanOrBeach(j3) && !isExemptforGlossopterisLakes(j3))
+                            || (!isGlossopterisLakes(i4) && !isOceanOrBeach(i4) && !isExemptforGlossopterisLakes(i4))
+                    ) {
+                        aint1[j + i * areaWidth] = PERMIAN_DRUMLIN_ID;
+                    }
+                    else
+                    {
+                        aint1[j + i * areaWidth] = k;
+                    }
+                }
+                else if (isGlossopterisTemperate(k))
+                {
+                    int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
+                    int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
+                    int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
+                    int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
+                    if ((!isGlossopterisTemperate(l1) && !isOceanOrBeach(l1) && !isExemptforGlossopterisTemperate(l1))
+                            || (!isGlossopterisTemperate(k2) && !isOceanOrBeach(k2) && !isExemptforGlossopterisTemperate(k2))
+                            || (!isGlossopterisTemperate(j3) && !isOceanOrBeach(j3) && !isExemptforGlossopterisTemperate(j3))
+                            || (!isGlossopterisTemperate(i4) && !isOceanOrBeach(i4) && !isExemptforGlossopterisTemperate(i4))
+                    ) {
+                        aint1[j + i * areaWidth] = PERMIAN_DRUMLIN_ID;
                     }
                     else
                     {
@@ -210,7 +267,7 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_STONY_ID
             || biomeID == PERMIAN_STONY_SPIKES_ID
             || biomeID == PERMIAN_STONY_DEPRESSION_ID
-                || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID) {
+            || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID) {
             return true;
         }
         return false;
@@ -226,31 +283,33 @@ public class GenLayerPermianRiverBorder extends GenLayer
 }
 
     private boolean isGlossopteris(int biomeID) {
-        if (biomeID == PERMIAN_GLOSSOPTERIS_ID
+        if (biomeID == PERMIAN_GLOSSOPTERIS_SWAMP1_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP2_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID) {
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID
+            || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
         return false;
     }
 
     private boolean isExemptforGlossopteris(int biomeID) {
-        if (biomeID == PERMIAN_GLOSSOPTERIS_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
+        if (biomeID == PERMIAN_GLOSSOPTERIS_SWAMP1_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP2_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID
             || biomeID == PERMIAN_FLOODBASALT_ID
             || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
             || biomeID == PERMIAN_HIGHLANDS_ID
             || biomeID == PERMIAN_MOUNTAINS_ID
             || biomeID == PERMIAN_LOWLANDS_ID
             || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
-            || biomeID == PERMIAN_LOWLANDS_FOREST_ID) {
+            || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+            || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
         return false;
@@ -268,7 +327,7 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_STONY_ID
             || biomeID == PERMIAN_STONY_SPIKES_ID
             || biomeID == PERMIAN_STONY_DEPRESSION_ID
-                || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID) {
+            || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID) {
             return true;
         }
         return false;
@@ -285,10 +344,7 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_STONY_ID
             || biomeID == PERMIAN_STONY_SPIKES_ID
             || biomeID == PERMIAN_STONY_DEPRESSION_ID
-                || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID
-            //|| biomeID == PERMIAN_LOWLANDS_ID
-            //|| biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
-            //|| biomeID == PERMIAN_LOWLANDS_FOREST_ID
+            || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID
         ) {
             return true;
         }
@@ -296,12 +352,12 @@ public class GenLayerPermianRiverBorder extends GenLayer
     }
 
     private boolean isExemptforWetlands(int biomeID) {
-        if (biomeID == PERMIAN_GLOSSOPTERIS_ID
+        if (biomeID == PERMIAN_GLOSSOPTERIS_SWAMP1_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP2_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_LIGHT_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_MEADOW_ID
-            || biomeID == PERMIAN_GLOSSOPTERIS_COPSE_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
+            || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID
             || biomeID == PERMIAN_FLOODBASALT_ID
             || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
             || biomeID == PERMIAN_HIGHLANDS_ID
@@ -309,6 +365,83 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_LOWLANDS_ID
             || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
             || biomeID == PERMIAN_LOWLANDS_FOREST_ID) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+
+    private boolean isGlossopterisCold(int biomeID) {
+        if (biomeID == PERMIAN_GLOSSOPTERIS_SWAMP1_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP2_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isGlossopterisLakes(int biomeID) {
+        if (biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isGlossopterisTemperate(int biomeID) {
+        if (biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isExemptforGlossopterisCold(int biomeID) {
+        if (biomeID == PERMIAN_GLOSSOPTERIS_SWAMP1_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP2_ID
+                || biomeID == PERMIAN_FLOODBASALT_ID
+                || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
+                || biomeID == PERMIAN_HIGHLANDS_ID
+                || biomeID == PERMIAN_MOUNTAINS_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_DRUMLIN_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isExemptforGlossopterisLakes(int biomeID) {
+        if (biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID
+                || biomeID == PERMIAN_FLOODBASALT_ID
+                || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
+                || biomeID == PERMIAN_HIGHLANDS_ID
+                || biomeID == PERMIAN_MOUNTAINS_ID
+                || biomeID == PERMIAN_LOWLANDS_ID
+                || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_DRUMLIN_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isExemptforGlossopterisTemperate(int biomeID) {
+        if (biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID
+                || biomeID == PERMIAN_FLOODBASALT_ID
+                || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
+                || biomeID == PERMIAN_HIGHLANDS_ID
+                || biomeID == PERMIAN_MOUNTAINS_ID
+                || biomeID == PERMIAN_LOWLANDS_ID
+                || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
         return false;

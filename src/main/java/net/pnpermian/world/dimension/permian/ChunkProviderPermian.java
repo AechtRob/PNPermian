@@ -2,7 +2,6 @@ package net.pnpermian.world.dimension.permian;
 
 import net.lepidodendron.block.*;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
-import net.lepidodendron.world.biome.permian.*;
 import net.lepidodendron.world.gen.WorldGenCausticMudLake;
 import net.lepidodendron.world.gen.WorldGenPangaeanDryLakes;
 import net.lepidodendron.world.gen.WorldGenPermianLakes;
@@ -71,7 +70,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
             @Override
             protected void digBlock(ChunkPrimer data, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop) {
                 Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
-                if (biome == BiomePermianBeach.biome || biome == BiomePermianColdGlossopterisBeach.biome
+                if (biome == BiomePermianBeach.biome || biome == BiomePermianBeachColdGlossopteris.biome
                     || biome == BiomePermianRiver.biome) {return;}
                 IBlockState state = data.getBlockState(x, y, z);
                 if (state.getBlock() == STONE.getBlock() || state.getBlock() == biome.topBlock.getBlock()
@@ -147,7 +146,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
         net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.random, x, z, false);
 
         if (this.random.nextInt(4) == 0 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianDesert.biome
-                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianColdGlossopterisBeach.biome
+                && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianBeachColdGlossopteris.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianBeach.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanShore.biome
                 && world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) != BiomePermianOceanCliff.biome
@@ -164,7 +163,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
             }
         }
 
-        if (world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianTemperateGlossopteris.biome) {
+        if (world.getBiome(new BlockPos(i, world.getSeaLevel(), j)) == BiomePermianGlossopterisTemperateWaterMeadow.biome) {
             for (int lake = 0; lake < 2; ++lake) {
                 if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.random, x, z, false,
                         net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE)) {
@@ -402,7 +401,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
                     double d3 = this.limitRegMax[i] / (double) 512;
                     double d4 = (this.noiseRegMain[i] / 10.0D + 1.0D) / 2.0D;
 
-                    if (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome || biome == BiomePermianColdGlossopterisSwamp.biome || biome == BiomePermianColdGlossopterisForest.biome) {
+                    if (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome || biome == BiomePermianGlossopterisColdSwamp.biome || biome == BiomePermianGlossopterisColdSwampLand.biome) {
                         //Flatten these out:
                         d4 = 0;
                         d2 = d4;
@@ -608,6 +607,20 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
                         }
 
+                        //Break up the Drumlins
+                        if (biome == BiomePermianGlossopterisDrumlin.biome
+                                && rand.nextInt(12) == 0) {
+                            iblockstate = BlockCoarseSandyDirtPangaean.block.getDefaultState();
+                        }
+                        if (biome == BiomePermianGlossopterisDrumlin.biome
+                                && rand.nextInt(12) == 0) {
+                            iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                        }
+                        if (biome == BiomePermianGlossopterisDrumlin.biome
+                                && rand.nextInt(12) == 0) {
+                            iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                        }
+
                         //Add moss in the Forest:
                         if (iblockstate == BlockPrehistoricGroundBasic.block.getDefaultState()
                                 && biome == BiomePermianLowlandsForest.biome && rand.nextInt(20) == 0) {
@@ -616,7 +629,7 @@ public class ChunkProviderPermian implements IChunkGenerator {
 
                         //Blend the Glossopteris forest a little:
                         if (iblockstate == BlockLeafLitter.block.getDefaultState()
-                                && biome == BiomePermianColdGlossopterisForestLight.biome && rand.nextInt(12) == 0) {
+                                && biome == BiomePermianGlossopterisTemperateForest.biome && rand.nextInt(12) == 0) {
                             iblockstate = BlockCoarseSandyDirtPangaean.block.getDefaultState();
                         }
 

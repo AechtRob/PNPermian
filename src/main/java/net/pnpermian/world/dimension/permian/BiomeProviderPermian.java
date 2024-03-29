@@ -59,7 +59,8 @@ public class BiomeProviderPermian extends BiomeProvider {
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris_copse")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_fern_copse")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded"))
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_drumlin"))
     );
     public GenLayer genBiomes;
     /** A GenLayer containing the indices into BiomeGenBase.biomeList[] */

@@ -13,8 +13,6 @@ public class GenLayerDiversifyPermian extends GenLayer {
     public  int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
     public  Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
     public  int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
-    public  Biome PERMIAN_GLOSSOPTERIS_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
-    public  int PERMIAN_GLOSSOPTERIS_WET_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_WET);
     public  Biome PERMIAN_GLOSSOPTERIS_TEMPERATE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris"));
     public  int PERMIAN_GLOSSOPTERIS_TEMPERATE_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_TEMPERATE);
     public  Biome PERMIAN_WETLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands"));
@@ -57,7 +55,6 @@ public class GenLayerDiversifyPermian extends GenLayer {
         PERMIAN_GLOSSOPTERIS_ID,
         PERMIAN_GLOSSOPTERIS_LIGHT_ID,
         PERMIAN_GLOSSOPTERIS_LIGHT_ID,
-        PERMIAN_GLOSSOPTERIS_WET_ID,
         PERMIAN_GLOSSOPTERIS_TEMPERATE_ID,
         PERMIAN_GLOSSOPTERIS_TEMPERATE_ID
     };
@@ -99,7 +96,7 @@ public class GenLayerDiversifyPermian extends GenLayer {
                         output[i] = DesertBiomes[nextInt(DesertBiomes.length)];
                     else if (Biome.getBiome(center) == BiomePermianAridLands.biome)
                         output[i] = AridBiomes[nextInt(AridBiomes.length)];
-                    else if (Biome.getBiome(center) == BiomePermianColdGlossopterisForest.biome)
+                    else if (Biome.getBiome(center) == BiomePermianGlossopterisColdSwampLand.biome)
                         output[i] = GlossopterisBiomes[nextInt(GlossopterisBiomes.length)];
                     else if (Biome.getBiome(center)  == BiomePermianWetlands.biome)
                         output[i] = WetlandsBiomes[nextInt(WetlandsBiomes.length)];

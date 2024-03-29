@@ -5,7 +5,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.pnpermian.world.biome.permian.BiomePermianTemperateGlossopteris;
+import net.pnpermian.world.biome.permian.BiomePermianGlossopterisTemperateWaterMeadow;
 
 public class GenLayerPermianAddGlossopterisCopse extends GenLayer {
 
@@ -42,7 +42,7 @@ public class GenLayerPermianAddGlossopterisCopse extends GenLayer {
                 int center = input[i];
                 initChunkSeed(xOut + x, zOut + z);
                 if (nextInt(2) == 0) {
-                    if (Biome.getBiome(center) == BiomePermianTemperateGlossopteris.biome) {
+                    if (Biome.getBiome(center) == BiomePermianGlossopterisTemperateWaterMeadow.biome) {
                         output[i] = GlossopterisBiomes[nextInt(GlossopterisBiomes.length)];
                     }
                     else output[i] = center;
