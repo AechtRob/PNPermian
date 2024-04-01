@@ -95,6 +95,8 @@ public class BiomePermianGlossopterisTemperateWaterMeadow extends ElementsLepido
 		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_SHRUBBY = new WorldGenSphenophyllalesShrubby();
 		protected static final WorldGenSchizoneura SCHIZONEURA_GENERATOR = new WorldGenSchizoneura();
 
+		protected static final WorldGenNeomariopteris NEOMARIOPTERIS_GENERATOR = new WorldGenNeomariopteris();
+
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -252,6 +254,15 @@ public class BiomePermianGlossopterisTemperateWaterMeadow extends ElementsLepido
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					SPHENOPHYLLALES_SHRUBBY.generate(worldIn, rand, pos.add(j, l, k), false);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 24; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					NEOMARIOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), false);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
