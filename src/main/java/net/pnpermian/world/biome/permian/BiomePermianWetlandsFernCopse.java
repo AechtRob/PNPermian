@@ -2,7 +2,9 @@
 package net.pnpermian.world.biome.permian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockCladophlebis;
 import net.lepidodendron.block.BlockCordaitesLog;
+import net.lepidodendron.block.BlockMarattia;
 import net.lepidodendron.block.BlockPrehistoricGroundLush;
 import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
@@ -114,10 +116,11 @@ public class BiomePermianWetlandsFernCopse extends ElementsLepidodendronMod.ModE
 		public static final PropertyEnum<BlockDoublePlant.EnumPlantType> VARIANT = PropertyEnum.<BlockDoublePlant.EnumPlantType>create("variant", BlockDoublePlant.EnumPlantType.class);
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 		protected static final WorldGenMossStone MOSSY_STONE_GENERATOR = new WorldGenMossStone();
-		protected static final WorldGenMarattia MARATTIA_GENERATOR = new WorldGenMarattia();
-		protected static final WorldGenCladophlebis CLADOPHLEBIS_GENERATOR = new WorldGenCladophlebis();
+		//protected static final WorldGenMarattia MARATTIA_GENERATOR = new WorldGenMarattia();
+		//protected static final WorldGenCladophlebis CLADOPHLEBIS_GENERATOR = new WorldGenCladophlebis();
 		protected static final WorldGenPrehistoricGround DRIER_GROUND_GENERATOR= new WorldGenPrehistoricGround();
 		protected static final WorldGenPeat PEAT_GENERATOR = new WorldGenPeat();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -321,7 +324,7 @@ public class BiomePermianWetlandsFernCopse extends ElementsLepidodendronMod.ModE
 				int j = rand.nextInt(16) + 8;
 				int k = rand.nextInt(16) + 8;
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				MARATTIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				PLANT_GENERATOR.generate(BlockMarattia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, false, true, false);
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -330,7 +333,7 @@ public class BiomePermianWetlandsFernCopse extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					CLADOPHLEBIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockCladophlebis.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

@@ -2,9 +2,7 @@
 package net.pnpermian.world.biome.permian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
-import net.lepidodendron.block.BlockCoarseSandyDirtPangaean;
-import net.lepidodendron.block.BlockCordaitesLog;
-import net.lepidodendron.block.BlockGlossopterisLog;
+import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.lepidodendron.world.gen.*;
@@ -66,11 +64,11 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenTreeLog CORDAITES_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
 		protected static final WorldGenTreeLog WALCHIA_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
 
-    	protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
-		protected static final WorldGenCyclodendron CYCLODENDRON_GENERATOR = new WorldGenCyclodendron();
-		protected static final WorldGenSurangephyllum SURANGEPHYLLUM_GENERATOR = new WorldGenSurangephyllum();
-		protected static final WorldGenBrasilodendron brasilodendron_GENERATOR = new WorldGenBrasilodendron();
-		protected static final WorldGenPaurodendron PAURODENDRON_GENERATOR = new WorldGenPaurodendron();
+    	//protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
+		//protected static final WorldGenCyclodendron CYCLODENDRON_GENERATOR = new WorldGenCyclodendron();
+		//protected static final WorldGenSurangephyllum SURANGEPHYLLUM_GENERATOR = new WorldGenSurangephyllum();
+		//protected static final WorldGenBrasilodendron brasilodendron_GENERATOR = new WorldGenBrasilodendron();
+		//protected static final WorldGenPaurodendron PAURODENDRON_GENERATOR = new WorldGenPaurodendron();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 
@@ -84,6 +82,7 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 		//protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
 		//protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -217,7 +216,7 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 	            int j = rand.nextInt(16) + 8;
 	            int k = rand.nextInt(16) + 8;
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				CYCLODENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				PLANT_GENERATOR.generate(BlockCyclodendron.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 	        }
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -226,7 +225,7 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PAURODENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockPaurodendron.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -235,7 +234,7 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					brasilodendron_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					PLANT_GENERATOR.generate(BlockBrasilodendron.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -244,7 +243,7 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 	            int j = rand.nextInt(16) + 8;
 	            int k = rand.nextInt(16) + 8;
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				WOOD_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				PLANT_GENERATOR.generate(BlockWoodHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 	        }
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

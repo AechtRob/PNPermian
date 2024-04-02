@@ -2,10 +2,7 @@
 package net.pnpermian.world.biome.permian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
-import net.lepidodendron.block.BlockBrachyphyllumLog;
-import net.lepidodendron.block.BlockGlossopterisLog;
-import net.lepidodendron.block.BlockGlossopterisSapling;
-import net.lepidodendron.block.BlockGlossopterisTreeLeaves;
+import net.lepidodendron.block.*;
 import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.lepidodendron.world.gen.*;
@@ -78,8 +75,9 @@ public class BiomePermianGlossopterisDrumlin extends ElementsLepidodendronMod.Mo
 		}
 
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
-		protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_SHRUBBY = new WorldGenSphenophyllalesShrubby();
+		//protected static final WorldGenSphenophyllalesShrubby SPHENOPHYLLALES_SHRUBBY = new WorldGenSphenophyllalesShrubby();
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -104,7 +102,7 @@ public class BiomePermianGlossopterisDrumlin extends ElementsLepidodendronMod.Mo
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					SPHENOPHYLLALES_SHRUBBY.generate(worldIn, rand, pos.add(j, l, k), false);
+					PLANT_GENERATOR.generate(BlockSphenophyllales2.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 

@@ -2,6 +2,9 @@
 package net.pnpermian.world.biome.permian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockBuriadia;
+import net.lepidodendron.block.BlockOrtiseia;
+import net.lepidodendron.block.BlockThucydia;
 import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.lepidodendron.world.gen.*;
@@ -74,10 +77,11 @@ public class BiomePermianMountains extends ElementsLepidodendronMod.ModElement {
 
 		protected static final WorldGenWalchiaTree WALCHIA_TREE = new WorldGenWalchiaTree(false);
 		protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
-		protected static final WorldGenBuriadia BURIADIA_GENERATOR = new WorldGenBuriadia();
+		//protected static final WorldGenBuriadia BURIADIA_GENERATOR = new WorldGenBuriadia();
 		protected static final WorldGenUtrechtiaShoot UTRECHTIA_SHOOT_GENERATOR = new WorldGenUtrechtiaShoot();
-		protected static final WorldGenThucydia THUCYDIA_GENERATOR = new WorldGenThucydia();
-		protected static final WorldGenOrtiseia ORTISEIA_GENERATOR = new WorldGenOrtiseia();
+		//protected static final WorldGenThucydia THUCYDIA_GENERATOR = new WorldGenThucydia();
+		//protected static final WorldGenOrtiseia ORTISEIA_GENERATOR = new WorldGenOrtiseia();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -108,7 +112,7 @@ public class BiomePermianMountains extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					BURIADIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 85, 120);
+					PLANT_GENERATOR.generate(BlockBuriadia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 85, 120, false, false, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -126,7 +130,7 @@ public class BiomePermianMountains extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					THUCYDIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 95, 115);
+					PLANT_GENERATOR.generate(BlockThucydia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 95, 115, false, false, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -135,7 +139,7 @@ public class BiomePermianMountains extends ElementsLepidodendronMod.ModElement {
 				int j = rand.nextInt(16) + 8;
 				int k = rand.nextInt(16) + 8;
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				ORTISEIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 105, 130);
+				PLANT_GENERATOR.generate(BlockOrtiseia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 105, 130, false, false, true);
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -144,7 +148,7 @@ public class BiomePermianMountains extends ElementsLepidodendronMod.ModElement {
 				int j = rand.nextInt(16) + 8;
 				int k = rand.nextInt(16) + 8;
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				ORTISEIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), 131, 250);
+				PLANT_GENERATOR.generate(BlockOrtiseia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 131, 250, false, false, true);
 			}
 
 			super.decorate(worldIn, rand, pos);

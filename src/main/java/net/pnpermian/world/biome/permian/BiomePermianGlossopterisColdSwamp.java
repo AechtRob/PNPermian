@@ -67,11 +67,11 @@ public class BiomePermianGlossopterisColdSwamp extends ElementsLepidodendronMod.
 		protected static final WorldGenTreeLog WALCHIA_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
 		protected static final WorldGenTreeRottenLog ROTTEN_LOG_GENERATOR = new WorldGenTreeRottenLog();
 
-		protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
-		protected static final WorldGenCyclodendron CYCLODENDRON_GENERATOR = new WorldGenCyclodendron();
-		protected static final WorldGenSurangephyllum SURANGEPHYLLUM_GENERATOR = new WorldGenSurangephyllum();
-		protected static final WorldGenBrasilodendron brasilodendron_GENERATOR = new WorldGenBrasilodendron();
-		protected static final WorldGenPaurodendron PAURODENDRON_GENERATOR = new WorldGenPaurodendron();
+		//protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
+		//protected static final WorldGenCyclodendron CYCLODENDRON_GENERATOR = new WorldGenCyclodendron();
+		//protected static final WorldGenSurangephyllum SURANGEPHYLLUM_GENERATOR = new WorldGenSurangephyllum();
+		//protected static final WorldGenBrasilodendron brasilodendron_GENERATOR = new WorldGenBrasilodendron();
+		//protected static final WorldGenPaurodendron PAURODENDRON_GENERATOR = new WorldGenPaurodendron();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 
@@ -87,6 +87,7 @@ public class BiomePermianGlossopterisColdSwamp extends ElementsLepidodendronMod.
 
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		protected static final WorldGenLeafLitter LEAFLITTER_GENERATOR = new WorldGenLeafLitter();
+		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -248,7 +249,7 @@ public class BiomePermianGlossopterisColdSwamp extends ElementsLepidodendronMod.
 //	            int j = rand.nextInt(16) + 8;
 //	            int k = rand.nextInt(16) + 8;
 //	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-//				CYCLODENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//				PLANT_GENERATOR.generate(BlockCyclodendron.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 //	        }
 //
 //			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -257,7 +258,7 @@ public class BiomePermianGlossopterisColdSwamp extends ElementsLepidodendronMod.
 //					int j = rand.nextInt(16) + 8;
 //					int k = rand.nextInt(16) + 8;
 //					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-//					PAURODENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//					PLANT_GENERATOR.generate(BlockPaurodendron.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 //				}
 //
 //			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -266,7 +267,7 @@ public class BiomePermianGlossopterisColdSwamp extends ElementsLepidodendronMod.
 //					int j = rand.nextInt(16) + 8;
 //					int k = rand.nextInt(16) + 8;
 //					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-//					brasilodendron_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//					PLANT_GENERATOR.generate(BlockBrasilodendron.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 //				}
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -275,7 +276,7 @@ public class BiomePermianGlossopterisColdSwamp extends ElementsLepidodendronMod.
 	            int j = rand.nextInt(16) + 8;
 	            int k = rand.nextInt(16) + 8;
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				WOOD_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				PLANT_GENERATOR.generate(BlockWoodHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 	        }
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
