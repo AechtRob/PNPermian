@@ -7,6 +7,7 @@ import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.lepidodendron.world.gen.*;
 import net.minecraft.block.BlockBush;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -37,10 +38,10 @@ public class BiomePermianGlossopterisTemperateForestCraggy extends ElementsLepid
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Temperate Glossopteris Forest CRAG").setRainfall(0.4F).setBaseHeight(1.95F).setHeightVariation(0.22F).setTemperature(0.20F).setWaterColor(-5317633));
+			super(new BiomeProperties("Permian Temperate Glossopteris Forest").setRainfall(0.4F).setBaseHeight(1.95F).setHeightVariation(0.22F).setTemperature(0.20F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_cold_glossopteris_forest_craggy");
-			topBlock = BlockLeafLitter.block.getDefaultState();
-			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
+			topBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
+			fillerBlock = Blocks.STONE.getDefaultState();
 			decorator.treesPerChunk = 6;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
@@ -76,6 +77,7 @@ public class BiomePermianGlossopterisTemperateForestCraggy extends ElementsLepid
 		protected static final WorldGenPrehistoricGroundCoverPangaean GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverPangaean();
 		protected static final WorldGenWaterSidePangaeanPrehistoricGround WATERSIDE_DIRT_GENERATOR = new WorldGenWaterSidePangaeanPrehistoricGround();
 		protected static final WorldGenPrehistoricGround GROUND_GENERATOR = new WorldGenPrehistoricGround();
+		protected static final WorldGenLeafLitter LEAFLITTER_GENERATOR = new WorldGenLeafLitter();
 
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenPodzol PODZOL_GENERATOR = new WorldGenPodzol();
@@ -178,12 +180,21 @@ public class BiomePermianGlossopterisTemperateForestCraggy extends ElementsLepid
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 24; ++i)
+				for (int i = 0; i < 36; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					DIRT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 64; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					LEAFLITTER_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
