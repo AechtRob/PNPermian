@@ -3,6 +3,7 @@ package net.pnpermian.world.biome.permian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.block.*;
+import net.lepidodendron.procedure.ProcedureWorldGenGangamopteris;
 import net.lepidodendron.util.EnumBiomeTypePermian;
 import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.lepidodendron.world.gen.*;
@@ -35,7 +36,7 @@ public class BiomePermianGlossopterisTemperateForest extends ElementsLepidodendr
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Temperate Glossopteris Forest").setRainfall(0.4F).setBaseHeight(0.04F).setHeightVariation(0.29F).setTemperature(0.25F).setWaterColor(-5317633));
+			super(new BiomeProperties("Permian Temperate Glossopteris Forest").setRainfall(0.4F).setBaseHeight(0.04F).setHeightVariation(0.19F).setTemperature(0.25F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_cold_glossopteris_forest_light");
 			topBlock = BlockLeafLitter.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
@@ -54,29 +55,22 @@ public class BiomePermianGlossopterisTemperateForest extends ElementsLepidodendr
 			this.spawnableCaveCreatureList.clear();
 		}
 
-		protected static final WorldGenGlossopterisTree GLOSSOPTERIS_TREE = new WorldGenGlossopterisTree(false);
 		protected static final WorldGenCordaitesDry CORDAITES_TREE = new WorldGenCordaitesDry(false);
 		protected static final WorldGenWalchiaTree WALCHIA_TREE = new WorldGenWalchiaTree(false);
-		//protected static final WorldGenTietea TIETEA_TREE = new WorldGenTietea(false);
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
+		protected static final WorldGenGlossopterisTree GLOSSOPTERIS_ANGUSTIFOLIA_GENERATOR = new WorldGenGlossopterisTree(false);
+		protected static final WorldGenGlossopterisDuocaudataTree GLOSSOPTERIS_DUOCAUDATA_GENERATOR = new WorldGenGlossopterisDuocaudataTree(false);
 		protected static final WorldGenGlossopterisAmplaTree GLOSSOPTERIS_AMPLA_GENERATOR = new WorldGenGlossopterisAmplaTree(false);
+		protected static final WorldGenGlossopterisAltitudeBands LAYERED_GLOSSOPTERIS_TREE = new WorldGenGlossopterisAltitudeBands(false);
 
 		protected static final WorldGenTreeLog GLOSSOPTERIS_LOG_GENERATOR = new WorldGenTreeLog(BlockGlossopterisLog.block);
 		protected static final WorldGenTreeLog CORDAITES_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
 		protected static final WorldGenTreeLog WALCHIA_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
 
-    	//protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
-		//protected static final WorldGenCyclodendron CYCLODENDRON_GENERATOR = new WorldGenCyclodendron();
-		//protected static final WorldGenSurangephyllum SURANGEPHYLLUM_GENERATOR = new WorldGenSurangephyllum();
-		//protected static final WorldGenBrasilodendron brasilodendron_GENERATOR = new WorldGenBrasilodendron();
-		//protected static final WorldGenPaurodendron PAURODENDRON_GENERATOR = new WorldGenPaurodendron();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
-		//protected static final WorldGenBelemnopteris BELEMNOPTERIS_GENERATOR = new WorldGenBelemnopteris();
 		protected static final WorldGenCtenis CTENIS_GENERATOR = new WorldGenCtenis();
-		//protected static final WorldGenSkaaripteris SKAARIPTERIS_GENERATOR = new WorldGenSkaaripteris();
 		protected static final WorldGenFern FERN_GENERATOR = new WorldGenFern();
-		//protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 
 		protected static final WorldGenPrehistoricGroundCoverPangaean GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverPangaean();
 		protected static final WorldGenWaterSidePangaeanPrehistoricGround WATERSIDE_DIRT_GENERATOR = new WorldGenWaterSidePangaeanPrehistoricGround();
@@ -90,14 +84,19 @@ public class BiomePermianGlossopterisTemperateForest extends ElementsLepidodendr
 		
 	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-			if (Math.random() > 0.10) {
-				if (Math.random() > 0.6) {
-					return GLOSSOPTERIS_AMPLA_GENERATOR;
-				}
-				return GLOSSOPTERIS_TREE;
+			if (Math.random() > 0.25) {
+				return LAYERED_GLOSSOPTERIS_TREE;
 			}
-			if (Math.random() > 0.3) {
-				return CORDAITES_TREE;
+			if (Math.random() > 0.2) {
+				int i = rand.nextInt(3);
+				switch (i) {
+					case 0: default:
+						return GLOSSOPTERIS_ANGUSTIFOLIA_GENERATOR;
+					case 1:
+						return GLOSSOPTERIS_DUOCAUDATA_GENERATOR;
+					case 2:
+						return GLOSSOPTERIS_AMPLA_GENERATOR;
+				}
 			}
 			return WALCHIA_TREE;
 	    }
@@ -105,29 +104,6 @@ public class BiomePermianGlossopterisTemperateForest extends ElementsLepidodendr
 		@Override
 	    public void decorate(World worldIn, Random rand, BlockPos pos)
 	    {
-
-//			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ICE)) {
-//				{
-//					int i = rand.nextInt(12);
-//
-//					for (int j = 0; j < i; ++j) {
-//						int k = rand.nextInt(16) + 8;
-//						int l = rand.nextInt(16) + 8;
-//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-//						if (worldIn.getBlockState(blockpos.down()).getMaterial() != Material.WATER) {ICE_GENERATOR.generate(worldIn, rand, blockpos,0);}
-//					}
-//
-//					i = rand.nextInt(32);
-//
-//					for (int j = 0; j < i; ++j)
-//					{
-//						int k = rand.nextInt(16) + 8;
-//						int l = rand.nextInt(16) + 8;
-//						BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-//						SNOW_GENERATOR.generate(worldIn, rand, blockpos, 0);
-//					}
-//				}
-//			}
 
 	        if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        {

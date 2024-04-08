@@ -57,8 +57,8 @@ public class BiomePermianGlossopterisTemperateCopse extends ElementsLepidodendro
 			this.spawnableCaveCreatureList.clear();
 		}
 
-		protected static final WorldGenGlossopterisTreeWater GLOSSOPTERIS_TREE = new WorldGenGlossopterisTreeWater(false);
-		//protected static final WorldGenCordaitesTree CORDAITES_TREE = new WorldGenCordaitesTree(false);
+		protected static final WorldGenGlossopterisAmplaTreeWater GLOSSOPTERIS_AMPLA_TREE = new WorldGenGlossopterisAmplaTreeWater(false);
+		protected static final WorldGenGlossopterisTreeWater GLOSSOPTERIS_ANUGUSTIFOLIA_TREE = new WorldGenGlossopterisTreeWater(false);
 		//protected static final WorldGenWalchiaTree WALCHIA_TREE = new WorldGenWalchiaTree(false);
 		//protected static final WorldGenTietea TIETEA_TREE = new WorldGenTietea(false);
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
@@ -97,7 +97,10 @@ public class BiomePermianGlossopterisTemperateCopse extends ElementsLepidodendro
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-			return GLOSSOPTERIS_TREE;
+			if (Math.random() > 0.2) {
+				return GLOSSOPTERIS_AMPLA_TREE;
+			}
+			return GLOSSOPTERIS_ANUGUSTIFOLIA_TREE;
 	    }
 
 		@Override

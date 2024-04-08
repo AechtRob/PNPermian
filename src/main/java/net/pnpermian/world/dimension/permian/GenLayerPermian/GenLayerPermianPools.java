@@ -10,6 +10,8 @@ public class GenLayerPermianPools extends GenLayer
 
     public Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
     public int PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
+    public Biome PERMIAN_GLOSSOPTERIS_CRAGGY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_craggy"));
+    public int PERMIAN_GLOSSOPTERIS_CRAGGY_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_CRAGGY);
     public Biome PERMIAN_GLOSSOPTERIS_MEADOW = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris"));
     public int PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_MEADOW);
     public Biome PERMIAN_GLOSSOPTERIS_COPSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_temperate_glossopteris_copse"));
@@ -66,6 +68,7 @@ public class GenLayerPermianPools extends GenLayer
     private boolean isGlossopterisTemperate(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
                 || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
+                || biomeID == PERMIAN_GLOSSOPTERIS_CRAGGY_ID
                 || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID) {
             return true;
         }

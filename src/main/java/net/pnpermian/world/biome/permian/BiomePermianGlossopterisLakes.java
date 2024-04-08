@@ -55,21 +55,19 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 			this.spawnableCaveCreatureList.clear();
 		}
 
-		protected static final WorldGenGlossopterisTree GLOSSOPTERIS_TREE = new WorldGenGlossopterisTree(false);
+		protected static final WorldGenGlossopterisTree GLOSSOPTERIS_ANGUSTIFOLIA_GENERATOR = new WorldGenGlossopterisTree(false);
+		protected static final WorldGenGlossopterisDuocaudataTree GLOSSOPTERIS_DUOCAUDATA_GENERATOR = new WorldGenGlossopterisDuocaudataTree(false);
+		protected static final WorldGenGlossopterisAmplaTree GLOSSOPTERIS_AMPLA_GENERATOR = new WorldGenGlossopterisAmplaTree(false);
 		protected static final WorldGenCordaitesTree CORDAITES_TREE = new WorldGenCordaitesTree(false);
 		protected static final WorldGenWalchiaTree WALCHIA_TREE = new WorldGenWalchiaTree(false);
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
+		protected static final WorldGenGlossopterisAltitudeBands LAYERED_GLOSSOPTERIS_TREE = new WorldGenGlossopterisAltitudeBands(false);
 
 		protected static final WorldGenTreeLog GLOSSOPTERIS_LOG_GENERATOR = new WorldGenTreeLog(BlockGlossopterisLog.block);
 		protected static final WorldGenTreeLog CORDAITES_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
 		protected static final WorldGenTreeLog WALCHIA_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
 
-    	//protected static final WorldGenWoodHorsetail WOOD_HORSETAIL_GENERATOR = new WorldGenWoodHorsetail();
-		//protected static final WorldGenCyclodendron CYCLODENDRON_GENERATOR = new WorldGenCyclodendron();
-		//protected static final WorldGenSurangephyllum SURANGEPHYLLUM_GENERATOR = new WorldGenSurangephyllum();
-		//protected static final WorldGenBrasilodendron brasilodendron_GENERATOR = new WorldGenBrasilodendron();
-		//protected static final WorldGenPaurodendron PAURODENDRON_GENERATOR = new WorldGenPaurodendron();
-		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
+    	protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 
 		protected static final WorldGenPrehistoricGroundCoverPangaean GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCoverPangaean();
@@ -78,19 +76,24 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenPodzol PODZOL_GENERATOR = new WorldGenPodzol();
 		protected static final WorldGenPangeanDirt DIRT_GENERATOR = new WorldGenPangeanDirt();
-		//protected static final WorldGenSnow SNOW_GENERATOR = new WorldGenSnow();
-		//protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
-		//protected static final WorldGenIceOnSea ICE_GENERATOR = new WorldGenIceOnSea();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-			if (Math.random() > 0.08) {
-				return GLOSSOPTERIS_TREE;
+			if (Math.random() > 0.25) {
+				return LAYERED_GLOSSOPTERIS_TREE;
 			}
-			if (Math.random() > 0.5) {
-				return CORDAITES_TREE;
+			if (Math.random() > 0.2) {
+				int i = rand.nextInt(3);
+				switch (i) {
+					case 0: default:
+						return GLOSSOPTERIS_ANGUSTIFOLIA_GENERATOR;
+					case 1:
+						return GLOSSOPTERIS_DUOCAUDATA_GENERATOR;
+					case 2:
+						return GLOSSOPTERIS_AMPLA_GENERATOR;
+				}
 			}
 			return WALCHIA_TREE;
 	    }

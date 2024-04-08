@@ -516,6 +516,35 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             }
                         }
 
+                        if (biome == BiomePermianGlossopterisTemperateForestCraggy.biome
+                        ) {
+                            //If it's over 90 blocks then start to fill in more as stone
+                            //up to 130 where it almost fully stone - sometimes cobble
+                            int minHeight = 90;
+                            if (j1 >= minHeight) {
+                                int j2 = Math.max(0, 130 - j1);
+                                double stoneFactor = (double) j2 / (130D - (double) minHeight);
+                                if (Math.random() >= stoneFactor) {
+                                    iblockstate = Blocks.STONE.getStateFromMeta(0);
+                                    if (rand.nextInt(8) == 0) {
+                                        iblockstate = Blocks.MOSSY_COBBLESTONE.getDefaultState();
+                                    }
+                                    if (rand.nextInt(12) == 0) {
+                                        iblockstate = Blocks.COBBLESTONE.getDefaultState();
+                                    }
+                                }
+                                if (Math.random() >= stoneFactor) {
+                                    iblockstate1 = Blocks.STONE.getStateFromMeta(0);
+                                    if (rand.nextInt(8) == 0) {
+                                        iblockstate1 = Blocks.MOSSY_COBBLESTONE.getDefaultState();
+                                    }
+                                    if (rand.nextInt(12) == 0) {
+                                        iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
+                                    }
+                                }
+                            }
+                        }
+
                         //For the Mountains biomes, make mountains snowy:
                         if (biome == BiomePermianMountains.biome
                         ) {
@@ -629,7 +658,8 @@ public class ChunkProviderPermian implements IChunkGenerator {
 
                         //Blend the Glossopteris forest a little:
                         if (iblockstate == BlockLeafLitter.block.getDefaultState()
-                                && biome == BiomePermianGlossopterisTemperateForest.biome && rand.nextInt(12) == 0) {
+                                && (biome == BiomePermianGlossopterisTemperateForest.biome || biome == BiomePermianGlossopterisTemperateForestCraggy.biome)
+                                && rand.nextInt(12) == 0) {
                             iblockstate = BlockCoarseSandyDirtPangaean.block.getDefaultState();
                         }
 
