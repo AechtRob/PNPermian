@@ -7,10 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.pnpermian.world.biome.permian.BiomePermianGlossopterisColdSwamp;
-import net.pnpermian.world.biome.permian.BiomePermianGlossopterisColdSwampLand;
-import net.pnpermian.world.biome.permian.BiomePermianStonyPlains;
-import net.pnpermian.world.biome.permian.BiomePermianStonyPlainsSpikes;
+import net.pnpermian.world.biome.permian.*;
 
 public class GenLayerPermianRiverMix extends GenLayer
 {
@@ -27,6 +24,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     public int PERMIAN_CREEK_GLOSSOPTERIS_ID = Biome.getIdForBiome(PERMIAN_CREEK_GLOSSOPTERIS);
     public Biome PERMIAN_CREEK_GLOSSOPTERIS_COLD = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_cold_glossopteris_foggy"));
     public int PERMIAN_CREEK_GLOSSOPTERIS_COLD_ID = Biome.getIdForBiome(PERMIAN_CREEK_GLOSSOPTERIS_COLD);
+    public Biome PERMIAN_CREEK_GLOSSOPTERIS_WATERMEADOW = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_temperate_glossopteris"));
+    public int PERMIAN_CREEK_GLOSSOPTERIS_WATERMEADOW_ID = Biome.getIdForBiome(PERMIAN_CREEK_GLOSSOPTERIS_WATERMEADOW);
     public Biome PERMIAN_CREEK_DESERT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_desert"));
     public int PERMIAN_CREEK_DESERT_ID = Biome.getIdForBiome(PERMIAN_CREEK_DESERT);
     public Biome PERMIAN_CREEK_HIGHLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_highlands"));
@@ -59,6 +58,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     public int PERMIAN_STONY_DEPRESSION_ID =  Biome.getIdForBiome(PERMIAN_STONY_DEPRESSION);
     public Biome PERMIAN_STONY_DEPRESSION_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_depression_rim"));
     public int PERMIAN_STONY_DEPRESSION_RIM_ID =  Biome.getIdForBiome(PERMIAN_STONY_DEPRESSION_RIM);
+    public Biome PERMIAN_GLOSSOPTERIS_LAKE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
+    public int PERMIAN_GLOSSOPTERIS_LAKE_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LAKE);
 
     public GenLayerPermianRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
     {
@@ -94,6 +95,7 @@ public class GenLayerPermianRiverMix extends GenLayer
                         || aint[i] == PERMIAN_FLOODBASALT_EDGE_ID
                         || aint[i] == PERMIAN_STONY_DEPRESSION_ID
                         || aint[i] == PERMIAN_STONY_DEPRESSION_RIM_ID
+                        || aint[i] == PERMIAN_GLOSSOPTERIS_LAKE_ID
                 )
                 {
                     aint2[i] = aint[i];
@@ -129,8 +131,11 @@ public class GenLayerPermianRiverMix extends GenLayer
                             if (biome == BiomePermianGlossopterisColdSwamp.biome || biome == BiomePermianGlossopterisColdSwampLand.biome) {
                                 aint2[i] = PERMIAN_CREEK_GLOSSOPTERIS_COLD_ID;
                             }
-                            else {
+                            else if (biome == BiomePermianGlossopterisTemperateForest.biome || biome == BiomePermianGlossopterisTemperateForestCraggy.biome) {
                                 aint2[i] = PERMIAN_CREEK_GLOSSOPTERIS_ID;
+                            }
+                            else {
+                                aint2[i] = PERMIAN_CREEK_GLOSSOPTERIS_WATERMEADOW_ID;
                             }
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Ocean) {
