@@ -30,6 +30,9 @@ public class GenLayerPermian {
         biomes = new GenLayerZoom(1003L, biomes);
         biomes = new GenLayerPermianMountainEdge(2L, biomes);
         biomes = new GenLayerPermianAddGlossopterisCopse(1001L, biomes);
+
+        biomes = new GenLayerPermianHummocks(283L, biomes);
+
         biomes = new GenLayerSmooth(700L, biomes);
         biomes = new GenLayerSmooth(701L, biomes);
         biomes = new GenLayerZoom(1004L, biomes);

@@ -636,6 +636,12 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
                         }
 
+                        //Hummocks
+                        if (biome == BiomePermianWetlandsHummocks.biome
+                                && rand.nextInt(10) == 0) {
+                            iblockstate = BlockCoarseSandyDirt.block.getDefaultState();
+                        }
+
                         //Break up the Drumlins
                         if (biome == BiomePermianGlossopterisDrumlin.biome
                                 && rand.nextInt(12) == 0) {
