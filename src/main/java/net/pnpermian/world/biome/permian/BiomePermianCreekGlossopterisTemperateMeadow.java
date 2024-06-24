@@ -37,7 +37,7 @@ public class BiomePermianCreekGlossopterisTemperateMeadow extends ElementsLepido
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Temperate Water-Meadow Creek").setRainfall(0.4F).setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(0.25F).setWaterColor(-5317633));
+			super(new BiomeProperties("Permian Temperate Water-Meadow Creek").setRainfall(0.4F).setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(0.7F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_creek_temperate_glossopteris");
 			topBlock = BlockSandPangaean.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();

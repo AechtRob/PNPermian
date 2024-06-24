@@ -38,7 +38,7 @@ public class BiomePermianGlossopterisTemperateForestCraggy extends ElementsLepid
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Temperate Glossopteris Forest").setRainfall(0.4F).setBaseHeight(1.975F).setHeightVariation(0.25F).setTemperature(0.20F).setWaterColor(-5317633));
+			super(new BiomeProperties("Permian Temperate Glossopteris Forest").setRainfall(0.4F).setBaseHeight(1.975F).setHeightVariation(0.25F).setTemperature(0.6F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_cold_glossopteris_forest_craggy");
 			topBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
 			fillerBlock = Blocks.STONE.getDefaultState();

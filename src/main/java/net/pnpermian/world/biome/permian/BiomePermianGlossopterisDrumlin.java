@@ -40,7 +40,7 @@ public class BiomePermianGlossopterisDrumlin extends ElementsLepidodendronMod.Mo
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Drumlin").setBaseHeight(0.325F).setHeightVariation(0.01F).setTemperature(0.2F).setRainfall(0.3F).setWaterColor(-5317633));
+			super(new BiomeProperties("Permian Drumlin").setBaseHeight(0.325F).setHeightVariation(0.01F).setTemperature(0.7F).setRainfall(0.3F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_drumlin");
 			topBlock = Blocks.GRAVEL.getDefaultState();
 			fillerBlock = Blocks.STONE.getStateFromMeta(0);

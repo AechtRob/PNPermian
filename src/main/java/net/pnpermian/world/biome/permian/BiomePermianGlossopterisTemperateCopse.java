@@ -38,7 +38,7 @@ public class BiomePermianGlossopterisTemperateCopse extends ElementsLepidodendro
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Temperate Glossopteris Copse").setRainfall(0.4F).setBaseHeight(-0.25F).setHeightVariation(0.015F).setTemperature(0.25F).setWaterColor(-5317633));
+			super(new BiomeProperties("Permian Temperate Glossopteris Copse").setRainfall(0.4F).setBaseHeight(-0.25F).setHeightVariation(0.015F).setTemperature(0.7F).setWaterColor(-5317633));
 			setRegistryName("lepidodendron:permian_temperate_glossopteris_copse");
 			topBlock = BlockLeafLitter.block.getDefaultState();
 			fillerBlock = BlockCoarseSandyDirtPangaean.block.getDefaultState();
