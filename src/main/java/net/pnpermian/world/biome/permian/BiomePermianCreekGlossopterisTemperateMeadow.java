@@ -30,9 +30,7 @@ public class BiomePermianCreekGlossopterisTemperateMeadow extends ElementsLepido
 
 	@Override
 	public void init(FMLInitializationEvent event) {
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.BEACH);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.COLD);
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.SNOWY);
+		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.PLAINS);
 	}
 
 	static class BiomeGenCustom extends BiomePermian {

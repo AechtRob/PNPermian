@@ -30,7 +30,6 @@ public class BiomePermianCreekGlossopterisCold extends ElementsLepidodendronMod.
 
 	@Override
 	public void init(FMLInitializationEvent event) {
-		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.BEACH);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.COLD);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.SNOWY);
 	}
