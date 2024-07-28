@@ -18,6 +18,9 @@ import net.minecraft.block.state.BlockWorldState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockPattern;
 import net.minecraft.client.Minecraft;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
+import net.minecraft.crash.ICrashReportDetail;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -28,6 +31,7 @@ import net.minecraft.network.play.server.SPacketRespawn;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ReportedException;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -37,6 +41,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeProvider;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.common.DimensionManager;
@@ -49,6 +55,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.pnpermian.world.biome.permian.BiomePermianOceanShore;
 
 import javax.annotation.Nullable;
 import java.io.BufferedReader;
@@ -100,6 +107,65 @@ public class WorldPermian extends ElementsLepidodendronMod.ModElement {
 			this.biomeProvider = new BiomeProviderPermian(this.world.getSeed(), this.world.getWorldInfo());
 			this.nether = NETHER_TYPE;
 			this.hasSkyLight = true;
+		}
+
+		@Override
+		public Biome getBiomeForCoords(BlockPos pos)
+		{
+			//Override to prevent plains biomes being created as a backup ever!
+			return this.getBiomeForCoordsBody(pos, world);
+		}
+
+		public Biome getBiomeForCoordsBody(final BlockPos pos, World worldIn)
+		{
+			if (worldIn.isBlockLoaded(pos))
+			{
+				Chunk chunk = worldIn.getChunk(pos);
+
+				try
+				{
+					return this.getBiome(chunk, pos, worldIn.provider.getBiomeProvider());
+				}
+				catch (Throwable throwable)
+				{
+					CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Getting biome");
+					CrashReportCategory crashreportcategory = crashreport.makeCategory("Coordinates of biome request");
+					crashreportcategory.addDetail("Location", new ICrashReportDetail<String>()
+					{
+						public String call() throws Exception
+						{
+							return CrashReportCategory.getCoordinateInfo(pos);
+						}
+					});
+					throw new ReportedException(crashreport);
+				}
+			}
+			else
+			{
+				return worldIn.provider.getBiomeProvider().getBiome(pos, BiomePermianOceanShore.biome);
+			}
+		}
+
+		public Biome getBiome(Chunk chunk, BlockPos pos, BiomeProvider provider)
+		{
+			int i = pos.getX() & 15;
+			int j = pos.getZ() & 15;
+			int k = chunk.getBiomeArray()[j << 4 | i] & 255;
+
+			if (k == 255)
+			{
+				// Forge: checking for client ensures that biomes are only generated on integrated server
+				// in singleplayer. Generating biomes on the client may corrupt the biome ID arrays on
+				// the server while they are being generated because IntCache can't be thread safe,
+				// so client and server may end up filling the same array.
+				// This is not necessary in 1.13 and newer versions.
+				Biome biome = world.isRemote ? BiomePermianOceanShore.biome : provider.getBiome(pos, BiomePermianOceanShore.biome);
+				k = Biome.getIdForBiome(biome);
+				chunk.getBiomeArray()[j << 4 | i] = (byte)(k & 255);
+			}
+
+			Biome biome1 = Biome.getBiome(k);
+			return biome1 == null ? BiomePermianOceanShore.biome : biome1;
 		}
 
 

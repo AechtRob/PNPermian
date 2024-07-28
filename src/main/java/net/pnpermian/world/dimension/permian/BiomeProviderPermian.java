@@ -1,6 +1,8 @@
 package net.pnpermian.world.dimension.permian;
 
 import com.google.common.collect.Lists;
+import net.lepidodendron.world.biome.carboniferous.BiomeCarboniferous;
+import net.lepidodendron.world.biome.permian.BiomePermian;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.util.ReportedException;
@@ -180,6 +182,9 @@ public class BiomeProviderPermian extends BiomeProvider {
                 Biome biome = Biome.getBiome(aint[k1]);
 
                 if (!allowed.contains(biome)) {
+                    return false;
+                }
+                if (!(biome instanceof BiomePermian)) {
                     return false;
                 }
             }
