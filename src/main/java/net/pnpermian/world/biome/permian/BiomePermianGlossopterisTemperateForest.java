@@ -81,8 +81,9 @@ public class BiomePermianGlossopterisTemperateForest extends ElementsLepidodendr
 
 		protected static final WorldGenSchizoneura SCHIZONEURA_GENERATOR = new WorldGenSchizoneura();
 		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
-		
-	public WorldGenAbstractTree getRandomTreeFeature(Random rand)
+		protected static final WorldGenLiverwort LIVERWORT_GENERATOR = new WorldGenLiverwort();
+
+		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
 			if (Math.random() > 0.25) {
 				return LAYERED_GLOSSOPTERIS_TREE;
@@ -186,6 +187,15 @@ public class BiomePermianGlossopterisTemperateForest extends ElementsLepidodendr
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 				PUDDLES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 			}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 7; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					LIVERWORT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 			for (int i = 0; i < 38; ++i)

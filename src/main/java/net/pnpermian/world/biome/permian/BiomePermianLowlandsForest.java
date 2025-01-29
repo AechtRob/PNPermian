@@ -93,6 +93,7 @@ public class BiomePermianLowlandsForest extends ElementsLepidodendronMod.ModElem
 		//protected static final WorldGenClubmoss CLUBMOSS_GENERATOR = new WorldGenClubmoss();
 		protected static final WorldGenLeafblock LEAFBLOCK_GENERATOR = new WorldGenLeafblock();
 		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
+		protected static final WorldGenLiverwort LIVERWORT_GENERATOR = new WorldGenLiverwort();
 
 		@Override
 		@SideOnly(Side.CLIENT)
@@ -206,6 +207,15 @@ public class BiomePermianLowlandsForest extends ElementsLepidodendronMod.ModElem
 					if (Math.random() > 0.5) {WALCHIA_LOG_GENERATOR.generate(worldIn, rand, blockpos);}
 				}
 			}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 7; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					LIVERWORT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 2; ++i)
