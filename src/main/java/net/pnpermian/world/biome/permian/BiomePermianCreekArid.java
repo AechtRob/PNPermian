@@ -61,6 +61,8 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
 
 		protected static final WorldGenWaterSidePangaeanPrehistoricGround WATERSIDE_DIRT_GENERATOR = new WorldGenWaterSidePangaeanPrehistoricGround();
+		protected static final WorldGenWaterHorsetail WATER_HORSETAIL_GENERATOR = new WorldGenWaterHorsetail();
+		protected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
 
 		protected static final WorldGenPangeanDirt DIRT_GENERATOR = new WorldGenPangeanDirt();
 		protected static final WorldGenPangeanSand SAND_GENERATOR = new WorldGenPangeanSand();
@@ -78,6 +80,8 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 		//protected static final WorldGenLepidopteris LEPIDOPTERIS_GENERATOR = new WorldGenLepidopteris();
 		//protected static final WorldGenGlenopteris GLENOPTERIS_GENERATOR = new WorldGenGlenopteris();
 		protected static final WorldGenSinglePlantOptionalWater PLANT_GENERATOR = new WorldGenSinglePlantOptionalWater();
+		protected static final WorldGenSchizoneura SCHIZONEURA_GENERATOR = new WorldGenSchizoneura();
+		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -126,6 +130,23 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 156; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SCHIZONEURA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
+				}
+
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+			{
+				int k = rand.nextInt(16) + 8;
+				int l = rand.nextInt(16) + 8;
+				BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+				GLOSSOPTERIS_BUSH_GENERATOR.generate(worldIn, rand, blockpos);
+			}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 132; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
@@ -134,14 +155,14 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 					PLANT_GENERATOR.generate(BlockAridHorsetail.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
 				}
 
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 6; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockTrichopitys.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
-				}
+//			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//				for (int i = 0; i < 6; ++i)
+//				{
+//					int j = rand.nextInt(16) + 8;
+//					int k = rand.nextInt(16) + 8;
+//					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//					PLANT_GENERATOR.generate(BlockTrichopitys.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
+//				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 48; ++i)
@@ -153,7 +174,7 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 18; ++i)
+				for (int i = 0; i < 26; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -161,23 +182,23 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 					EQUISETITES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k), true);
 				}
 
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 96; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					QUASISTROBUS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
+//			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//				for (int i = 0; i < 96; ++i)
+//				{
+//					int j = rand.nextInt(16) + 8;
+//					int k = rand.nextInt(16) + 8;
+//					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//					QUASISTROBUS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+//				}
 
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 16; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockPseudovoltzia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 75, 100, false, false, true);
-				}
+//			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//				for (int i = 0; i < 16; ++i)
+//				{
+//					int j = rand.nextInt(16) + 8;
+//					int k = rand.nextInt(16) + 8;
+//					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//					PLANT_GENERATOR.generate(BlockPseudovoltzia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 75, 100, false, false, true);
+//				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 12; ++i)
@@ -189,12 +210,30 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 12; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PLANT_GENERATOR.generate(BlockLepidopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 55, 75, false, false, true);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 48; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockBrachyphyllumSapling.block, BlockBrachyphyllumLeaves.block.getDefaultState(), BlockBrachyphyllumLog.block.getDefaultState().withProperty(BlockBrachyphyllumLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 48; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					LEAFBLOCK_GENERATOR.generate((BlockBush) BlockAraucarioxylonSapling.block, BlockAraucarioxylonLeaves.block.getDefaultState(), BlockAraucarioxylonLog.block.getDefaultState().withProperty(BlockAraucarioxylonLog.BlockCustom.FACING, EnumFacing.NORTH), worldIn, rand, pos.add(j, l, k), 0, 110);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -216,22 +255,21 @@ public class BiomePermianCreekArid extends ElementsLepidodendronMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 8; ++i)
+				for (int i = 0; i < 64; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockGlenopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
+					ISOETES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
-			//This one is aggressive so leave til last to fill gaps:
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 520; ++i)
+				for (int i = 0; i < 64; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockGlenopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 0, 255, true);
+					WATER_HORSETAIL_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 	        super.decorate(worldIn, rand, pos);

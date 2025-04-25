@@ -61,6 +61,7 @@ public class BiomePermianGlossopterisTemperateWaterMeadow extends ElementsLepido
 		protected static final WorldGenCordaitesDry CORDAITES_DRY_TREE = new WorldGenCordaitesDry(false);
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
 		protected static final WorldGenNullTree NULL_TREE = new WorldGenNullTree(false);
+		protected static final WorldGenTietea TIETEA_TREE = new WorldGenTietea(false);
 
 		protected static final WorldGenCtenis CTENIS_GENERATOR = new WorldGenCtenis();
 
@@ -100,6 +101,9 @@ public class BiomePermianGlossopterisTemperateWaterMeadow extends ElementsLepido
 			}
 			if (Math.random() > 0.7) {
 				return CORDAITES_DRY_TREE;
+			}
+			if (Math.random() > 0.35) {
+				return TIETEA_TREE;
 			}
 			return CORDAITES_TREE;
 	    }
@@ -274,15 +278,6 @@ public class BiomePermianGlossopterisTemperateWaterMeadow extends ElementsLepido
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					PLANT_GENERATOR.generate(BlockClubmoss.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
-				}
-
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 92; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockSkaaripteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

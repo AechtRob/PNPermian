@@ -9,16 +9,16 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerPermianTryToJoinRiverToSea extends GenLayer
 {
-    public  Biome PERMIAN_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach"));
-    public  int PERMIAN_BEACH_ID =  Biome.getIdForBiome(PERMIAN_BEACH);
-    public  Biome PERMIAN_GLOSSOPTERIS_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_beach"));
-    public  int PERMIAN_GLOSSOPTERIS_BEACH_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_BEACH);
+    public Biome PERMIAN_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach"));
+    public int PERMIAN_BEACH_ID =  Biome.getIdForBiome(PERMIAN_BEACH);
+    public Biome PERMIAN_GLOSSOPTERIS_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_beach"));
+    public int PERMIAN_GLOSSOPTERIS_BEACH_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_BEACH);
 
-    public  Biome PERMIAN_RIVER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_river"));
-    public  int PERMIAN_RIVER_ID =  Biome.getIdForBiome(PERMIAN_RIVER);
+    public Biome PERMIAN_RIVER = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_river"));
+    public int PERMIAN_RIVER_ID =  Biome.getIdForBiome(PERMIAN_RIVER);
 
-    public  Biome PERMIAN_SHALLOW_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
-    public  int PERMIAN_SHALLOW_OCEAN_ID =  Biome.getIdForBiome(PERMIAN_SHALLOW_OCEAN);
+    public Biome PERMIAN_SHALLOW_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
+    public int PERMIAN_SHALLOW_OCEAN_ID =  Biome.getIdForBiome(PERMIAN_SHALLOW_OCEAN);
 
     public GenLayerPermianTryToJoinRiverToSea(long seed, GenLayer genLayer)
     {

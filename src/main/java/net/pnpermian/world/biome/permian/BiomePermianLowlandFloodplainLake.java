@@ -20,10 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomePermianLowlandFloodplain extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:permian_lowlands_floodplain")
+public class BiomePermianLowlandFloodplainLake extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:permian_lowlands_floodplain_lake")
 	public static final BiomeGenCustom biome = null;
-	public BiomePermianLowlandFloodplain(ElementsLepidodendronMod instance) {
+	public BiomePermianLowlandFloodplainLake(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -40,11 +40,11 @@ public class BiomePermianLowlandFloodplain extends ElementsLepidodendronMod.ModE
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Lowland Floodplain").setBaseHeight(-0.120F).setHeightVariation(0.110F).setTemperature(0.8F).setRainfall(0.4F));
-			setRegistryName("lepidodendron:permian_lowlands_floodplain");
+			super(new BiomeProperties("Permian Lowland Floodplain").setBaseHeight(-0.75F).setHeightVariation(0.0F).setTemperature(0.8F).setRainfall(0.4F));
+			setRegistryName("lepidodendron:permian_lowlands_floodplain_lake");
 			topBlock = BlockPrehistoricGroundBasic.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
-			decorator.treesPerChunk = 3;
+			decorator.treesPerChunk = 1;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
 			decorator.mushroomsPerChunk = 0;
@@ -155,8 +155,8 @@ public class BiomePermianLowlandFloodplain extends ElementsLepidodendronMod.ModE
 		}
 
 		@Override
-	    public void decorate(World worldIn, Random rand, BlockPos pos)
-	    {
+		public void decorate(World worldIn, Random rand, BlockPos pos)
+		{
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 32; ++i)
@@ -336,7 +336,7 @@ public class BiomePermianLowlandFloodplain extends ElementsLepidodendronMod.ModE
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 5; ++i)
+				for (int i = 0; i < 6; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -445,7 +445,7 @@ public class BiomePermianLowlandFloodplain extends ElementsLepidodendronMod.ModE
 				}
 
 			super.decorate(worldIn, rand, pos);
-	    }
+		}
 
 		@Override
 		public EnumBiomeTypePermian getBiomeType() {

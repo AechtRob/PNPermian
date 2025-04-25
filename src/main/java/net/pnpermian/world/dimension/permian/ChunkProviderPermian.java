@@ -408,6 +408,20 @@ public class ChunkProviderPermian implements IChunkGenerator {
                         d3 = d4;
                     }
 
+                    if (biome == BiomePermianBeachSaltmarsh.biome) {
+                        //Flatten these out somewhat:
+                        d4 = 0.96F;
+                        d2 = d4;
+                        d3 = d4;
+                    }
+
+                    if (biome == BiomePermianLowlandFloodplain.biome) {
+                        //Flatten these out somewhat:
+                        d4 = 0.96F;
+                        d2 = d4;
+                        d3 = d4;
+                    }
+
                     double d5 = MathHelper.clampedLerp(d2, d3, d4) - d1;
                     if (l1 > 29) {
                         double d6 = (double) ((float) (l1 - 29) / 3.0F);
@@ -513,6 +527,34 @@ public class ChunkProviderPermian implements IChunkGenerator {
                                         iblockstate1 = Blocks.COBBLESTONE.getDefaultState();
                                     }
                                 }
+                            }
+                        }
+
+                        //Lush Arid
+                        if (biome == BiomePermianAridLandsLush.biome) {
+                            if (rand.nextInt(3) != 0) {
+                                iblockstate = Blocks.DIRT.getStateFromMeta(1);
+                            }
+                            if (rand.nextInt(3) == 0) {
+                                iblockstate = BlockPrehistoricGroundLush.block.getDefaultState();
+                            }
+                            if (rand.nextInt(3) == 0) {
+                                iblockstate = Blocks.DIRT.getStateFromMeta(2);
+                            }
+                            if (rand.nextInt(3) == 0) {
+                                iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
+                            }
+                        }
+
+                        if (biome == BiomePermianLowlandsForestDense.biome) {
+                            if (rand.nextInt(3) == 0) {
+                                iblockstate = BlockPrehistoricGroundBasic.block.getDefaultState();
+                            }
+                        }
+
+                        if (biome == BiomePermianLowlands.biome) {
+                            if (rand.nextInt(5) == 0) {
+                                iblockstate = BlockCoarseSandyDirtRed.block.getDefaultState();
                             }
                         }
 
@@ -631,9 +673,28 @@ public class ChunkProviderPermian implements IChunkGenerator {
 
                         //Add moss in the Wetlands
                         if (iblockstate == BlockPrehistoricGroundLush.block.getDefaultState()
-                                && (biome == BiomePermianWetlands.biome || biome == BiomePermianWetlandsUnwooded.biome)
-                                && rand.nextInt(15) == 0) {
+                                && (biome == BiomePermianWetlandsUnwooded.biome)
+                                && rand.nextInt(10) == 0) {
                             iblockstate = BlockPrehistoricGroundMossy.block.getDefaultState();
+                        }
+
+                        if (iblockstate == BlockPrehistoricGroundLush.block.getDefaultState()
+                                && (biome == BiomePermianWetlandsUnwooded.biome)
+                                && rand.nextInt(8) == 0) {
+                            iblockstate = BlockCoarseSandyDirtBlack.block.getDefaultState();
+                        }
+
+                        if (biome == BiomePermianWetlandsUnwoodedEarthbanks.biome
+                                && rand.nextInt(8) == 0) {
+                            iblockstate = BlockBrownstone.block.getDefaultState();
+                        }
+                        if (biome == BiomePermianWetlandsUnwoodedEarthbanks.biome
+                                && rand.nextInt(3) == 0) {
+                            iblockstate = BlockCoarseSandyDirtPangaean.block.getDefaultState();
+                        }
+                        if (biome == BiomePermianWetlandsUnwoodedEarthbanks.biome
+                                && rand.nextInt(15) == 0) {
+                            iblockstate = BlockCoarseSandyDirtRed.block.getDefaultState();
                         }
 
                         //Hummocks
@@ -672,6 +733,12 @@ public class ChunkProviderPermian implements IChunkGenerator {
                         //Add ground surface in the stony plains
                         if (iblockstate == Blocks.DIRT.getStateFromMeta(1)
                                 && (biome == BiomePermianStonyPlains.biome || biome == BiomePermianStonyDepressionRim.biome)) {
+                            if (rand.nextInt(2) == 0) {
+                                iblockstate = BlockPebblestone.block.getDefaultState();
+                            }
+                            if (rand.nextInt(12) == 0) {
+                                iblockstate = BlockPebblestoneMossy.block.getDefaultState();
+                            }
                             if (rand.nextInt(4) == 0) {
                                 iblockstate = Blocks.COBBLESTONE.getDefaultState();
                             }
@@ -847,6 +914,10 @@ public class ChunkProviderPermian implements IChunkGenerator {
                         if (j == 0 && (iblockstate1.getBlock() == BlockSandPangaean.block || iblockstate1.getBlock() == BlockSandPangaeanWavy.block) && k > 1) {
                             j = rand.nextInt(4) + Math.max(0, j1 - 63);
                             iblockstate1 = BlockSandstonePangaean.block.getDefaultState();
+                        }
+                        if (j == 0 && (biome == BiomePermianBeachSaltmarsh.biome) && k > 1 && rand.nextInt(10) == 0) {
+                            j = rand.nextInt(4) + Math.max(0, j1 - 63);
+                            iblockstate1 = BlockSaltBlock.block.getDefaultState();
                         }
                     }
                 }

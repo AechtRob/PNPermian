@@ -7,7 +7,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.pnpermian.world.biome.permian.*;
 
-public class GenLayerDiversifyPermian extends GenLayer {
+public class GenLayerDiversifyPermian2 extends GenLayer {
 
     public  Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp"));
     public  int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
@@ -27,6 +27,8 @@ public class GenLayerDiversifyPermian extends GenLayer {
     public  int PERMIAN_LOWLANDS_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS);
     public  Biome PERMIAN_LOWLANDS_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_forest"));
     public  int PERMIAN_LOWLANDS_FOREST_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FOREST);
+    public  Biome PERMIAN_LOWLANDS_FOREST_DENSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_forest_dense"));
+    public  int PERMIAN_LOWLANDS_FOREST_DENSE_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FOREST_DENSE);
     public  Biome PERMIAN_LOWLANDS_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain"));
     public  int PERMIAN_LOWLANDS_FLOODPLAIN_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FLOODPLAIN);
     public  Biome PERMIAN_FLOODBASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt"));
@@ -35,10 +37,8 @@ public class GenLayerDiversifyPermian extends GenLayer {
     public  int PERMIAN_HIGHLANDS_ID =  Biome.getIdForBiome(PERMIAN_HIGHLANDS);
     public  Biome PERMIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_mountains"));
     public  int PERMIAN_MOUNTAINS_ID =  Biome.getIdForBiome(PERMIAN_MOUNTAINS);
-    public  Biome PERMIAN_LOWLANDS_FOREST_DENSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_forest_dense"));
-    public  int PERMIAN_LOWLANDS_FOREST_DENSE_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FOREST_DENSE);
 
-    private final int DesertBiomes[] = new int[] {
+     private final int DesertBiomes[] = new int[] {
         PERMIAN_DESERT_ID,
         PERMIAN_DESERT_ID,
         PERMIAN_DESERT_ID,
@@ -60,17 +60,16 @@ public class GenLayerDiversifyPermian extends GenLayer {
         PERMIAN_LOWLANDS_FOREST_ID,
         PERMIAN_LOWLANDS_FLOODPLAIN_ID
     };
-    private final int LowlandsWoodsBiomes[] = new int[]{
-        PERMIAN_LOWLANDS_FOREST_ID,
-        PERMIAN_LOWLANDS_FOREST_ID,
-        PERMIAN_LOWLANDS_FOREST_DENSE_ID
+    private final int LowlandsWoodsBiomes[] = new int[] {
+            PERMIAN_LOWLANDS_FOREST_ID,
+            PERMIAN_LOWLANDS_FOREST_DENSE_ID
     };
     private final int HighlandsBiomes[] = new int[] {
         PERMIAN_HIGHLANDS_ID,
         PERMIAN_MOUNTAINS_ID
     };
 
-    public GenLayerDiversifyPermian(long seed, GenLayer genlayer) {
+    public GenLayerDiversifyPermian2(long seed, GenLayer genlayer) {
         super(seed);
         this.parent = genlayer;
     }
@@ -105,6 +104,8 @@ public class GenLayerDiversifyPermian extends GenLayer {
                             output[i] = choice;
                         }
                     }
+                    else if (Biome.getBiome(center)  == BiomePermianLowlandsForest.biome)
+                        output[i] = LowlandsWoodsBiomes[nextInt(LowlandsWoodsBiomes.length)];
                     else if (Biome.getBiome(center) == BiomePermianHighlands.biome)
                         output[i] = HighlandsBiomes[nextInt(HighlandsBiomes.length)];
                     else output[i] = center;

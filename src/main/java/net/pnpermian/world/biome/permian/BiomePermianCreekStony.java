@@ -126,15 +126,6 @@ public class BiomePermianCreekStony extends ElementsLepidodendronMod.ModElement 
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				if (rand.nextInt(2) == 0)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					UTRECHTIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
-
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 132; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
@@ -153,7 +144,7 @@ public class BiomePermianCreekStony extends ElementsLepidodendronMod.ModElement 
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 48; ++i)
+				for (int i = 0; i < 64; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -171,21 +162,12 @@ public class BiomePermianCreekStony extends ElementsLepidodendronMod.ModElement 
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 96; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					QUASISTROBUS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
-
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 64; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockBuriadia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 85, 120, false, false, true);
+					PLANT_GENERATOR.generate(BlockOrtiseia.block.getDefaultState(), worldIn, rand, pos.add(j, l, k), 85, 120, false, false, true);
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -224,14 +206,14 @@ public class BiomePermianCreekStony extends ElementsLepidodendronMod.ModElement 
 					GROUNDCOVER_PERMIAN_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 64; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockGlenopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
-				}
+//			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+//				for (int i = 0; i < 64; ++i)
+//				{
+//					int j = rand.nextInt(16) + 8;
+//					int k = rand.nextInt(16) + 8;
+//					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+//					PLANT_GENERATOR.generate(BlockGlenopteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
+//				}
 
 			//This one is aggressive so leave til last to fill gaps:
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

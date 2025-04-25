@@ -20,6 +20,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     //Creeks to use:
     public Biome PERMIAN_CREEK_ARID = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_arid"));
     public int PERMIAN_CREEK_ARID_ID = Biome.getIdForBiome(PERMIAN_CREEK_ARID);
+    public Biome PERMIAN_CREEK_SCRUB = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_lowlands_forest"));
+    public int PERMIAN_CREEK_SCRUB_ID = Biome.getIdForBiome(PERMIAN_CREEK_SCRUB);
     public Biome PERMIAN_CREEK_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_cold_glossopteris"));
     public int PERMIAN_CREEK_GLOSSOPTERIS_ID = Biome.getIdForBiome(PERMIAN_CREEK_GLOSSOPTERIS);
     public Biome PERMIAN_CREEK_GLOSSOPTERIS_COLD = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_cold_glossopteris_foggy"));
@@ -32,8 +34,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     public int PERMIAN_CREEK_HIGHLANDS_ID = Biome.getIdForBiome(PERMIAN_CREEK_HIGHLANDS);
     public Biome PERMIAN_CREEK_LOWLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_lowlands"));
     public int PERMIAN_CREEK_LOWLANDS_ID = Biome.getIdForBiome(PERMIAN_CREEK_LOWLANDS);
-    public Biome PERMIAN_CREEK_WETLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_wetlands"));
-    public int PERMIAN_CREEK_WETLANDS_ID = Biome.getIdForBiome(PERMIAN_CREEK_WETLANDS);
+    public Biome PERMIAN_CREEK_LOWLANDS_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_lowlands_floodplain"));
+    public int PERMIAN_CREEK_LOWLANDS_FLOODPLAIN_ID = Biome.getIdForBiome(PERMIAN_CREEK_LOWLANDS_FLOODPLAIN);
     public Biome PERMIAN_CREEK_COAST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_coastal"));
     public int PERMIAN_CREEK_COAST_ID = Biome.getIdForBiome(PERMIAN_CREEK_COAST);
     public Biome PERMIAN_CREEK_STONY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_stony"));
@@ -43,23 +45,29 @@ public class GenLayerPermianRiverMix extends GenLayer
     public Biome PERMIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
     public int PERMIAN_OCEAN_SHORE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SHORE);
     public Biome PERMIAN_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean"));
-    public  int PERMIAN_OCEAN_ID =  Biome.getIdForBiome(PERMIAN_OCEAN);
+    public int PERMIAN_OCEAN_ID =  Biome.getIdForBiome(PERMIAN_OCEAN);
     public Biome PERMIAN_SPONGE_REEF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_sponge_reef"));
-    public  int PERMIAN_SPONGE_REEF_ID =  Biome.getIdForBiome(PERMIAN_SPONGE_REEF);
+    public int PERMIAN_SPONGE_REEF_ID =  Biome.getIdForBiome(PERMIAN_SPONGE_REEF);
     public Biome PERMIAN_OCEAN_CLIFF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_cliff"));
-    public  int PERMIAN_OCEAN_CLIFF_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_CLIFF);
-    public  Biome PERMIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_mountains"));
-    public  int PERMIAN_MOUNTAINS_ID =  Biome.getIdForBiome(PERMIAN_MOUNTAINS);
-    public  Biome PERMIAN_FLOODBASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt"));
-    public  int PERMIAN_FLOODBASALT_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT);
-    public  Biome PERMIAN_FLOODBASALT_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt_edge"));
-    public  int PERMIAN_FLOODBASALT_EDGE_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT_EDGE);
+    public int PERMIAN_OCEAN_CLIFF_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_CLIFF);
+    public Biome PERMIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_mountains"));
+    public int PERMIAN_MOUNTAINS_ID =  Biome.getIdForBiome(PERMIAN_MOUNTAINS);
+    public Biome PERMIAN_FLOODBASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt"));
+    public int PERMIAN_FLOODBASALT_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT);
+    public Biome PERMIAN_FLOODBASALT_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt_edge"));
+    public int PERMIAN_FLOODBASALT_EDGE_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT_EDGE);
     public Biome PERMIAN_STONY_DEPRESSION = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_depression"));
     public int PERMIAN_STONY_DEPRESSION_ID =  Biome.getIdForBiome(PERMIAN_STONY_DEPRESSION);
     public Biome PERMIAN_STONY_DEPRESSION_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_depression_rim"));
     public int PERMIAN_STONY_DEPRESSION_RIM_ID =  Biome.getIdForBiome(PERMIAN_STONY_DEPRESSION_RIM);
     public Biome PERMIAN_GLOSSOPTERIS_LAKE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
     public int PERMIAN_GLOSSOPTERIS_LAKE_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LAKE);
+    public Biome PERMIAN_CATHAY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded"));
+    public int PERMIAN_CATHAY_ID =  Biome.getIdForBiome(PERMIAN_CATHAY);
+    public Biome PERMIAN_CATHAY_EARTHBANKS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded_earthbanks"));
+    public int PERMIAN_CATHAY_EARTHBANKS_ID =  Biome.getIdForBiome(PERMIAN_CATHAY_EARTHBANKS);
+    public Biome PERMIAN_SALTMARSH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach_saltmarsh"));
+    public int PERMIAN_SALTMARSH_ID =  Biome.getIdForBiome(PERMIAN_SALTMARSH);
 
     public GenLayerPermianRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
     {
@@ -96,6 +104,9 @@ public class GenLayerPermianRiverMix extends GenLayer
                         || aint[i] == PERMIAN_STONY_DEPRESSION_ID
                         || aint[i] == PERMIAN_STONY_DEPRESSION_RIM_ID
                         || aint[i] == PERMIAN_GLOSSOPTERIS_LAKE_ID
+                        || aint[i] == PERMIAN_CATHAY_ID
+                        || aint[i] == PERMIAN_CATHAY_EARTHBANKS_ID
+                        || aint[i] == PERMIAN_SALTMARSH_ID
                 )
                 {
                     aint2[i] = aint[i];
@@ -114,15 +125,19 @@ public class GenLayerPermianRiverMix extends GenLayer
                                 aint2[i] = PERMIAN_CREEK_ARID_ID;
                             }
                         }
-                        else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Lowlands
-                            || biomePermian.getBiomeType() == EnumBiomeTypePermian.Forest) {
-                            aint2[i] = PERMIAN_CREEK_LOWLANDS_ID;
+                        else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Lowlands) {
+                            if (biome == BiomePermianLowlands.biome) {
+                                aint2[i] = PERMIAN_CREEK_LOWLANDS_ID;
+                            }
+                            else {
+                                aint2[i] = PERMIAN_CREEK_LOWLANDS_FLOODPLAIN_ID;
+                            }
+                        }
+                        else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Forest) {
+                            aint2[i] = PERMIAN_CREEK_SCRUB_ID;
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Highlands) {
                             aint2[i] = PERMIAN_CREEK_HIGHLANDS_ID;
-                        }
-                        else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Wetlands) {
-                            aint2[i] = PERMIAN_CREEK_WETLANDS_ID;
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Desert) {
                             aint2[i] = PERMIAN_CREEK_DESERT_ID;
@@ -146,7 +161,7 @@ public class GenLayerPermianRiverMix extends GenLayer
                         }
                     }
                     else {
-                        aint2[i] = PERMIAN_RIVER_ID;
+                        aint2[i] = aint[i];
                     }
                 }
             }

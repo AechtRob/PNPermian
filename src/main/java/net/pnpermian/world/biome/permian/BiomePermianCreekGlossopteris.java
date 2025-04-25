@@ -55,7 +55,7 @@ public class BiomePermianCreekGlossopteris extends ElementsLepidodendronMod.ModE
 		}
 
 		protected static final WorldGenCordaitesDry CORDAITES_TREE = new WorldGenCordaitesDry(false);
-		protected static final WorldGenWalchiaTree WALCHIA_TREE = new WorldGenWalchiaTree(false);
+		protected static final WorldGenRissikiaTree RISSIKIA_TREE = new WorldGenRissikiaTree(false);
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
 		protected static final WorldGenGlossopterisTree GLOSSOPTERIS_ANGUSTIFOLIA_GENERATOR = new WorldGenGlossopterisTree(false);
 		protected static final WorldGenGlossopterisDuocaudataTree GLOSSOPTERIS_DUOCAUDATA_GENERATOR = new WorldGenGlossopterisDuocaudataTree(false);
@@ -63,7 +63,7 @@ public class BiomePermianCreekGlossopteris extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenGlossopterisAltitudeBands LAYERED_GLOSSOPTERIS_TREE = new WorldGenGlossopterisAltitudeBands(false);
 
 		protected static final WorldGenTreeLog CORDAITES_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
-		protected static final WorldGenTreeLog WALCHIA_LOG_GENERATOR = new WorldGenTreeLog(BlockWalchiaLog.block);
+		protected static final WorldGenTreeLog RISSIKIA_LOG_GENERATOR = new WorldGenTreeLog(BlockPodocarpLog.block);
 		protected static final WorldGenTreeLog AMPLA_LOG_GENERATOR = new WorldGenTreeLog(BlockGlossopterisAmplaLog.block);
 		protected static final WorldGenTreeLog DUOCAUDATA_LOG_GENERATOR = new WorldGenTreeLog(BlockGlossopterisDuocaudataLog.block);
 
@@ -101,7 +101,7 @@ public class BiomePermianCreekGlossopteris extends ElementsLepidodendronMod.ModE
 						return GLOSSOPTERIS_AMPLA_GENERATOR;
 				}
 			}
-			return WALCHIA_TREE;
+			return RISSIKIA_TREE;
 		}
 
 		@Override
@@ -124,7 +124,7 @@ public class BiomePermianCreekGlossopteris extends ElementsLepidodendronMod.ModE
 							break;
 
 						case 1:
-							WALCHIA_LOG_GENERATOR.generate(worldIn, rand, blockpos);
+							RISSIKIA_LOG_GENERATOR.generate(worldIn, rand, blockpos);
 							break;
 
 						case 2:
@@ -264,15 +264,6 @@ public class BiomePermianCreekGlossopteris extends ElementsLepidodendronMod.ModE
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					PLANT_GENERATOR.generate(BlockClubmoss.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
-				}
-
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 92; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					PLANT_GENERATOR.generate(BlockSkaaripteris.block.getDefaultState(), worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))

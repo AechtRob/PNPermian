@@ -13,15 +13,11 @@ public class GenLayerPermianTreefernCopse extends GenLayer {
     public Biome PERMIAN_WETLANDS_UNWOODED = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded"));
     public int PERMIAN_WETLANDS_UNWOODED_ID =  Biome.getIdForBiome(PERMIAN_WETLANDS_UNWOODED);
 
-    public Biome PERMIAN_COPSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_fern_copse"));
+    public Biome PERMIAN_COPSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded_earthbanks"));
     public int PERMIAN_COPSE_ID =  Biome.getIdForBiome(PERMIAN_COPSE);
 
 
     private final int WetlandsBiomes[] = new int[] {
-        PERMIAN_WETLANDS_UNWOODED_ID,
-        PERMIAN_WETLANDS_UNWOODED_ID,
-        PERMIAN_WETLANDS_UNWOODED_ID,
-        PERMIAN_COPSE_ID,
         PERMIAN_WETLANDS_UNWOODED_ID,
         PERMIAN_WETLANDS_UNWOODED_ID,
         PERMIAN_COPSE_ID

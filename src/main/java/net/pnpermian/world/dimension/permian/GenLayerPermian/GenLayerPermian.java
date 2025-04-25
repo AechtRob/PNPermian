@@ -18,67 +18,75 @@ public class GenLayerPermian {
         biomes = new GenLayerDiversifyPermian(1000L, biomes);
         biomes = new GenLayerZoom(1000L, biomes);
         biomes = new GenLayerDiversifyPermian(1001L, biomes);
+        biomes = new GenLayerPermianCathay(1225L, biomes);
         biomes = new GenLayerZoom(1001L, biomes);
-        biomes = new GenLayerDiversifyPermian(1002L, biomes);
+        biomes = new GenLayerDiversifyPermian2(1002L, biomes);
         biomes = new GenLayerPermianDeepOcean(1100L, biomes);
         biomes = new GenLayerPermianShallowOcean(1300L, biomes);
         biomes = new GenLayerPermianTreefernCopse(209L, biomes);
         biomes = new GenLayerPermianSpongeReef(1975L, biomes);
         biomes = new GenLayerPermianStonyDepression(1812L, biomes);
         biomes = new GenLayerPermianPools(23L, biomes);
+        biomes = new GenLayerPermianCirque(1313L, biomes);
+        biomes = new GenLayerAridLandsLush(3426L, biomes);
 
         biomes = new GenLayerZoom(1003L, biomes);
         biomes = new GenLayerPermianMountainEdge(2L, biomes);
         biomes = new GenLayerPermianAddGlossopterisCopse(1001L, biomes);
 
         biomes = new GenLayerPermianHummocks(283L, biomes);
+        biomes = new GenLayerDesertEdge(12L, biomes);
 
         biomes = new GenLayerSmooth(700L, biomes);
         biomes = new GenLayerSmooth(701L, biomes);
         biomes = new GenLayerZoom(1004L, biomes);
         biomes = new GenLayerPermianGlossopterisCrags(133L, biomes);
+        biomes = new GenLayerPermianFloodplainLakes(9305L, biomes);
         //biomes = new GenLayerZoom(1005L, biomes);
         biomes = new GenLayerSmooth(703L, biomes);
         biomes = new GenLayerPermianAddGlossopterisCopse(1011L, biomes);
 
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1001L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1002L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1003L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1004L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1005L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1006L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1007L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1001L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1002L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1003L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1004L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1005L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1006L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1007L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
         biomes = new GenLayerPermianStonySpikesBig(1811L, biomes);
         biomes = new GenLayerDepressionTransition(425L, biomes);
 
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
 
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1001L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1002L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1003L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1004L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1005L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1006L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1007L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1001L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1002L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1003L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1004L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1005L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1006L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1007L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
 
+        biomes = new GenLayerPermianBeachMarsh(1150L, biomes);
         biomes = new GenLayerPermianBeach(1050L, biomes);
+        biomes = new GenLayerPermianFloodplainLakes(9306L, biomes);
+        biomes = new GenLayerPermianFloodplainLakes(9307L, biomes);
         biomes = new GenLayerPermianFloodBasaltEdge(3L, biomes);
         biomes = new GenLayerPermianCliff(1080L, biomes);
         biomes = new GenLayerDepressionTransition(725L, biomes);
 
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1001L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1002L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1003L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1004L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1005L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1006L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1007L, biomes);
-        biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1000L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1001L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1002L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1003L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1004L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1005L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1006L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1007L, biomes);
+//        biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
 
         biomes = new GenLayerSmooth(705L, biomes);
         biomes = new GenLayerFuzzyZoom(1001L, biomes);

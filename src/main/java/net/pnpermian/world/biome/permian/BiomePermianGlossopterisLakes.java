@@ -59,12 +59,12 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 		protected static final WorldGenGlossopterisDuocaudataTree GLOSSOPTERIS_DUOCAUDATA_GENERATOR = new WorldGenGlossopterisDuocaudataTree(false);
 		protected static final WorldGenGlossopterisAmplaTree GLOSSOPTERIS_AMPLA_GENERATOR = new WorldGenGlossopterisAmplaTree(false);
 		protected static final WorldGenCordaitesTree CORDAITES_TREE = new WorldGenCordaitesTree(false);
-		protected static final WorldGenWalchiaTree WALCHIA_TREE = new WorldGenWalchiaTree(false);
+		protected static final WorldGenRissikiaTree RISSIKIA_TREE = new WorldGenRissikiaTree(false);
 		protected static final WorldGenGlossopterisBush GLOSSOPTERIS_BUSH_GENERATOR = new WorldGenGlossopterisBush();
 		protected static final WorldGenGlossopterisAltitudeBands LAYERED_GLOSSOPTERIS_TREE = new WorldGenGlossopterisAltitudeBands(false);
 
 		protected static final WorldGenTreeLog CORDAITES_LOG_GENERATOR = new WorldGenTreeLog(BlockCordaitesLog.block);
-		protected static final WorldGenTreeLog WALCHIA_LOG_GENERATOR = new WorldGenTreeLog(BlockWalchiaLog.block);
+		protected static final WorldGenTreeLog RISSIKIA_LOG_GENERATOR = new WorldGenTreeLog(BlockPodocarpLog.block);
 		protected static final WorldGenTreeLog AMPLA_LOG_GENERATOR = new WorldGenTreeLog(BlockGlossopterisAmplaLog.block);
 		protected static final WorldGenTreeLog DUOCAUDATA_LOG_GENERATOR = new WorldGenTreeLog(BlockGlossopterisDuocaudataLog.block);
 
@@ -99,7 +99,7 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 						return GLOSSOPTERIS_AMPLA_GENERATOR;
 				}
 			}
-			return WALCHIA_TREE;
+			return RISSIKIA_TREE;
 	    }
 
 		@Override
@@ -145,7 +145,7 @@ public class BiomePermianGlossopterisLakes extends ElementsLepidodendronMod.ModE
 							break;
 
 						case 1:
-							WALCHIA_LOG_GENERATOR.generate(worldIn, rand, blockpos);
+							RISSIKIA_LOG_GENERATOR.generate(worldIn, rand, blockpos);
 							break;
 
 						case 2:

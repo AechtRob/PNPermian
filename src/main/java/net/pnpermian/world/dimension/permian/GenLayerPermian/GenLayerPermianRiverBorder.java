@@ -20,8 +20,14 @@ public class GenLayerPermianRiverBorder extends GenLayer
     public int PERMIAN_OCEAN_ID =  Biome.getIdForBiome(PERMIAN_OCEAN);
     public Biome PERMIAN_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach"));
     public int PERMIAN_BEACH_ID =  Biome.getIdForBiome(PERMIAN_BEACH);
+    public Biome PERMIAN_SALTMARSH_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach_saltmarsh"));
+    public int PERMIAN_SALTMARSH_BEACH_ID =  Biome.getIdForBiome(PERMIAN_SALTMARSH_BEACH);
     public Biome PERMIAN_GLOSSOPTERIS_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_beach"));
     public int PERMIAN_GLOSSOPTERIS_BEACH_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_BEACH);
+    public Biome PERMIAN_REEF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_sponge_reef"));
+    public int PERMIAN_REEF_ID =  Biome.getIdForBiome(PERMIAN_REEF);
+    public Biome PERMIAN_OCEAN_CLIFF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_cliff"));
+    public int PERMIAN_OCEAN_CLIFF_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_CLIFF);
 
     public Biome PERMIAN_DESERT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_desert"));
     public int PERMIAN_DESERT_ID =  Biome.getIdForBiome(PERMIAN_DESERT);
@@ -37,6 +43,8 @@ public class GenLayerPermianRiverBorder extends GenLayer
     public int PERMIAN_FLOODBASALT_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT);
     public Biome PERMIAN_FLOODBASALT_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt_edge"));
     public int PERMIAN_FLOODBASALT_EDGE_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT_EDGE);
+    public Biome PERMIAN_DESERT_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_desert_edge"));
+    public int PERMIAN_DESERT_EDGE_ID =  Biome.getIdForBiome(PERMIAN_DESERT_EDGE);
 
     public Biome PERMIAN_HIGHLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_highlands"));
     public int PERMIAN_HIGHLANDS_ID =  Biome.getIdForBiome(PERMIAN_HIGHLANDS);
@@ -62,15 +70,18 @@ public class GenLayerPermianRiverBorder extends GenLayer
     public int PERMIAN_LOWLANDS_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS);
     public Biome PERMIAN_LOWLANDS_FOREST = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_forest"));
     public int PERMIAN_LOWLANDS_FOREST_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FOREST);
+    public Biome PERMIAN_LOWLANDS_FOREST_DENSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_forest_dense"));
+    public int PERMIAN_LOWLANDS_FOREST_DENSE_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FOREST_DENSE);
     public Biome PERMIAN_LOWLANDS_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain"));
     public int PERMIAN_LOWLANDS_FLOODPLAIN_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FLOODPLAIN);
+    public Biome PERMIAN_LOWLANDS_FLOODPLAIN2 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain_lake"));
+    public int PERMIAN_LOWLANDS_FLOODPLAIN2_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FLOODPLAIN2);
 
-    public Biome PERMIAN_WETLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands"));
-    public int PERMIAN_WETLANDS_ID =  Biome.getIdForBiome(PERMIAN_WETLANDS);
+    public Biome PERMIAN_WETLANDS_BANK = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded_earthbanks"));
+    public int PERMIAN_WETLANDS_BANK_ID =  Biome.getIdForBiome(PERMIAN_WETLANDS_BANK);
     public Biome PERMIAN_WETLANDS_UNWOODED = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded"));
     public int PERMIAN_WETLANDS_UNWOODED_ID =  Biome.getIdForBiome(PERMIAN_WETLANDS_UNWOODED);
-    public Biome PERMIAN_COPSE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_fern_copse"));
-    public int PERMIAN_COPSE_ID =  Biome.getIdForBiome(PERMIAN_COPSE);
+
     public Biome PERMIAN_HUMMOCKS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_hummocks"));
     public int PERMIAN_HUMMOCKS_ID =  Biome.getIdForBiome(PERMIAN_HUMMOCKS);
 
@@ -108,10 +119,10 @@ public class GenLayerPermianRiverBorder extends GenLayer
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
 
-                    if ((!isDesert(l1) && !isOceanOrBeach(l1) && !isExemptforDesert(l1))
-                        || (!isDesert(k2) && !isOceanOrBeach(k2) && !isExemptforDesert(k2))
-                        || (!isDesert(j3) && !isOceanOrBeach(j3) && !isExemptforDesert(j3))
-                        || (!isDesert(i4) && !isOceanOrBeach(i4) && !isExemptforDesert(i4))
+                    if (((!isDesert(l1)) && (!isOceanOrBeach(l1)) && (!isExemptforDesert(l1)))
+                        || ((!isDesert(k2)) && (!isOceanOrBeach(k2)) && (!isExemptforDesert(k2)))
+                        || ((!isDesert(j3)) && (!isOceanOrBeach(j3)) && (!isExemptforDesert(j3)))
+                        || ((!isDesert(i4)) && (!isOceanOrBeach(i4)) && (!isExemptforDesert(i4)))
                     )
                     {
                         aint1[j + i * areaWidth] = PERMIAN_RIVER_ID;
@@ -121,16 +132,36 @@ public class GenLayerPermianRiverBorder extends GenLayer
                         aint1[j + i * areaWidth] = k;
                     }
                 }
-                if (isGlossopterisCold(k))
+                else if (isCathay(k))
                 {
                     int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
                     int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
-                    if ((!isGlossopterisCold(l1) && !isOceanOrBeach(l1) && !isExemptforGlossopterisCold(l1))
-                            || (!isGlossopterisCold(k2) && !isOceanOrBeach(k2) && !isExemptforGlossopterisCold(k2))
-                            || (!isGlossopterisCold(j3) && !isOceanOrBeach(j3) && !isExemptforGlossopterisCold(j3))
-                            || (!isGlossopterisCold(i4) && !isOceanOrBeach(i4) && !isExemptforGlossopterisCold(i4))
+
+                    if (((!isCathay(l1)) && (!isOceanOrBeach(l1)))
+                            || ((!isCathay(k2)) && (!isOceanOrBeach(k2)))
+                            || ((!isCathay(j3)) && (!isOceanOrBeach(j3)))
+                            || ((!isCathay(i4)) && (!isOceanOrBeach(i4)))
+                    )
+                    {
+                        aint1[j + i * areaWidth] = PERMIAN_RIVER_ID;
+                    }
+                    else
+                    {
+                        aint1[j + i * areaWidth] = k;
+                    }
+                }
+                else if (isGlossopterisCold(k))
+                {
+                    int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
+                    int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
+                    int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
+                    int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
+                    if (((!isGlossopterisCold(l1)) && (!isOceanOrBeach(l1)) && (!isExemptforGlossopterisCold(l1)))
+                            || ((!isGlossopterisCold(k2)) && (!isOceanOrBeach(k2)) && (!isExemptforGlossopterisCold(k2)))
+                            || ((!isGlossopterisCold(j3)) && (!isOceanOrBeach(j3)) && (!isExemptforGlossopterisCold(j3)))
+                            || ((!isGlossopterisCold(i4)) && (!isOceanOrBeach(i4)) && (!isExemptforGlossopterisCold(i4)))
                     ) {
                         aint1[j + i * areaWidth] = PERMIAN_DRUMLIN_ID;
                     }
@@ -145,10 +176,10 @@ public class GenLayerPermianRiverBorder extends GenLayer
                     int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
-                    if ((!isGlossopterisLakes(l1) && !isOceanOrBeach(l1) && !isExemptforGlossopterisLakes(l1))
-                            || (!isGlossopterisLakes(k2) && !isOceanOrBeach(k2) && !isExemptforGlossopterisLakes(k2))
-                            || (!isGlossopterisLakes(j3) && !isOceanOrBeach(j3) && !isExemptforGlossopterisLakes(j3))
-                            || (!isGlossopterisLakes(i4) && !isOceanOrBeach(i4) && !isExemptforGlossopterisLakes(i4))
+                    if (((!isGlossopterisLakes(l1)) && (!isOceanOrBeach(l1)) && (!isExemptforGlossopterisLakes(l1)))
+                            || ((!isGlossopterisLakes(k2)) && (!isOceanOrBeach(k2)) && (!isExemptforGlossopterisLakes(k2)))
+                            || ((!isGlossopterisLakes(j3)) && (!isOceanOrBeach(j3)) && (!isExemptforGlossopterisLakes(j3)))
+                            || ((!isGlossopterisLakes(i4)) && (!isOceanOrBeach(i4)) && (!isExemptforGlossopterisLakes(i4)))
                     ) {
                         aint1[j + i * areaWidth] = PERMIAN_DRUMLIN_ID;
                     }
@@ -163,10 +194,10 @@ public class GenLayerPermianRiverBorder extends GenLayer
                     int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
-                    if ((!isGlossopterisTemperate(l1) && !isOceanOrBeach(l1) && !isExemptforGlossopterisTemperate(l1))
-                            || (!isGlossopterisTemperate(k2) && !isOceanOrBeach(k2) && !isExemptforGlossopterisTemperate(k2))
-                            || (!isGlossopterisTemperate(j3) && !isOceanOrBeach(j3) && !isExemptforGlossopterisTemperate(j3))
-                            || (!isGlossopterisTemperate(i4) && !isOceanOrBeach(i4) && !isExemptforGlossopterisTemperate(i4))
+                    if (((!isGlossopterisTemperate(l1)) && (!isOceanOrBeach(l1)) && (!isExemptforGlossopterisTemperate(l1)))
+                            || ((!isGlossopterisTemperate(k2)) && (!isOceanOrBeach(k2)) && (!isExemptforGlossopterisTemperate(k2)))
+                            || ((!isGlossopterisTemperate(j3)) && (!isOceanOrBeach(j3)) && (!isExemptforGlossopterisTemperate(j3)))
+                            || ((!isGlossopterisTemperate(i4)) && (!isOceanOrBeach(i4)) && (!isExemptforGlossopterisTemperate(i4)))
                     ) {
                         aint1[j + i * areaWidth] = PERMIAN_DRUMLIN_ID;
                     }
@@ -182,10 +213,10 @@ public class GenLayerPermianRiverBorder extends GenLayer
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
 
-                    if ((!isGlossopteris(l1) && !isOceanOrBeach(l1) && !isExemptforGlossopteris(l1))
-                        || (!isGlossopteris(k2) && !isOceanOrBeach(k2) && !isExemptforGlossopteris(k2))
-                        || (!isGlossopteris(j3) && !isOceanOrBeach(j3) && !isExemptforGlossopteris(j3))
-                        || (!isGlossopteris(i4) && !isOceanOrBeach(i4) && !isExemptforGlossopteris(i4))
+                    if (((!isGlossopteris(l1)) && (!isOceanOrBeach(l1)) && (!isExemptforGlossopteris(l1)))
+                        || ((!isGlossopteris(k2)) && (!isOceanOrBeach(k2)) && (!isExemptforGlossopteris(k2)))
+                        || ((!isGlossopteris(j3)) && (!isOceanOrBeach(j3)) && (!isExemptforGlossopteris(j3)))
+                        || ((!isGlossopteris(i4)) && (!isOceanOrBeach(i4)) && (!isExemptforGlossopteris(i4)))
                     )
                     {
                         aint1[j + i * areaWidth] = PERMIAN_RIVER_ID;
@@ -202,10 +233,10 @@ public class GenLayerPermianRiverBorder extends GenLayer
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
 
-                    if ((!isArid(l1) && !isOceanOrBeach(l1) && !isExemptforArid(l1))
-                        || (!isArid(k2) && !isOceanOrBeach(k2) && !isExemptforArid(k2))
-                        || (!isArid(j3) && !isOceanOrBeach(j3) && !isExemptforArid(j3))
-                        || (!isArid(i4) && !isOceanOrBeach(i4) && !isExemptforArid(i4))
+                    if (((!isArid(l1)) && (!isOceanOrBeach(l1)) && (!isExemptforArid(l1)))
+                        || ((!isArid(k2)) && (!isOceanOrBeach(k2)) && (!isExemptforArid(k2)))
+                        || ((!isArid(j3)) && (!isOceanOrBeach(j3)) && (!isExemptforArid(j3)))
+                        || ((!isArid(i4)) && (!isOceanOrBeach(i4)) && (!isExemptforArid(i4)))
                     )
                     {
                         aint1[j + i * areaWidth] = PERMIAN_RIVER_ID;
@@ -215,17 +246,17 @@ public class GenLayerPermianRiverBorder extends GenLayer
                         aint1[j + i * areaWidth] = k;
                     }
                 }
-                else if (isWetlands(k))
+                else if (isAridRussia(k))
                 {
                     int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
                     int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
 
-                    if ((!isWetlands(l1) && !isOceanOrBeach(l1) && !isExemptforWetlands(l1))
-                            || (!isWetlands(k2) && !isOceanOrBeach(k2) && !isExemptforWetlands(k2))
-                            || (!isWetlands(j3) && !isOceanOrBeach(j3) && !isExemptforWetlands(j3))
-                            || (!isWetlands(i4) && !isOceanOrBeach(i4) && !isExemptforWetlands(i4))
+                    if (((!isAridRussia(l1)) && (!isOceanOrBeach(l1)) && (!isExemptforAridRussia(l1)))
+                            || ((!isAridRussia(k2)) && (!isOceanOrBeach(k2)) && (!isExemptforAridRussia(k2)))
+                            || ((!isAridRussia(j3)) && (!isOceanOrBeach(j3)) && (!isExemptforAridRussia(j3)))
+                            || ((!isAridRussia(i4)) && (!isOceanOrBeach(i4)) && (!isExemptforAridRussia(i4)))
                     )
                     {
                         aint1[j + i * areaWidth] = PERMIAN_RIVER_ID;
@@ -247,7 +278,9 @@ public class GenLayerPermianRiverBorder extends GenLayer
 
     private boolean isOceanOrBeach(int biomeID) {
         if (biomeID == PERMIAN_OCEAN_ID || biomeID == PERMIAN_OCEAN_SHORE_ID
-            || biomeID == PERMIAN_BEACH_ID || biomeID == PERMIAN_GLOSSOPTERIS_BEACH_ID) {
+            || biomeID == PERMIAN_BEACH_ID || biomeID == PERMIAN_GLOSSOPTERIS_BEACH_ID
+                || biomeID == PERMIAN_SALTMARSH_BEACH_ID || biomeID == PERMIAN_REEF_ID
+                || biomeID == PERMIAN_OCEAN_CLIFF_ID) {
             return true;
         }
         return false;
@@ -258,7 +291,17 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_STONY_ID
             || biomeID == PERMIAN_STONY_SPIKES_ID
             || biomeID == PERMIAN_STONY_DEPRESSION_ID
-            || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID) {
+            || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID
+                || biomeID == PERMIAN_DESERT_EDGE_ID) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isAridRussia(int biomeID) {
+        if (biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_DENSE_ID
+                || biomeID == PERMIAN_HUMMOCKS_ID) {
             return true;
         }
         return false;
@@ -277,14 +320,13 @@ public class GenLayerPermianRiverBorder extends GenLayer
         return false;
     }
 
-    private boolean isWetlands(int biomeID) {
-    if (biomeID == PERMIAN_WETLANDS_ID
-        || biomeID == PERMIAN_WETLANDS_UNWOODED_ID
-        || biomeID == PERMIAN_COPSE_ID || biomeID == PERMIAN_HUMMOCKS_ID) {
-        return true;
+    private boolean isCathay(int biomeID) {
+        if (biomeID == PERMIAN_WETLANDS_UNWOODED_ID
+                || biomeID == PERMIAN_WETLANDS_BANK_ID) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
     private boolean isGlossopteris(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_SWAMP1_ID
@@ -314,8 +356,12 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_MOUNTAINS_ID
             || biomeID == PERMIAN_LOWLANDS_ID
             || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
-            || biomeID == PERMIAN_LOWLANDS_FOREST_ID
-            || biomeID == PERMIAN_DRUMLIN_ID) {
+                || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN2_ID
+            || biomeID == PERMIAN_DRUMLIN_ID
+            || biomeID == PERMIAN_DESERT_EDGE_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_DENSE_ID
+                || biomeID == PERMIAN_HUMMOCKS_ID) {
             return true;
         }
         return false;
@@ -325,6 +371,7 @@ public class GenLayerPermianRiverBorder extends GenLayer
         if (biomeID == PERMIAN_DESERT_ID
             || biomeID == PERMIAN_FLOODBASALT_ID
             || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
+            || biomeID == PERMIAN_DESERT_EDGE_ID
             || biomeID == PERMIAN_ARIDLANDS_ID
             || biomeID == PERMIAN_ARIDLANDS_HILLS_ID
             || biomeID == PERMIAN_ARIDLANDS_LUSH_ID
@@ -333,7 +380,11 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_STONY_ID
             || biomeID == PERMIAN_STONY_SPIKES_ID
             || biomeID == PERMIAN_STONY_DEPRESSION_ID
-            || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID) {
+            || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_DENSE_ID
+                || biomeID == PERMIAN_HUMMOCKS_ID
+                || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
         return false;
@@ -351,6 +402,34 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_STONY_SPIKES_ID
             || biomeID == PERMIAN_STONY_DEPRESSION_ID
             || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID
+            || biomeID == PERMIAN_DESERT_EDGE_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_DENSE_ID
+                || biomeID == PERMIAN_HUMMOCKS_ID
+                || biomeID == PERMIAN_DRUMLIN_ID
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isExemptforAridRussia(int biomeID) {
+        if (biomeID == PERMIAN_DESERT_ID
+                || biomeID == PERMIAN_FLOODBASALT_ID
+                || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
+                || biomeID == PERMIAN_ARIDLANDS_ID
+                || biomeID == PERMIAN_ARIDLANDS_HILLS_ID
+                || biomeID == PERMIAN_ARIDLANDS_LUSH_ID
+                || biomeID == PERMIAN_HIGHLANDS_ID
+                || biomeID == PERMIAN_STONY_ID
+                || biomeID == PERMIAN_STONY_SPIKES_ID
+                || biomeID == PERMIAN_STONY_DEPRESSION_ID
+                || biomeID == PERMIAN_STONY_DEPRESSION_RIM_ID
+                || biomeID == PERMIAN_DESERT_EDGE_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
+                || biomeID == PERMIAN_LOWLANDS_FOREST_DENSE_ID
+                || biomeID == PERMIAN_HUMMOCKS_ID
+                || biomeID == PERMIAN_DRUMLIN_ID
         ) {
             return true;
         }
@@ -371,7 +450,8 @@ public class GenLayerPermianRiverBorder extends GenLayer
             || biomeID == PERMIAN_MOUNTAINS_ID
             || biomeID == PERMIAN_LOWLANDS_ID
             || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
-            || biomeID == PERMIAN_LOWLANDS_FOREST_ID) {
+                || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN2_ID
+            || biomeID == PERMIAN_DESERT_EDGE_ID) {
             return true;
         }
         return false;
@@ -382,14 +462,16 @@ public class GenLayerPermianRiverBorder extends GenLayer
 
     private boolean isGlossopterisCold(int biomeID) {
         if (biomeID == PERMIAN_GLOSSOPTERIS_SWAMP1_ID
-                || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP2_ID) {
+                || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP2_ID
+                || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
         return false;
     }
 
     private boolean isGlossopterisLakes(int biomeID) {
-        if (biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID) {
+        if (biomeID == PERMIAN_GLOSSOPTERIS_LAKES_ID
+                || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
         return false;
@@ -399,7 +481,8 @@ public class GenLayerPermianRiverBorder extends GenLayer
         if (biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE1_ID
                 || biomeID == PERMIAN_GLOSSOPTERIS_CRAGGY_ID
                 || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE2_ID
-                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID) {
+                || biomeID == PERMIAN_GLOSSOPTERIS_TEMPERATE3_ID
+                || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
         return false;
@@ -412,7 +495,6 @@ public class GenLayerPermianRiverBorder extends GenLayer
                 || biomeID == PERMIAN_FLOODBASALT_EDGE_ID
                 || biomeID == PERMIAN_HIGHLANDS_ID
                 || biomeID == PERMIAN_MOUNTAINS_ID
-                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
                 || biomeID == PERMIAN_DRUMLIN_ID) {
             return true;
         }
@@ -431,8 +513,9 @@ public class GenLayerPermianRiverBorder extends GenLayer
                 || biomeID == PERMIAN_MOUNTAINS_ID
                 || biomeID == PERMIAN_LOWLANDS_ID
                 || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
-                || biomeID == PERMIAN_LOWLANDS_FOREST_ID
-                || biomeID == PERMIAN_DRUMLIN_ID) {
+                || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN2_ID
+                || biomeID == PERMIAN_DRUMLIN_ID
+                || biomeID == PERMIAN_DESERT_EDGE_ID) {
             return true;
         }
         return false;
@@ -450,8 +533,12 @@ public class GenLayerPermianRiverBorder extends GenLayer
                 || biomeID == PERMIAN_MOUNTAINS_ID
                 || biomeID == PERMIAN_LOWLANDS_ID
                 || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
+                || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN2_ID
                 || biomeID == PERMIAN_LOWLANDS_FOREST_ID
-                || biomeID == PERMIAN_DRUMLIN_ID) {
+                || biomeID == PERMIAN_LOWLANDS_FOREST_DENSE_ID
+                || biomeID == PERMIAN_HUMMOCKS_ID
+                || biomeID == PERMIAN_DRUMLIN_ID
+                || biomeID == PERMIAN_DESERT_EDGE_ID) {
             return true;
         }
         return false;

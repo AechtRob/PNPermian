@@ -20,10 +20,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomePermianLowlandFloodplain extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:permian_lowlands_floodplain")
+public class BiomePermianCreekLowlandFloodplain extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:permian_creek_lowlands_floodplain")
 	public static final BiomeGenCustom biome = null;
-	public BiomePermianLowlandFloodplain(ElementsLepidodendronMod instance) {
+	public BiomePermianCreekLowlandFloodplain(ElementsLepidodendronMod instance) {
 		super(instance, 1589);
 	}
 
@@ -40,8 +40,8 @@ public class BiomePermianLowlandFloodplain extends ElementsLepidodendronMod.ModE
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Lowland Floodplain").setBaseHeight(-0.120F).setHeightVariation(0.110F).setTemperature(0.8F).setRainfall(0.4F));
-			setRegistryName("lepidodendron:permian_lowlands_floodplain");
+			super(new BiomeProperties("Permian Lowland Floodplain Creek").setBaseHeight(-0.525F).setHeightVariation(0.0F).setTemperature(0.8F).setRainfall(0.4F));
+			setRegistryName("lepidodendron:permian_creek_lowlands_floodplain");
 			topBlock = BlockPrehistoricGroundBasic.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
 			decorator.treesPerChunk = 3;

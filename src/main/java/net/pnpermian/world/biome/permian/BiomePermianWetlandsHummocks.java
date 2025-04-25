@@ -45,7 +45,7 @@ public class BiomePermianWetlandsHummocks extends ElementsLepidodendronMod.ModEl
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Wetland Hummocks").setRainfall(0.5F).setBaseHeight(0.55F).setHeightVariation(0.005F).setTemperature(0.85F).setRainfall(0.9F).setWaterColor(3906905));
+			super(new BiomeProperties("Permian Hummocks").setRainfall(0.5F).setBaseHeight(0.55F).setHeightVariation(0.005F).setTemperature(0.85F).setRainfall(0.9F).setWaterColor(3906905));
 			setRegistryName("lepidodendron:permian_wetlands_hummocks");
 			topBlock = BlockPrehistoricGroundBasic.block.getDefaultState();
 			fillerBlock = Blocks.STONE.getDefaultState();
@@ -367,7 +367,7 @@ public class BiomePermianWetlandsHummocks extends ElementsLepidodendronMod.ModEl
 
 		@Override
 		public EnumBiomeTypePermian getBiomeType() {
-			return EnumBiomeTypePermian.Wetlands;
+			return EnumBiomeTypePermian.Forest;
 		}
 
 	}

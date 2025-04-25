@@ -35,11 +35,13 @@ public class BiomeProviderPermian extends BiomeProvider {
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_temperate_glossopteris")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_river")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_desert")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_desert_edge")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_cold_glossopteris")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_stony_plains")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain_lake")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_craggy")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_drumlin")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_mountains")),
@@ -61,13 +63,16 @@ public class BiomeProviderPermian extends BiomeProvider {
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_hummocks")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_cliff")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_coastal")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach_saltmarsh")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_wetlands")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded_earthbanks")),
             Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_sponge_reef")),
-            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach"))
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_lowlands_floodplain")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_lowlands_forest")),
+            Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_forest_dense"))
 
             );
     public GenLayer genBiomes;

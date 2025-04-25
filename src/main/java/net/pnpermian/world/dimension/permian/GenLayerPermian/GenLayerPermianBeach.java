@@ -9,32 +9,36 @@ public class GenLayerPermianBeach extends GenLayer
 {
 
     public Biome PERMIAN_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean"));
-    public  int PERMIAN_OCEAN_ID =  Biome.getIdForBiome(PERMIAN_OCEAN);
-    public  Biome PERMIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
-    public  int PERMIAN_OCEAN_SHORE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SHORE);
-    public  Biome PERMIAN_OCEAN_SPONGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_sponge_reef"));
-    public  int PERMIAN_OCEAN_SPONGE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SPONGE);
-    public  Biome PERMIAN_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach"));
-    public  int PERMIAN_BEACH_ID =  Biome.getIdForBiome(PERMIAN_BEACH);
-    public  Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest"));
-    public  int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
-    public  Biome PERMIAN_GLOSSOPTERIS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp"));
-    public  int PERMIAN_GLOSSOPTERIS_SWAMP_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_SWAMP);
-    public  Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
-    public  int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
-    public  Biome PERMIAN_GLOSSOPTERIS_CRAG = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_craggy"));
-    public  int PERMIAN_GLOSSOPTERIS_CRAG_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_CRAG);
-    public  Biome PERMIAN_GLOSSOPTERIS_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
-    public  int PERMIAN_GLOSSOPTERIS_WET_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_WET);
-    public  Biome PERMIAN_WETLANDS_UNWOODED = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded"));
-    public  int PERMIAN_WETLANDS_UNWOODED_ID =  Biome.getIdForBiome(PERMIAN_WETLANDS_UNWOODED);
-    public  Biome PERMIAN_LOWLANDS_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain"));
-    public  int PERMIAN_LOWLANDS_FLOODPLAIN_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FLOODPLAIN);
-    public  Biome PERMIAN_FLOODBASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt"));
-    public  int PERMIAN_FLOODBASALT_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT);
-    public  Biome PERMIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_mountains"));
-    public  int PERMIAN_MOUNTAINS_ID =  Biome.getIdForBiome(PERMIAN_MOUNTAINS);
-    
+    public int PERMIAN_OCEAN_ID = Biome.getIdForBiome(PERMIAN_OCEAN);
+    public Biome PERMIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
+    public int PERMIAN_OCEAN_SHORE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SHORE);
+    public Biome PERMIAN_OCEAN_SPONGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_sponge_reef"));
+    public int PERMIAN_OCEAN_SPONGE_ID =  Biome.getIdForBiome(PERMIAN_OCEAN_SPONGE);
+    public Biome PERMIAN_BEACH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach"));
+    public int PERMIAN_BEACH_ID =  Biome.getIdForBiome(PERMIAN_BEACH);
+    public Biome PERMIAN_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest"));
+    public int PERMIAN_GLOSSOPTERIS_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS);
+    public Biome PERMIAN_GLOSSOPTERIS_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_swamp"));
+    public int PERMIAN_GLOSSOPTERIS_SWAMP_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_SWAMP);
+    public Biome PERMIAN_GLOSSOPTERIS_LIGHT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_light"));
+    public int PERMIAN_GLOSSOPTERIS_LIGHT_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_LIGHT);
+    public Biome PERMIAN_GLOSSOPTERIS_CRAG = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_craggy"));
+    public int PERMIAN_GLOSSOPTERIS_CRAG_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_CRAG);
+    public Biome PERMIAN_GLOSSOPTERIS_WET = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_cold_glossopteris_forest_ocean"));
+    public int PERMIAN_GLOSSOPTERIS_WET_ID =  Biome.getIdForBiome(PERMIAN_GLOSSOPTERIS_WET);
+    public Biome PERMIAN_WETLANDS_UNWOODED = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_unwooded"));
+    public int PERMIAN_WETLANDS_UNWOODED_ID =  Biome.getIdForBiome(PERMIAN_WETLANDS_UNWOODED);
+    public Biome PERMIAN_LOWLANDS_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain"));
+    public int PERMIAN_LOWLANDS_FLOODPLAIN_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FLOODPLAIN);
+    public Biome PERMIAN_LOWLANDS_FLOODPLAIN2 = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_lowlands_floodplain_lake"));
+    public int PERMIAN_LOWLANDS_FLOODPLAIN2_ID =  Biome.getIdForBiome(PERMIAN_LOWLANDS_FLOODPLAIN2);
+    public Biome PERMIAN_FLOODBASALT = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_floodbasalt"));
+    public int PERMIAN_FLOODBASALT_ID =  Biome.getIdForBiome(PERMIAN_FLOODBASALT);
+    public Biome PERMIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_mountains"));
+    public int PERMIAN_MOUNTAINS_ID =  Biome.getIdForBiome(PERMIAN_MOUNTAINS);
+    public Biome PERMIAN_SALTMARSH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach_saltmarsh"));
+    public int PERMIAN_SALTMARSH_ID =  Biome.getIdForBiome(PERMIAN_SALTMARSH);
+
     public GenLayerPermianBeach(long seed, GenLayer genLayer)
     {
         super(seed);
@@ -63,7 +67,7 @@ public class GenLayerPermianBeach extends GenLayer
                         int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                         int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
 
-                        if (!isOcean(l1) && !isOcean(k2) && !isOcean(j3) && !isOcean(i4))
+                        if ((!isOcean(l1)) && (!isOcean(k2)) && (!isOcean(j3)) && (!isOcean(i4)))
                         {
                             aint1[j + i * areaWidth] = k;
                         }
@@ -102,9 +106,11 @@ public class GenLayerPermianBeach extends GenLayer
             || biomeID == PERMIAN_GLOSSOPTERIS_SWAMP_ID
             || biomeID == PERMIAN_GLOSSOPTERIS_WET_ID
             || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN_ID
+            || biomeID == PERMIAN_LOWLANDS_FLOODPLAIN2_ID
             || biomeID == PERMIAN_WETLANDS_UNWOODED_ID
             || biomeID == PERMIAN_MOUNTAINS_ID
-            || biomeID == PERMIAN_FLOODBASALT_ID) {
+            || biomeID == PERMIAN_FLOODBASALT_ID
+            || biomeID == PERMIAN_SALTMARSH_ID) {
             return true;
         }
         return false;
