@@ -1,6 +1,7 @@
 package net.pnpermian.world.dimension.permian;
 
 import net.lepidodendron.block.*;
+import net.lepidodendron.util.Functions;
 import net.lepidodendron.world.biome.ChunkGenSpawner;
 import net.lepidodendron.world.gen.WorldGenCausticMudLake;
 import net.lepidodendron.world.gen.WorldGenPangaeanDryLakes;
@@ -492,7 +493,12 @@ public class ChunkProviderPermian implements IChunkGenerator {
                                     iblockstate1 = BlockSandPangaean.block.getDefaultState();
                                 }
                             } else {
-                                iblockstate1 = BlockSandPangaeanWavy.block.getDefaultState();
+                                if (biome == BiomePermianWoodedAtollRim.biome) {
+                                    iblockstate1 = Blocks.GRAVEL.getDefaultState();
+                                }
+                                else {
+                                    iblockstate1 = BlockSandPangaeanWavy.block.getDefaultState();
+                                }
                             }
                         }
                         if (j1 < i && (iblockstate == null || iblockstate.getMaterial() == Material.AIR)) {
@@ -555,6 +561,34 @@ public class ChunkProviderPermian implements IChunkGenerator {
                         if (biome == BiomePermianLowlands.biome) {
                             if (rand.nextInt(5) == 0) {
                                 iblockstate = BlockCoarseSandyDirtRed.block.getDefaultState();
+                            }
+                        }
+
+                        if (biome == BiomePermianWoodedAtoll.biome
+                            || biome == BiomePermianWoodedAtollRim.biome) {
+                            if (j1 < SEALEVEL - 1) {
+                                if (rand.nextInt(2) == 0) {
+                                    iblockstate = Blocks.SAND.getDefaultState();
+                                }
+                                if (rand.nextInt(2) == 0) {
+                                    iblockstate = BlockCoralBleached.block.getDefaultState();
+                                }
+                            }
+                            else if (j1 < SEALEVEL + 1) {
+                                if (rand.nextInt(5) == 0) {
+                                    iblockstate = BlockCoralBleached.block.getDefaultState();
+                                }
+                                if (rand.nextInt(3) == 0) {
+                                    iblockstate = Blocks.SAND.getDefaultState();
+                                }
+                            }
+                            else {
+                                if (rand.nextInt(9) == 0) {
+                                    iblockstate = Blocks.SAND.getDefaultState();
+                                }
+                                if (rand.nextInt(8) == 0) {
+                                    iblockstate = BlockCoarseSandyDirt.block.getDefaultState();
+                                }
                             }
                         }
 

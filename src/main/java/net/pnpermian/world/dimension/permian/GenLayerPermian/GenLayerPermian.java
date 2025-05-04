@@ -29,6 +29,7 @@ public class GenLayerPermian {
         biomes = new GenLayerPermianPools(23L, biomes);
         biomes = new GenLayerPermianCirque(1313L, biomes);
         biomes = new GenLayerAridLandsLush(3426L, biomes);
+        biomes = new GenLayerPermianAtoll(665L, biomes);
 
         biomes = new GenLayerZoom(1003L, biomes);
         biomes = new GenLayerPermianMountainEdge(2L, biomes);
@@ -36,6 +37,7 @@ public class GenLayerPermian {
 
         biomes = new GenLayerPermianHummocks(283L, biomes);
         biomes = new GenLayerDesertEdge(12L, biomes);
+        //biomes = new GenLayerPermianAtoll(665L, biomes);
 
         biomes = new GenLayerSmooth(700L, biomes);
         biomes = new GenLayerSmooth(701L, biomes);
@@ -57,6 +59,7 @@ public class GenLayerPermian {
 //        biomes = new GenLayerPermianTryToJoinRiverToSea(1008L, biomes);
         biomes = new GenLayerPermianStonySpikesBig(1811L, biomes);
         biomes = new GenLayerDepressionTransition(425L, biomes);
+        biomes = new GenLayerPermianAtollEdge(1250L, biomes);
 
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
 
@@ -72,6 +75,7 @@ public class GenLayerPermian {
 
         biomes = new GenLayerPermianBeachMarsh(1150L, biomes);
         biomes = new GenLayerPermianBeach(1050L, biomes);
+        biomes = new GenLayerPermianAtollEdge(2250L, biomes);
         biomes = new GenLayerPermianFloodplainLakes(9306L, biomes);
         biomes = new GenLayerPermianFloodplainLakes(9307L, biomes);
         biomes = new GenLayerPermianFloodBasaltEdge(3L, biomes);

@@ -162,7 +162,7 @@ public class BiomePermianBeachSaltmarsh extends ElementsLepidodendronMod.ModElem
 
 		@Override
 		public EnumBiomeTypePermian getBiomeType() {
-			return EnumBiomeTypePermian.Ocean;
+			return EnumBiomeTypePermian.Wetlands;
 		}
 
 	}

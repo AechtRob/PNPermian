@@ -68,6 +68,10 @@ public class GenLayerPermianRiverMix extends GenLayer
     public int PERMIAN_CATHAY_EARTHBANKS_ID =  Biome.getIdForBiome(PERMIAN_CATHAY_EARTHBANKS);
     public Biome PERMIAN_SALTMARSH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_beach_saltmarsh"));
     public int PERMIAN_SALTMARSH_ID =  Biome.getIdForBiome(PERMIAN_SALTMARSH);
+    public Biome PERMIAN_ATOLL_RIM = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wooded_atoll_rim"));
+    public int PERMIAN_ATOLL_RIM_ID =  Biome.getIdForBiome(PERMIAN_ATOLL_RIM);
+    public Biome PERMIAN_ATOLL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wooded_atoll"));
+    public int PERMIAN_ATOLL_ID =  Biome.getIdForBiome(PERMIAN_ATOLL);
 
     public GenLayerPermianRiverMix(long p_i2129_1_, GenLayer p_i2129_3_, GenLayer p_i2129_4_)
     {
@@ -107,6 +111,8 @@ public class GenLayerPermianRiverMix extends GenLayer
                         || aint[i] == PERMIAN_CATHAY_ID
                         || aint[i] == PERMIAN_CATHAY_EARTHBANKS_ID
                         || aint[i] == PERMIAN_SALTMARSH_ID
+                        || aint[i] == PERMIAN_ATOLL_ID
+                        || aint[i] == PERMIAN_ATOLL_RIM_ID
                 )
                 {
                     aint2[i] = aint[i];

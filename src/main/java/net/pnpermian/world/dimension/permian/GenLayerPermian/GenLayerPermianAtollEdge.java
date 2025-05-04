@@ -5,7 +5,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerPermianBeach extends GenLayer
+public class GenLayerPermianAtollEdge extends GenLayer
 {
 
     public Biome PERMIAN_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean"));
@@ -43,7 +43,7 @@ public class GenLayerPermianBeach extends GenLayer
     public Biome PERMIAN_ATOLL = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wooded_atoll"));
     public int PERMIAN_ATOLL_ID =  Biome.getIdForBiome(PERMIAN_ATOLL);
 
-    public GenLayerPermianBeach(long seed, GenLayer genLayer)
+    public GenLayerPermianAtollEdge(long seed, GenLayer genLayer)
     {
         super(seed);
         this.parent = genLayer;
@@ -77,7 +77,12 @@ public class GenLayerPermianBeach extends GenLayer
                         }
                         else
                         {
-                            aint1[j + i * areaWidth] = PERMIAN_BEACH_ID;
+                            if (k  == PERMIAN_ATOLL_ID) {
+                                aint1[j + i * areaWidth] = PERMIAN_ATOLL_RIM_ID;
+                            }
+                            else {
+                                aint1[j + i * areaWidth] = k;
+                            }
                         }
                     }
                     else
@@ -115,7 +120,6 @@ public class GenLayerPermianBeach extends GenLayer
             || biomeID == PERMIAN_MOUNTAINS_ID
             || biomeID == PERMIAN_FLOODBASALT_ID
             || biomeID == PERMIAN_SALTMARSH_ID
-            || biomeID == PERMIAN_ATOLL_ID
             || biomeID == PERMIAN_ATOLL_RIM_ID) {
             return true;
         }
