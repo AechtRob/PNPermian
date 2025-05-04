@@ -5,18 +5,16 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-public class GenLayerPermianCirque extends GenLayer
+public class GenLayerPermianCirqueLakes extends GenLayer
 {
 
-    public Biome PERMIAN_HIGHLANDS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_highlands"));
-    public int PERMIAN_HIGHLANDS_ID =  Biome.getIdForBiome(PERMIAN_HIGHLANDS);
-    public Biome PERMIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_mountains"));
-    public int PERMIAN_MOUNTAINS_ID =  Biome.getIdForBiome(PERMIAN_MOUNTAINS);
+    public Biome PERMIAN_FLOODPLAIN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_fern_copse"));
+    public int PERMIAN_FLOODPLAIN_ID =  Biome.getIdForBiome(PERMIAN_FLOODPLAIN);
 
-    public Biome PERMIAN_CIRQUE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_fern_copse"));
-    public int PERMIAN_CIRQUE_ID =  Biome.getIdForBiome(PERMIAN_CIRQUE);
+    public Biome PERMIAN_LAKES = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_wetlands_fern_copse_lakes"));
+    public int PERMIAN_LAKES_ID =  Biome.getIdForBiome(PERMIAN_LAKES);
 
-    public GenLayerPermianCirque(long seed, GenLayer genLayer)
+    public GenLayerPermianCirqueLakes(long seed, GenLayer genLayer)
     {
         super(seed);
         this.parent = genLayer;
@@ -35,16 +33,16 @@ public class GenLayerPermianCirque extends GenLayer
                 int k = aint[j + 1 + (i + 1) * (areaWidth + 2)];
                 Biome biome = Biome.getBiome(k);
 
-                if (k == PERMIAN_HIGHLANDS_ID)
+                if (k == PERMIAN_FLOODPLAIN_ID)
                 {
                     int l1 = aint[j + 1 + (i + 1 - 1) * (areaWidth + 2)];
                     int k2 = aint[j + 1 + 1 + (i + 1) * (areaWidth + 2)];
                     int j3 = aint[j + 1 - 1 + (i + 1) * (areaWidth + 2)];
                     int i4 = aint[j + 1 + (i + 1 + 1) * (areaWidth + 2)];
 
-                    if (isInHills(l1) && isInHills(k2) && isInHills(j3) && isInHills(i4) & nextInt(2) == 0)
+                    if (isInHills(l1) && isInHills(k2) && isInHills(j3) && isInHills(i4) & nextInt(5) == 0)
                     {
-                        aint1[j + i * areaWidth] = PERMIAN_CIRQUE_ID;
+                        aint1[j + i * areaWidth] = PERMIAN_LAKES_ID;
                     }
                     else
                     {
@@ -62,9 +60,8 @@ public class GenLayerPermianCirque extends GenLayer
     }
 
     private boolean isInHills(int biomeID) {
-        if (biomeID == PERMIAN_CIRQUE_ID
-                || biomeID == PERMIAN_HIGHLANDS_ID
-                || biomeID == PERMIAN_MOUNTAINS_ID) {
+        if (biomeID == PERMIAN_FLOODPLAIN_ID
+                || biomeID == PERMIAN_LAKES_ID) {
             return true;
         }
         return false;

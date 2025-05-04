@@ -78,6 +78,8 @@ public class GenLayerPermian {
         biomes = new GenLayerPermianAtollEdge(2250L, biomes);
         biomes = new GenLayerPermianFloodplainLakes(9306L, biomes);
         biomes = new GenLayerPermianFloodplainLakes(9307L, biomes);
+        biomes = new GenLayerPermianCirqueLakes(9306L, biomes);
+        biomes = new GenLayerPermianCirqueLakes(9307L, biomes);
         biomes = new GenLayerPermianFloodBasaltEdge(3L, biomes);
         biomes = new GenLayerPermianCliff(1080L, biomes);
         biomes = new GenLayerDepressionTransition(725L, biomes);

@@ -40,6 +40,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     public int PERMIAN_CREEK_COAST_ID = Biome.getIdForBiome(PERMIAN_CREEK_COAST);
     public Biome PERMIAN_CREEK_STONY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_stony"));
     public int PERMIAN_CREEK_STONY_ID = Biome.getIdForBiome(PERMIAN_CREEK_STONY);
+    public Biome PERMIAN_CREEK_CIRQUE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_wetlands_fern_copse"));
+    public int PERMIAN_CREEK_CIRQUE_ID = Biome.getIdForBiome(PERMIAN_CREEK_CIRQUE);
 
     //Biomes to exclude for rivers:
     public Biome PERMIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_ocean_shore"));
@@ -143,7 +145,12 @@ public class GenLayerPermianRiverMix extends GenLayer
                             aint2[i] = PERMIAN_CREEK_SCRUB_ID;
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Highlands) {
-                            aint2[i] = PERMIAN_CREEK_HIGHLANDS_ID;
+                            if (biome == BiomePermianHighlands.biome) {
+                                aint2[i] = PERMIAN_CREEK_HIGHLANDS_ID;
+                            }
+                            else {
+                                aint2[i] = PERMIAN_CREEK_CIRQUE_ID;
+                            }
                         }
                         else if (biomePermian.getBiomeType() == EnumBiomeTypePermian.Desert) {
                             aint2[i] = PERMIAN_CREEK_DESERT_ID;

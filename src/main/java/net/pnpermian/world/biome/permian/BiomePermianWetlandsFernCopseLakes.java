@@ -21,10 +21,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 @ElementsLepidodendronMod.ModElement.Tag
-public class BiomePermianWetlandsFernCopse extends ElementsLepidodendronMod.ModElement {
-	@GameRegistry.ObjectHolder("lepidodendron:permian_wetlands_fern_copse")
+public class BiomePermianWetlandsFernCopseLakes extends ElementsLepidodendronMod.ModElement {
+	@GameRegistry.ObjectHolder("lepidodendron:permian_wetlands_fern_copse_lakes")
 	public static final BiomeGenCustom biome = null;
-	public BiomePermianWetlandsFernCopse(ElementsLepidodendronMod instance) {
+	public BiomePermianWetlandsFernCopseLakes(ElementsLepidodendronMod instance) {
 		super(instance, 1591);
 	}
 
@@ -41,8 +41,8 @@ public class BiomePermianWetlandsFernCopse extends ElementsLepidodendronMod.ModE
 
 	static class BiomeGenCustom extends BiomePermian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Permian Highland Cirque").setRainfall(0.5F).setBaseHeight(0.025F).setHeightVariation(0.13F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
-			setRegistryName("lepidodendron:permian_wetlands_fern_copse");
+			super(new BiomeProperties("Permian Highland Cirque").setRainfall(0.5F).setBaseHeight(-0.475F).setHeightVariation(0.13F).setTemperature(0.95F).setRainfall(0.9F).setWaterColor(3906905));
+			setRegistryName("lepidodendron:permian_wetlands_fern_copse_lakes");
 			topBlock = BlockPrehistoricGroundLush.block.getDefaultState();
 			fillerBlock = Blocks.DIRT.getStateFromMeta(1);
 			decorator.treesPerChunk = 8;
