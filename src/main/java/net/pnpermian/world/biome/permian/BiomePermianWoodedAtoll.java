@@ -65,6 +65,7 @@ public class BiomePermianWoodedAtoll extends ElementsLepidodendronMod.ModElement
 
 		protected static final WorldGenTreeLog ULLMANNIA_LOG_GENERATOR = new WorldGenTreeLog(BlockUllmanniaLog.block);
 		protected static final WorldGenTreeLog SPHENOBAIERA_LOG_GENERATOR = new WorldGenTreeLog(BlockSphenobaieraLog.block);
+		protected static final WorldGenTreeLog DEAD_LOG_GENERATOR = new WorldGenTreeLog(BlockDeadLog.block);
 		protected static final WorldGenTreeRottenLog ROTTEN_LOG_GENERATOR = new WorldGenTreeRottenLog();
 
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
@@ -82,7 +83,7 @@ public class BiomePermianWoodedAtoll extends ElementsLepidodendronMod.ModElement
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
-			if (rand.nextInt(30) == 0) {
+			if (rand.nextInt(25) == 0) {
 				return BRACHYPHYLLUM_TREE;
 			}
 			if (Math.random() > 0.25) {
@@ -104,7 +105,7 @@ public class BiomePermianWoodedAtoll extends ElementsLepidodendronMod.ModElement
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(16) + 8;
 					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
-					int log = rand.nextInt(2);
+					int log = rand.nextInt(3);
 					switch (log) {
 						case 0: default:
 							SPHENOBAIERA_LOG_GENERATOR.generate(worldIn, rand, blockpos);
@@ -112,6 +113,10 @@ public class BiomePermianWoodedAtoll extends ElementsLepidodendronMod.ModElement
 
 						case 1:
 							ULLMANNIA_LOG_GENERATOR.generate(worldIn, rand, blockpos);
+							break;
+
+						case 2:
+							DEAD_LOG_GENERATOR.generate(worldIn, rand, blockpos);
 							break;
 
 					}
