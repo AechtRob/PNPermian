@@ -104,6 +104,7 @@ public class GenLayerPermian {
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
         biomes = new GenLayerPermianRiverBorder(326L, biomes);
         biomes = new GenLayerPermianStonySpikes(1811L, biomes);
+        biomes = new GenLayerPermianAtollEdge(3250L, biomes);
 
 
         biomes = new GenLayerPermianColdGlossopterisSwampSurface(1244L, biomes);

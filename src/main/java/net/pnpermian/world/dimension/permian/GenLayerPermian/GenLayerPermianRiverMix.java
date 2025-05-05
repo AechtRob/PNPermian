@@ -20,6 +20,8 @@ public class GenLayerPermianRiverMix extends GenLayer
     //Creeks to use:
     public Biome PERMIAN_CREEK_ARID = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_arid"));
     public int PERMIAN_CREEK_ARID_ID = Biome.getIdForBiome(PERMIAN_CREEK_ARID);
+    public Biome PERMIAN_CREEK_LUSH = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_arid_lands_lush"));
+    public int PERMIAN_CREEK_LUSH_ID = Biome.getIdForBiome(PERMIAN_CREEK_LUSH);
     public Biome PERMIAN_CREEK_SCRUB = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_lowlands_forest"));
     public int PERMIAN_CREEK_SCRUB_ID = Biome.getIdForBiome(PERMIAN_CREEK_SCRUB);
     public Biome PERMIAN_CREEK_GLOSSOPTERIS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:permian_creek_cold_glossopteris"));
@@ -128,6 +130,9 @@ public class GenLayerPermianRiverMix extends GenLayer
                             if (biome == BiomePermianStonyPlains.biome
                                 || biome == BiomePermianStonyPlainsSpikes.biome) {
                                 aint2[i] = PERMIAN_CREEK_STONY_ID;
+                            }
+                            else if (biome == BiomePermianAridLandsLush.biome) {
+                                aint2[i] = PERMIAN_CREEK_LUSH_ID;
                             }
                             else {
                                 aint2[i] = PERMIAN_CREEK_ARID_ID;
