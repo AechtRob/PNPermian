@@ -416,6 +416,13 @@ public class ChunkProviderPermian implements IChunkGenerator {
                         d3 = d4;
                     }
 
+                    if (biome == BiomePermianLowlandFloodplainBrake.biome) {
+                        //Flatten these out:
+                        d4 = 0;
+                        d2 = d4;
+                        d3 = d4;
+                    }
+
                     if (biome == BiomePermianLowlandFloodplain.biome) {
                         //Flatten these out somewhat:
                         d4 = 0.96F;
