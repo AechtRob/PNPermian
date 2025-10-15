@@ -36,6 +36,7 @@ public class GenLayerPermianBiomes extends GenLayer {
         PERMIAN_HIGHLANDS_ID,
         PERMIAN_OCEAN_SHORE_ID,
         PERMIAN_OCEAN_SHORE_ID,
+        PERMIAN_OCEAN_SHORE_ID,
         PERMIAN_OCEAN_SHORE_ID
     };
 

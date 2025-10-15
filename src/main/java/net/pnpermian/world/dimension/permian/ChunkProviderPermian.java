@@ -816,25 +816,8 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             iblockstate = AIR;
                             iblockstate1 = STONE;
                             if (biome == BiomePermianSpongeReef.biome
-                                    && rand.nextInt(2) == 0) {
-                                int s = rand.nextInt(4);
-                                switch (s) {
-                                    case 0: default:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.NORTH));
-                                        break;
-
-                                    case 1:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.EAST));
-                                        break;
-
-                                    case 2:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.SOUTH));
-                                        break;
-
-                                    case 3:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.WEST));
-                                        break;
-                                }
+                                    && rand.nextInt(3) == 0) {
+                                    chunkPrimerIn.setBlockState(i1, j1, l, Blocks.SPONGE.getStateFromMeta(1));
                             }
                             else if (biome == BiomePermianOceanCliff.biome
                                     && rand.nextInt(10) == 0) {
@@ -900,25 +883,8 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             }
                         } else {
                             if (biome == BiomePermianSpongeReef.biome
-                                    && rand.nextInt(2) == 0) {
-                                int s = rand.nextInt(4);
-                                switch (s) {
-                                    case 0: default:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.NORTH));
-                                        break;
-
-                                    case 1:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.EAST));
-                                        break;
-
-                                    case 2:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.SOUTH));
-                                        break;
-
-                                    case 3:
-                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getDefaultState().withProperty(BlockSpongeReef.FACING, EnumFacing.WEST));
-                                        break;
-                                }
+                                    && rand.nextInt(3) == 0) {
+                                chunkPrimerIn.setBlockState(i1, j1, l, Blocks.SPONGE.getStateFromMeta(1));
                             }
                             else if (biome == BiomePermianOceanCliff.biome
                                     && rand.nextInt(10) == 0) {
