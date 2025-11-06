@@ -817,7 +817,12 @@ public class ChunkProviderPermian implements IChunkGenerator {
                             iblockstate1 = STONE;
                             if (biome == BiomePermianSpongeReef.biome
                                     && rand.nextInt(3) == 0) {
-                                    chunkPrimerIn.setBlockState(i1, j1, l, Blocks.SPONGE.getStateFromMeta(1));
+                                    if (rand.nextInt(9) == 0) {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, BlockSpongeReef.block.getStateFromMeta(1));
+                                    }
+                                    else {
+                                        chunkPrimerIn.setBlockState(i1, j1, l, Blocks.SPONGE.getStateFromMeta(1));
+                                    }
                             }
                             else if (biome == BiomePermianOceanCliff.biome
                                     && rand.nextInt(10) == 0) {
